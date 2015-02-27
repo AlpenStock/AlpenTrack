@@ -1,0 +1,159 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400");
+
+body {
+	background-color: #202222;
+}
+
+body, input, select, textarea {
+	color: #fff;
+	font-family: "Lato", Helvetica, sans-serif;
+	font-size: 15pt;
+	font-weight: 300;
+	line-height: 1.65em;
+}
+
+.center {
+	text-align: center;
+}
+
+img.logo {
+	display: inline-block;
+	position: relative;
+	max-width: 400px;
+	max-height: 400px;
+}
+
+img.minilogo {
+	max-width: 100px;
+	max-height: 100px;
+	display: inline;
+	margin: 0.4em;
+	float:left;
+}
+
+header {
+	background-color: #202222;
+	color: #ffffff;
+	cursor: default;
+	
+	line-height: 6em;
+	width: 100%;
+	z-index: 10000;
+
+	text-align: center;
+
+
+}
+
+header h1 {
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*MENU*/
+nav {
+	
+	background-color: #202222;
+	color: #fff;
+	text-align: center;
+}
+
+nav a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.5em;
+	margin-left: 100px;
+}
+
+nav a:hover, li.current {
+	background-color: #33bb44;
+	color: #fff
+}
+
+li.current {
+	font-size: 1.5em;
+}
+
+nav ul {
+	list-style: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	
+
+}
+
+nav ul li {
+	border: 1px solid #fff;
+	height: 100px;
+	min-width: 1000px;
+	display: inline;
+}
+
+
+
+/*FORM*/
+label {
+	color: #fff;
+	display: block;
+	font-size: 1.5em;
+	font-weight: 400;
+	margin: 0 0 1em 0;
+}
+
+input {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-o-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	background: rgba(144, 144, 144, 0.075);
+	border-radius: 4px;
+	border: none;
+	border: solid 1px rgba(144, 144, 144, 0.25);
+	color: inherit;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;	
+	margin-top: 25px;
+	outline: 0;
+	padding: 0 1em;
+	text-decoration: none;	
+}
+
+input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	.button {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-o-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		background-color: #33bb44;
+		border-radius: 4px;
+		border: 0;
+		color: #ffffff !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 400;
+		height: 2.85em;
+		line-height: 2.8em;
+		padding: 0 2em;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+
+/*CONTENUTO*/
+main {
+	background-color: white;
+	color: black;
+}
