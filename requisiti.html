@@ -24,7 +24,7 @@
     		<div>
       			<ul class="nav navbar-nav navbar-right">
         			<li class="active"><a>Elenco Requisiti</a></li>
-        			<li><a href="aggiungiRequisito.html">Gestione Requisiti</a></li>
+        			<li><a href="aggiungiRequisito.html">Aggiungi Requisito</a></li>
       			</ul>
     		</div>
   		</div>
@@ -34,21 +34,39 @@
 		<table class="table table-striped table-bordered table-condensed">
 			<thead>
 				<tr>
+					<th>Stato</th>
+					<th>Nome</th>
 					<th>Codice</th>
+					<th>Sistema</th>
+					<th>Importanza</th>
+					<th>Tipo</th>
 					<th>Descrizione</th>
 					<th>Fonti</th>
+					<th>Modifica</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>C1</td>
-					<td>Descrizione primo req.</td>
-					<td>Fonte1,  Fonte2,  Fonte3</td>
+					<td><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+					<td>RF0C1.2</td>
+					<td>1.2</td>
+					<td>Cloud</td>
+					<td>0</td>
+					<td>Funzionale</td>
+					<td>Descrizione RF0C1.2</td>
+					<td>Fonte1, Fonte2, Fonte3</td>
+					<td><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></td>
 				</tr>
 				<tr>
-					<td>C2</td>
-					<td>Descrizione secondo req.</td>
-					<td>Fonte1,  Fonte2,  Fonte3</td>
+					<td><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td>
+					<td>RQ2S4.5</td>
+					<td>4.5</td>
+					<td>Smartwatch</td>
+					<td>2</td>
+					<td>Qualità</td>
+					<td>Descrizione RQ2S4.5</td>
+					<td>Fonte1, Fonte2, Fonte3</td>
+					<td><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></td>
 				</tr>
 			</tbody>
 		</table>

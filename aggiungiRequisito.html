@@ -16,7 +16,7 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 		<!-- Include JavaScript for form control -->
-		<script type="text/javascript" src="js/controllo.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
 	</head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -36,24 +36,24 @@
 	<div class="container">
 		<h1>Aggiungi requisito</h1>
 		<p>Compila il form seguente per aggiungere un requisito al database:</p> 
-		<form role="form" class="form-horizontal" method="post" >
+		<form role="form" class="form-horizontal">
 			<div class="form-group" id="divCodice">
 				<label for="CodiceReq" class="control-label">
 					Codice univoco:
 				</label>
 				<div>
-					<input type="text" class="form-control" name="CodiceReq" placeholder="esempio: 1.1.1" />
+					<input type="text" class="form-control" name="CodiceReq" id="CodiceReq" placeholder="esempio: 1.1.1" onchange="removeError('divCodice')" />
 				</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group" id="divSistema">
 				<label for="Sistema" class="control-label">
 					Sistema:
 				</label>
 				<label class="radio-inline">
-     				<input type="radio" name="Sistema" value="S" />Smartwatch
+     				<input type="radio" name="Sistema" id="SistemaS" value="S" onchange="removeError('divSistema')"/>Smartwatch
     			</label>
     			<label class="radio-inline">
-      				<input type="radio" name="Sistema" value="C" />Cloud
+      				<input type="radio" name="Sistema" id="SistemaC" value="C" onchange="removeError('divSistema')" />Cloud
     			</label>
 			</div>
 			<div class="form-group">
@@ -77,11 +77,11 @@
         			<option value="V">Vincolo</option>
       			</select>
 			</div>
-			<div class="form-group">
+			<div class="form-group" id="divDesc">
 				<label for="Descrizione" class="control-label">
 					Descrizione:
 				</label>
-				<input type="text" name="Descrizione" class="form-control" placeholder="Inserire una breve descrizione del requisito (massimo 200 caratteri)" maxlength="200" />
+				<input type="text" name="Descrizione" id="Descrizione" class="form-control" placeholder="Inserire una breve descrizione del requisito (massimo 200 caratteri)" maxlength="200" onchange="removeError('divDesc')" />
  			</div>
  			<div class="form-group">
  				<label for="Soddisfatto" class="control-label">
@@ -96,7 +96,7 @@
  			</div>
  			<div class="form-group">
     			<div class="col-sm-offset-5 col-sm-7">
-      				<button type="submit" class="btn btn-success btn-lg">
+      				<button type="submit" class="btn btn-success btn-lg" onclick="return validate();" formmethod="post" formaction="requisiti.html">
  				         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Aggiungi
 					</button>
     			</div>
