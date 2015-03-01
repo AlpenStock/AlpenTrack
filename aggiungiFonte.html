@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Aggiungi - AlpenStock </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+		<meta charset="utf-8" />	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+		<!-- BOOTSTRAP -->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->	
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<!-- Include JavaScript -->
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+  			<div class="container-fluid">
+    			<div class="navbar-header">
+      				<a class="navbar-brand" href="requisiti.html">AlpenTrack</a>
+    			</div>
+    			<div>
+      				<ul class="nav navbar-nav navbar-right">
+        				<li><a href="requisiti.html">Elenco Requisiti</a></li>
+        				<li class="active"><a>Aggiungi Requisito</a></li>
+      				</ul>
+    			</div>
+  			</div>
+		</nav>
+
+		<div class="container">
+			<h1>Aggiungi requisito <small>Crea il requisito &gt; Collega le fonti</small></h1> 
+			<p>Specifica le fonti del requisito. Un requisito deve avere almeno una fonte.</p>
+			<form role="form" class="form-horizontal">
+				<div class="form-group">
+					<label for="Fonti" class="control-label">
+	  					Fonti:
+	  				</label>
+	  				<select class="form-control" name="Fonti" id="Fonti" size="5" required multiple>
+	  					<option value="UC1">UC1</option>	
+	  					<option value="UC2">UC2</option>
+	  					<option value="UC3">UC3</option>
+	  					<option value="UC4">UC4</option>
+	  					<option value="UC5">UC5</option>
+	  					<option value="Interna">Interna</option>
+	 					<option value="Capitolato">Capitolato</option>
+	 				</select>
+				</div>
+				<div class="form-group">
+	  				<button type="button" id="btnAdd" class="btn btn-warning btn-block" onclick="showForm();">
+  						La fonti che cerchi non sono presenti? Aggiungile tu!
+  					</button>
+  				</div>
+  				<div id="visibility">
+  					<div class="form-group" id="divNomeFonte">
+  						<label for="NomeFonte" class="control-label">
+  							Nome della fonte:
+  						</label>
+  						<input type="text" class="form-control" name="NomeFonte" id="NomeFonte" placeholder="es. UC1.2" required onchange="removeError('divNomeFonte')" />
+  					</div>
+  					<div class="form-group">
+	  					<label for="DescrizioneFonte" class="control-label">
+  							Descrizione della fonte:
+  						</label>
+  						<input type="text" class="form-control" name="DescrizioneFonte" id="DescrizioneFonte" placeholder="Inserire una breve descrizione della fonte, se necessario." />
+ 	 				</div>
+  					<div class="form-group">
+  						<div class="col-sm-offset-5 col-sm-7">
+  							<button type="button" class="btn btn-primary" onclick="addOption();">
+  								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Aggiungi fonte
+  							</button>
+  						</div>
+  					</div>
+  				</div>
+  				<hr />
+	  			<div class="form-group">
+  					<button type="button" class="btn btn-success btn-block btn-lg">
+  						Inserisci il requisito nel database
+  					</button>
+  				</div>
+  			</form>
+		</div>
+	</body>
+</html>

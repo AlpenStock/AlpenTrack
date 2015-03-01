@@ -14,8 +14,8 @@ CREATE TABLE Requisiti
 DROP TABLE IF EXISTS Fonti
 CREATE TABLE Fonti
 {
-	NomeFonte VARCHAR(30),
-	Note VARCHAR(30),
+	NomeFonte VARCHAR(30) NOT NULL,
+	DescrizioneFonte VARCHAR(30),
 	PRIMARY KEY (NomeFonte)
 } ENGINE = InnoDB;
 
