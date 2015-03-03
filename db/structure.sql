@@ -4,11 +4,11 @@ DROP TABLE IF EXISTS Fonti;
 
 CREATE TABLE Requisiti
 (
-	NomeReq VARCHAR(10),
+	NomeReq VARCHAR(10),/*chiave troppo corta*/
 	CodiceReq VARCHAR(10) NOT NULL, /*Si tratta del codice univoco, es. 1.1, non del nome completo (es. RC0F1.1) che verrà invece creato di volta in volta basandosi sui dati presenti nella tabella */
-	Sistema VARCHAR(1) NOT NULL,
-	Importanza VARCHAR(1) NOT NULL,
-	Tipo VARCHAR(1) NOT NULL,
+	Sistema VARCHAR(1) NOT NULL, /*C S oppure ""*/
+	Importanza VARCHAR(1) NOT NULL, /* 0, 1 o 2 */
+	Tipo VARCHAR(1) NOT NULL, /* F, V, Q o P*/
 	Descrizione VARCHAR(200) NOT NULL,
 	Soddisfatto BOOLEAN DEFAULT FALSE, 
 	PRIMARY KEY (NomeReq)
