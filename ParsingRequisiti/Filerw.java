@@ -17,9 +17,9 @@ public class Filerw{
    	try (BufferedReader reader = Files.newBufferedReader(inputPath, charset)) {
    		String line = null;
       line = reader.readLine();
-      if(line != null && line.length() > 0){
+      if(line != null){
         content.append(line);
-        while ((line = reader.readLine()) != null && line.length() > 0) {
+        while ((line = reader.readLine()) != null) {
           content.append('\n');
           content.append(line);
         }
