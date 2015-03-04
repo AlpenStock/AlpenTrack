@@ -14,15 +14,25 @@ public class DescFonti{
 			descr[i][0] = descr[i][0].trim();
 			descr[i][1] = descr[i][1].trim().replace("}", "");
 		}
-
-		String esito = new String();
-		for (int i = 0; i<descr.length; i++) {
-				if(i==0){
-					esito += descr[i][0] + "=" + descr[i][1];
-				}else{
-					esito += "\n" + descr[i][0] + "=" + descr[i][1];
+		String fonti_out = "INSERT INTO Fonti VALUES ";
+		for(int i = 0; i<descr.length; i++){
+			if(i == 0){
+				fonti_out += "(";
+			}else{
+				fonti_out += ",\n(";
+			}
+			for(int j = 0; j < descr[i].length; j++) {
+				if(j != 0){
+					fonti_out += ", ";
 				}
+				fonti_out += "\"" + descr[i][j] + "\"";
+			}
+			fonti_out += ")";
 		}
-		Filerw.writeContent("fonti.txt", esito);
+		fonti_out += ",\n(\"Interno\", \"\")";
+		fonti_out += ",\n(\"Capitolato\", \"\")";
+		fonti_out += ",\n(\"Verbale_3\", \"\")";
+		fonti_out += ";";
+		Filerw.writeContent("Fonti.sql", fonti_out);
 	}
 }

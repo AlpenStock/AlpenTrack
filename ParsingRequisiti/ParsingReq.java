@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class ParsingReq{
 	public static void main(String args[]){
 		if(args.length < 1){
@@ -50,6 +51,31 @@ public class ParsingReq{
 			}
 			tabreq += ";";
 			Filerw.writeContent("Requisiti.sql", tabreq);
+
+			//Requisiti-Fonti
+			ArrayList<String[]> req_fon = new ArrayList<String[]>();
+			for(int i = 0; i < req.length; i++){
+				String[] fonti = req[i][2].split(" ");
+				for(int j=0; j<fonti.length; j++){
+					String[] coppia = new String[2];
+					coppia[0] = new String(req[i][0]);
+					coppia[1] = new String(fonti[j]);
+					req_fon.add(coppia);
+				}
+			}
+			//Tabella ReqFonti
+			String tabreqfon = "INSERT INTO ReqFonti VALUES ";
+			for(int i = 0; i<req_fon.size();i++){
+				if(i == 0){
+					tabreqfon += "(";
+				}else{
+					tabreqfon += ",\n(";
+				}
+				tabreqfon += "\"" + req_fon.get(i)[0] + "\", \"" + req_fon.get(i)[1] + "\"";
+				tabreqfon += ")";
+			}
+			tabreqfon += ";";
+			Filerw.writeContent("ReqFonti.sql", tabreqfon);
 		}
 	}
 }
