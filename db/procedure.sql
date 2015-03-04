@@ -1,0 +1,21 @@
+DELIMITER $
+
+DROP PROCEDURE IF EXISTS inserisciRequisito $
+CREATE PROCEDURE inserisciRequisito(IN cod VARCHAR(10), sist VARCHAR(1), imp VARCHAR(1), tp VARCHAR(1), descr VARCHAR(200), sodd BOOLEAN)
+BEGIN
+	START TRANSACTION;
+		INSERT INTO Requisiti VALUES (CONCAT('R',sist,imp,tp,cod), cod, sist, imp, tp, descr,sodd);
+	COMMIT;
+END $
+
+DROP PROCEDURE IF EXISTS creaFonte $
+CREATE PROCEDURE creaFonte(IN nom VARCHAR(30), descr VARCHAR(30))
+BEGIN
+	START TRANSACTION;
+		INSERT INTO Fonti VALUES (nom,descr);
+	COMMIT;
+END $
+
+
+
+DELIMITER ;
