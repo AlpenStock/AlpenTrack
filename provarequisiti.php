@@ -16,7 +16,9 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<? @include("php/util.php"); ?> 
+	<? @include("php/util.php");
+	   @include("php/dbconn.php");
+	?> 
 	<nav class="navbar navbar-inverse">
   		<div class="container-fluid">
     		<div class="navbar-header">
@@ -35,7 +37,7 @@
 		<h1>I requisiti</h1>
 		<p>Segue l'elenco dei requisiti presenti nel database. Per modificarne o eliminarne uno, cliccare sul relativo simbolo della chiave inglese.</p>
 		<?php
-			//$con = connessione_al_db();
+			dbconnect();
 			$query = "SELECT NomeReq, CodiceReq, Sistema, Importanza, Tipo, Descrizione, Soddisfatto
 					  FROM Requisiti";
 			$results = mysqli_query($con, $query);

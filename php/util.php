@@ -7,8 +7,8 @@
 
 	function printTopTable() {
 		echo "
-				<div class="table-responsive">
-					<table class="table table-striped table-bordered table-condensed">
+				<div class='table-responsive'>
+					<table class='table table-striped table-bordered table-condensed'>
 						<thead>
 							<tr>
 								<th>Stato</th>
@@ -57,9 +57,9 @@
 			}
 			echo "</td>";
 			echo "<td>";
-			echo "<a href='modificaRequisito.html' class='glyphicon glyphicon-wrench' aria-hidden='true'>"
+			echo "<a href='modificaRequisito.html' class='glyphicon glyphicon-wrench' aria-hidden='true'>";
 			echo "</td>";
-			echo "</tr>"
+			echo "</tr>";
 		}
 	}
 
