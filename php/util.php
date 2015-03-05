@@ -1,7 +1,7 @@
 <?php
-	function printTable() {
+	function printTable($con) {
 		printTopTable();
-		printBodyTable();
+		printBodyTable($con);
 		printBottomTable();
 	}
 
@@ -46,7 +46,16 @@
 				echo $value;
 				echo "</td>";
 			}
-			//MANCA DA STAMPARE LE FONTI
+			//FONTI
+			echo "<td>";
+			$query = "SELECT NomeFonte
+				    FROM ReqFonti
+				    WHERE NomeReq = " . $row["NomeReq"];
+			$fonti = mysqli_query($con, $query);
+			while ($rowF = mysqli_fetch_array($fonti)) {
+				echo $rowF["NomeFonte"] . "<br />";
+			}
+			echo "</td>";
 			echo "<td>";
 			echo "<a href='modificaRequisito.html' class='glyphicon glyphicon-wrench' aria-hidden='true'>"
 			echo "</td>";

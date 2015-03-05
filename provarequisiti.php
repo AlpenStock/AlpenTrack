@@ -43,7 +43,7 @@
 			if (empty($result))
 				echo "<p>La ricerca non ha trovato eventi</p>";
 
-			printTable();
+			printTable($con);
 		?>
 
 	</div>
