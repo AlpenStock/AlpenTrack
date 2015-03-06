@@ -17,7 +17,7 @@ CREATE TABLE Requisiti
 CREATE TABLE Fonti
 (
 	NomeFonte VARCHAR(30) NOT NULL,
-	DescrizioneFonte VARCHAR(30),
+	DescrizioneFonte VARCHAR(100),
 	PRIMARY KEY (NomeFonte)
 ) ENGINE = InnoDB;
 

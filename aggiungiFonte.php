@@ -22,6 +22,18 @@
 		<script type="text/javascript" src="js/validate.js"></script>
 	</head>
 	<body>
+		<?php
+			if (count($_POST) < 5) 
+				header("location:aggiungiRequisito.html");
+
+			require "php/printFonti.php";
+			require "php/dbconn.php";
+
+			if ($_POST['Sistema'] == "N")
+				$NomeReq = "R" . $_POST['Importanza'] . $_POST['Tipo'] . $_POST['CodiceReq'];
+			else
+				$NomeReq = "R" . $_POST['Sistema'] . $_POST['Importanza'] . $_POST['Tipo'] . $_POST['CodiceReq'];
+		?>
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
@@ -38,20 +50,17 @@
 
 		<div class="container">
 			<h1>Aggiungi requisito <small>Crea il requisito &gt; Collega le fonti</small></h1> 
-			<p>Specifica le fonti del requisito. Un requisito deve avere almeno una fonte.</p>
+			<?php
+				echo '<p>Specifica le fonti del requisito "' . $NomeReq . '". Un requisito deve avere almeno una fonte.</p>';
+				$con = dbconnect();
+			?>
 			<form role="form" class="form-horizontal">
 				<div class="form-group">
 					<label for="Fonti" class="control-label">
 	  					Fonti:
 	  				</label>
 	  				<select class="form-control" name="Fonti" id="Fonti" size="5" required multiple>
-	  					<option value="UC1">UC1</option>	
-	  					<option value="UC2">UC2</option>
-	  					<option value="UC3">UC3</option>
-	  					<option value="UC4">UC4</option>
-	  					<option value="UC5">UC5</option>
-	  					<option value="Interna">Interna</option>
-	 					<option value="Capitolato">Capitolato</option>
+	  					<?php printFonti($con); ?>
 	 				</select>
 				</div>
 				<div class="form-group">
@@ -81,8 +90,19 @@
   					</div>
   				</div>
   				<hr />
+  				<?php
+  					echo '<input type="hidden" name="NomeReq" value="' . $NomeReq . '">
+  							<input type="hidden" name="CodiceReq" value="' . $_POST["CodiceReq"] .'">
+  							<input type="hidden" name="Sistema" value="' . $_POST["Sistema"] . '">
+  							<input type="hidden" name="Tipo" value="' . $_POST["Tipo"] . '">
+  							<input type="hidden" name="Descrizione" value="' . $_POST["Descrizione"] . '">
+  							<input type="hidden" name="Importanza" value="' . $_POST["Importanza"] . '">
+  							<input type="hidden" name="Soddisfatto" value="' . $_POST["Soddisfatto"] . '">
+  							<input type="hidden" name="Importanza" value="' . $_POST["Importanza"] . '">
+	  						';
+	  			?>
 	  			<div class="form-group">
-  					<button type="button" class="btn btn-success btn-block btn-lg">
+  					<button type="button" class="btn btn-success btn-block btn-lg" onclick="return validate_append();">
   						Inserisci il requisito nel database
   					</button>
   				</div>
