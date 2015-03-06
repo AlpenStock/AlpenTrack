@@ -31,7 +31,7 @@ public class DescFonti{
 		}
 		fonti_out += ",\n(\"Interno\", \"\")";
 		fonti_out += ",\n(\"Capitolato\", \"\")";
-		fonti_out += ",\n(\"Verbale_3\", \"\")";
+		fonti_out += ",\n(\"Verbale\\_3\", \"\")";
 		fonti_out += ";";
 		Filerw.writeContent("Fonti.sql", fonti_out);
 	}

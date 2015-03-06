@@ -34,6 +34,8 @@
 %Esempio:
 % 0.0.2 & Modificato qualcosa & \multicell{Nome Cognome \\ Ruolo} & 2014-12-04 \\\midrule
 % 0.0.1 & Pubblicazione prima bozza & \multicell{Nome Cognome \\ Ruolo} & 2014-12-03 \\
+1.0.2 & Correzioni a seguito della Revisione dei Requisiti & \multicell{Capovilla Nicola \\ Analista} & 2015-03-02  \\\midrule
+1.0.1 & Aggiunti e migliorati casi d'uso & \multicell{Andeliero Alberto \\ Analista} & dataAI \\\midrule
 1.0.0 & Approvazione documento & \multicell{Andeliero Alberto \\ Verificatore} & 2015-01-12  \\\midrule
 0.2.0 & Verifica correzioni & \multicell{Cavallin Alex \\ Verificatore} & 2015-01-09\\\midrule
 0.1.1 & Correzioni in seguito a verifica & \multicell{Bennardo Silvia \\ Analista} & 2015-01-08 \\\midrule
@@ -69,7 +71,7 @@ Lo scopo del progetto è la realizzazione di una applicazione eseguibile sul dis
 \subsection{Glossario}
 Al fine di evitare ogni ambiguità di linguaggio e per garantire la completa comprensione è stato redatto il documento \textit{Glossario\_v1.0.0}, contente una descrizione approfondita di tutti i termini tecnici, di dominio e gli acronimi utilizzati nei documenti. Tutte le occorrenze di un vocabolo, presente nel \textit{Glossario}, saranno marcate da una 'G' maiuscola in pedice.
 
-Tuttavia, per evitare eccessiva ripetitività, le successive ricorrenze di smartwatch$_{G}$ e cloud$_{G}$ in questo documento non saranno marcate dalla 'G' maiuscola in pedice.
+Tuttavia, per evitare eccessiva ripetitività, le successive ricorrenze di smartwatch$_{G}$, cloud$_{G}$, escursione$_{G}$ e percorso$_{G}$ in questo documento non saranno marcate dalla 'G' maiuscola in pedice.
 
 
 \subsection{Riferimenti}
@@ -116,7 +118,7 @@ Le funzioni del prodotto saranno tutte finalizzate a fornire informazioni utili 
 \item Quantità di strada percorsa;
 \item Quantità di tempo mancante per raggiungere la meta.
 \end{itemize}
-\item Ottenere informazioni meteo scaricate in pre-esperienza dal cloud;
+\item Ottenere informazioni meteo scaricate in pre-esperienza$_{G}$ dal cloud;
 \item Visualizzare un elenco dei numeri di soccorso e informazioni sulla posizione, utili per inviare segnalazione di allarme;
 \item Inviare i dati relativi all'escursione effettuata al cloud in modo da delineare un profilo utente.
 \end{itemize}
@@ -147,6 +149,24 @@ dove sistema può assumere i seguenti valori:
 
 e codice rappresenta il codice univoco di ogni caso d'uso, il quale va indicato in forma gerarchica.
 
+\subsection{Attori individuati}
+In questa sezione vengono descritti tutti gli attori individuati suddivisi tra sistema Cloud e sistema Smartwatch per darne una visione generale più chiara e precisa.
+
+\begin{itemize}
+\item \textbf{Applicazione cloud:}
+\begin{itemize}
+\item \textbf{Utente:} è colui che non ha ancora acceduto all'interno della propria area riservata del sistema;
+\item \textbf{Utente autenticato:} è colui che ha effettuato con successo l'autenticazione alla propria area riservata del sistema;
+\item \textbf{Agenzia meteo:} agenzia che offre un servizio di informazione sulle previsioni meterologiche delle varie località ricercate. Essa, inoltre, fornisce: la temperatura massima e minima, l'intensità e direzione del vento, la probabilità di precipitazioni, la visibilità e l'ora di tramonto del sole;
+\item \textbf{Facebook$_{G}$:} social network atto a far comunicare persone e condividere contenuti tra loro da qualsiasi luogo del mondo.
+\end{itemize}
+\item \textbf{Applicazione smartwatch:}
+\begin{itemize}
+\item \textbf{Utente:} persona che non ha ancora avviato la navigazione verso uno specifico POI;
+\item \textbf{Utente in viaggio:} persona che ha già avviato la navigazione verso uno specifico POI;
+\item \textbf{Cloud:} rappresenta il cloud con cui il sistema smartwatch si interfaccia nei momenti di pre-esperinza$_{G}$ e di post-esperienza$_{G}$. Il cloud è parte del sistema che il gruppo \GRUPPO{} dovrà realizzare.
+\end{itemize}
+\end{itemize}
 
 \subsection{Caso d'uso UCC0: Scenario principale, cloud}
 
@@ -159,8 +179,8 @@ e codice rappresenta il codice univoco di ogni caso d'uso, il quale va indicato 
 \begin{itemize}
 \item \textbf{Attori principali:} Utente, Utente autenticato;
 \item \textbf{Attori secondari:} Agenzia meteo, Facebook$_{G}$;
-\item \textbf{Scopo e descrizione:} L’utente è colui che non è ancora acceduto alla propria area riservata all’interno dell’applicazione cloud; a questo utente sono presentate due possibili alternative ovvero autenticarsi, e quindi accedere al sistema, oppure registrarsi per creare una nuova utenza. Può, inoltre, recuperare la propria password in caso di dimenticanza.\\ 
-L’utente autenticato per essere tale deve aver effettuato con successo l'autenticazione. Esso può operare all’interno della propria area riservata e le azioni che può compiere sono: associare o rimuovere uno smartwatch alla propria utenza, visualizzare l'elenco completo delle mappe disponibili, cercarne una, visualizzare il meteo della zona interessata, gestire i percorsi già effettuati e cambiare la propria password. In più, può visualizzare, aggiungere e/o rimuovere mappe dalla lista delle mappe preferite. Tale lista sarà quella che verrà poi sincronizzata con l'elenco delle mappe presenti nello smartwatch;
+\item \textbf{Scopo e descrizione:} all'Utente sono presentate due possibili alternative: autenticarsi, e quindi accedere al sistema, oppure registrarsi per creare una nuova utenza. Può, inoltre, recuperare la propria password in caso di dimenticanza.\\ 
+L’utente autenticato può operare all’interno della propria area riservata e le azioni che può compiere sono: associare o rimuovere uno smartwatch alla propria utenza, visualizzare l'elenco completo delle mappe disponibili, cercarne una, visualizzare il meteo della zona interessata, gestire le escursioni già effettuate e cambiare la propria password. In più, può visualizzare, aggiungere e/o rimuovere mappe dalla lista delle mappe preferite. Tale lista sarà quella che verrà poi sincronizzata con l'elenco delle mappe presenti nello smartwatch;
 \item \textbf{Pre-condizione:} il sistema è avviato e pronto per l'utilizzo e mostra la pagina iniziale; 
 \item \textbf{Flusso principale degli eventi:} 
 \begin{enumerate}
@@ -169,7 +189,7 @@ L’utente autenticato per essere tale deve aver effettuato con successo l'auten
 \item L'utente può richiedere il recupero della password [UCC7];
 \item L’utente autenticato può aggiungere o rimuovere uno smartwatch associato al suo account tramite il seriale [UCC6];
 \item L’utente autenticato può decidere come gestire le mappe: può vedere l'elenco completo, ricercare una mappa, selezionare, visualizzare, aggiungere e/o rimuovere mappe dalla lista dei preferiti, avere informazioni riguardo il meteo e la memoria presente all'interno dello smartwatch [UCC3];
-\item L’utente autenticato può gestire i percorsi già effettuati [UCC4];
+\item L’utente autenticato può gestire le escursioni già effettuate [UCC4];
 \item L'utente autenticato può cambiare la sua password attuale [UCC5];
 \item L'utente autenticato può uscire dalla sua area riservata tramite il logout [UCC8].
 \end{enumerate}
@@ -211,8 +231,9 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 
 \begin{itemize}
 \item \textbf{Attori:} Utente;
-\item \textbf{Scopo e descrizione:} l'utente inserisce il proprio indirizzo mail per potersi registrare;
+\item \textbf{Scopo e descrizione:} l'utente inserisce un proprio indirizzo mail per potersi registrare;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente inserisce un'email con cui desidera registrarsi [UCC1.1];
 \item \textbf{Post-condizione:} l'email è stata inserita.
 \end{itemize}
 
@@ -222,6 +243,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente inserisce una password a sua scelta per potersi registrare;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente inserisce una password che desidera [UCC1.2];
 \item \textbf{Post-condizione:} la password è stata inserita.
 \end{itemize}
 
@@ -231,6 +253,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente inserisce nuovamente la password scelta;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente inserisce una seconda volta la password desiderata [UCC1.3];
 \item \textbf{Post-condizione:} la conferma della password è stata inserita.
 \end{itemize}
 
@@ -240,6 +263,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente conferma i dati inseriti;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente conferma la sua registrazione [UCC1.4];
 \item \textbf{Post-condizione:} il sistema ha ricevuto i dati per la registrazione.
 \end{itemize}
 
@@ -249,6 +273,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente visualizza un messaggio d'errore nel caso si fossero verificati uno o più scenari alternativi;
 \item \textbf{Pre-condizione:} il sistema ha ricevuto dei dati errati per la registrazione;
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza un messaggio d'errore a causa del fallimento dell'operazione di registrazione [UCC1.5];
 \item \textbf{Post-condizione:} il sistema mostra un messaggio d'errore.
 \end{itemize}
 
@@ -281,6 +306,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente inserisce la propria email;
 \item \textbf{Pre-condizione:} il sistema è avviato e pronto per l'utilizzo e mostra la pagina iniziale;
+\item \textbf{Flusso principale degli eventi:} l'utente inserisce l'email con la quale si è registrato [UCC2.1];
 \item \textbf{Post-condizione:} l'email è stata inserita.
 \end{itemize}
 
@@ -290,6 +316,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente inserisce la propria password;
 \item \textbf{Pre-condizione:} il sistema è avviato e pronto per l'utilizzo e mostra la pagina iniziale;
+\item \textbf{Flusso principale degli eventi:} l'utente inserisce la password con la quale si è registrato [UCC2.2];
 \item \textbf{Post-condizione:} la password è stata inserita.
 \end{itemize}
 
@@ -299,6 +326,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente conferma i dati inseriti;
 \item \textbf{Pre-condizione:} il sistema è avviato e pronto per l'utilizzo e mostra la pagina iniziale;
+\item \textbf{Flusso principale degli eventi:} l'utente conferma email e password inseriti per potersi autenticare [UCC2.3];
 \item \textbf{Post-condizione:} il sistema ha ricevuto i dati per l'autenticazione. 
 \end{itemize}
 
@@ -308,6 +336,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente visualizza un messaggio d'errore nel caso si fossero verificati uno o più scenari alternativi;
 \item \textbf{Pre-condizione:} il sistema ha ricevuto dei dati errati per l'autenticazione;
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza un messaggio d'errore a seguito del fallimento dell'operazione di autenticazione [UCC2.4];
 \item \textbf{Post-condizione:} il sistema ha inviato un messaggio d'errore relativo all'autenticazione. 
 \end{itemize}
 
@@ -329,7 +358,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \begin{enumerate}
 \item L'utente autenticato può visualizzare l'elenco completo delle mappe [UCC3.1];
 \item L'utente autenticato può ricercare una mappa [UCC3.2];
-\item L'utente autenticato può selezionare una mappa dall'elenco completo delle mappe [UCC3.3];
+\item L'utente autenticato può selezionare una mappa dall'elenco completo delle mappe o dal risultato di una ricerca mappa [UCC3.3];
 \item L'utente autenticato può visualizzare la mappa selezionata [UCC3.4];
 \item L'utente autenticato può aggiungere una mappa alla lista di quelle preferite [UCC3.5];
 \item L'utente autenticato può eliminare una mappa dalla lista di quelle preferite [UCC3.7];
@@ -346,6 +375,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato visualizza l'elenco completo delle mappe disposte in ordine alfabetico. Esse sono rinominate secondo la località principale che ricoprono;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza l'elenco di tutte le mappe disponibili in ordine alfabetico di località [UCC3.1];
 \item \textbf{Post-condizione:} il sistema ha mostrato all'utente autenticato l'elenco completo delle mappe.
 \end{itemize}
 
@@ -375,6 +405,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato digita una chiave di ricerca per trovare la mappa desiderata. La chiave di ricerca è la località a cui l'utente è interessato;
 \item \textbf{Pre-condizione:} il sistema ha mostrato l'elenco completo delle mappe;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato digita una località per trovare la mappa a cui è interessato [UCC3.2.1]; 
 \item \textbf{Post-condizione:} i criteri di ricerca sono stati inseriti.
 \end{itemize}
 
@@ -384,22 +415,25 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato avvia la ricerca della mappa;
 \item \textbf{Pre-condizione:} il sistema ha mostrato l'elenco delle mappe ed ha ricevuto i criteri per la ricerca;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato ricerca la mappa desiderata [UCC3.2.2];
 \item \textbf{Post-condizione:} il sistema ha mostrato il risultato della ricerca.
 \end{itemize}
 
 \subsection{Caso d'uso UCC3.3: Selezione di una mappa}
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
-\item \textbf{Scopo e descrizione:} l'utente autenticato sceglie una mappa dall'elenco completo delle mappe;
-\item \textbf{Pre-condizione:} il sistema mostra l'elenco completo delle mappe;
-\item \textbf{Post-condizione:} il sistema ha selezionato una mappa dall'elenco completo delle mappe.
+\item \textbf{Scopo e descrizione:} l'utente autenticato sceglie una mappa dall'elenco completo delle mappe o dal risultato della ricerca di una mappa;
+\item \textbf{Pre-condizione:} il sistema mostra l'elenco completo delle mappe oppure il risultato della ricerca di una mappa in cui deve esserne presente almeno una;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato sceglie la mappa che desidera dall'elenco completo delle mappe o dal risultato della ricerca di una mappa [UCC3.3];
+\item \textbf{Post-condizione:} il sistema ha selezionato una mappa dall'elenco completo delle mappe o dal risultato della ricerca di una mappa.
 \end{itemize}
 
 \subsection{Caso d'uso UCC3.4: Visualizzazione della mappa selezionata}
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato visualizza la mappa selezionata;
-\item \textbf{Pre-condizione:} il sistema ha selezionato una mappa dall'elenco completo delle mappe;
+\item \textbf{Pre-condizione:} il sistema ha selezionato una mappa dall'elenco completo delle mappe o dal risultato della ricerca di una mappa;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza la mappa che ha selezionato [UCC3.4];
 \item \textbf{Post-condizione:} il sistema ha mostrato la mappa selezionata.
 \end{itemize}
 
@@ -408,7 +442,8 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato aggiunge la mappa di cui ha bisogno nell'elenco delle mappe preferite;
-\item \textbf{Pre-condizione:} il sistema ha selezionato una mappa dall'elenco completo delle mappe e mostra lo spazio destinato a questa operazione;
+\item \textbf{Pre-condizione:} il sistema ha visualizzato la mappa selezionata e mostra lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato aggiunge la mappa desiderata all'elenco di quelle preferite [UCC3.5];
 \item \textbf{Post-condizione:} il sistema ha aggiunto la mappa desiderata all'elenco delle mappe preferite.
 \end{itemize}
 
@@ -418,6 +453,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato visualizza l'elenco delle mappe preferite;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato l'elenco delle mappe che ha aggiunto a quelle preferite [UCC3.6];
 \item \textbf{Post-condizione:} il sistema ha mostrato l'elenco delle mappe preferite.
 \end{itemize}
 
@@ -428,6 +464,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato elimina una mappa precedentemente aggiunta all'elenco delle mappe preferite;
 \item \textbf{Pre-condizione:} almeno una mappa è stata aggiunta all'elenco delle mappe preferite e il sistema mostra tale elenco;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato decide di eliminare una mappa dall'elenco di quelle preferite [UCC3.7];
 \item \textbf{Post-condizione:} il sistema ha eliminato la mappa desiderata dall'elenco delle mappe preferite.
 \end{itemize}
 
@@ -436,9 +473,10 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \begin{itemize}
 \item \textbf{Attori principali:} Utente autenticato;
 \item \textbf{Attori secondari:} Agenzia meteo;
-\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza il meteo tramite le informazioni fornite dall'agenzia meteo in riferimento alla mappa desiderata. Le informazioni meteo riguardano: la condizione meteorologica, la temperatura massima e minima, l'intensità e direzione del vento, la probabilità di precipitazioni e la visibilità;
-\item \textbf{Pre-condizione:} il sistema mostra un elenco delle mappe;
-\item \textbf{Post-condizione:} il sistema ha mostrato il meteo relativo alla mappa desiderata. 
+\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza il meteo tramite le informazioni fornite dall'agenzia meteo in riferimento alla località della mappa desiderata. Le informazioni meteo riguardano: la condizione meteorologica, la temperatura massima e minima, l'intensità e direzione del vento, la probabilità di precipitazioni, la visibilità e l'ora di tramonto del sole;
+\item \textbf{Pre-condizione:} il sistema ha selezionato una mappa;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza il meteo relativo alla località della mappa desiderata [UCC3.8];
+\item \textbf{Post-condizione:} il sistema ha mostrato il meteo relativo alla mappa selezionata. 
 \end{itemize}
 
 \subsection{Caso d'uso UCC3.9: Visualizzazione della memoria disponibile ed occupata dello smartwatch}
@@ -446,6 +484,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item \textbf{Attori principali:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato può visualizzare la memoria disponibile e quella occupata dello smartwatch per verificare la quantità di dati presenti e lo spazio fruibile per la memorizzazione degli stessi;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza lo stato di occupazione della memoria dello smartwatch [UCC3.9];
 \item \textbf{Post-condizione:} il sistema ha mostrato la memoria disponibile e quella occupata all'interno dello smartwatch. 
 \end{itemize}
 
@@ -460,43 +499,46 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \begin{itemize}
 \item \textbf{Attori principali:} Utente autenticato;
 \item \textbf{Attori secondari:} Facebook$_{G}$;
-\item \textbf{Scopo e descrizione:} l'utente autenticato può visualizzare tutti i percorsi tra quelli effettuati durante le escursioni precedenti, selezionarne uno, visualizzarlo e condividerlo su Facebook$_{G}$ ;
+\item \textbf{Scopo e descrizione:} l'utente autenticato può visualizzare la lista di tutte le escursion effettuate identificate dalla data e dalla località in cui si è svolta, selezionarne una, visualizzare tutti i percors dell'escursione selezionata e condividerla su Facebook$_{G}$;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
 \item \textbf{Flusso principale degli eventi:}
 \begin{enumerate}
-\item L'utente autenticato visualizza la lista dei percorsi effettuati [UCC4.1];
-\item L'utente autenticato seleziona un percorso dalla lista [UCC4.2];
-\item L'utente autenticato visualizza il percorso selezionato [UCC4.3]
-\item L'utente autenticato può condividere un percorso effettuato su Facebook$_{G}$ [UCC4.4].
+\item L'utente autenticato visualizza la lista delle escursioni effettuate [UCC4.1];
+\item L'utente autenticato seleziona un'escursione dalla lista [UCC4.2];
+\item L'utente autenticato visualizza tutti i percorsi effettuati nell'escursione selezionata [UCC4.3];
+\item L'utente autenticato può condividere l'escursione selezionata su Facebook$_{G}$ [UCC4.4].
 \end{enumerate}
-\item \textbf{Post-condizione:} il sistema ha gestito i percorsi effettuati secondo le preferenze dell'utente autenticato.
+\item \textbf{Post-condizione:} il sistema ha gestito le escursioni effettuate secondo le preferenze dell'utente autenticato.
 \end{itemize}
 
-\subsection{Caso d'uso UCC4.1: Visualizzazione lista percorsi}
+\subsection{Caso d'uso UCC4.1: Visualizzazione lista escursioni}
 
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
-\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza la lista dei percorsi delle escursioni effettuate;
+\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza la lista delle escursioni effettuate identificate con data e località;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
-\item \textbf{Post-condizione:} il sistema ha mostrato l'elenco di tutti i percorsi effettuati precedentemente.
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza l'elenco delle escursioni che ha già effettuato [UCC4.1];
+\item \textbf{Post-condizione:} il sistema ha mostrato l'elenco di tutte le escursioni effettuate precedentemente.
 \end{itemize}
 
-\subsection{Caso d'uso UCC4.2: Selezione di un percorso dalla lista}
+\subsection{Caso d'uso UCC4.2: Selezione di un'escursione dalla lista}
 
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
-\item \textbf{Scopo e descrizione:} l'utente autenticato sceglie un percorso dalla lista delle escursioni effettuate;
-\item \textbf{Pre-condizione:} il sistema mostra l'elenco dei percorsi effettuati;
-\item \textbf{Post-condizione:} il sistema ha selezionato un percorso dalla lista.
+\item \textbf{Scopo e descrizione:} l'utente autenticato sceglie un'escursione dalla lista di quelle effettuate;
+\item \textbf{Pre-condizione:} il sistema mostra l'elenco delle escursioni effettuate;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato sceglie un'escursione per poterne vedere i dettagli [UCC4.2];
+\item \textbf{Post-condizione:} il sistema ha selezionato un'escursione dalla lista.
 \end{itemize}
 
-\subsection{Caso d'uso UCC4.3: Visualizzazione percorso selezionato}
+\subsection{Caso d'uso UCC4.3: Visualizzazione dell'escursione selezionata}
 
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
-\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza il percorso selezionato, vengono mostrati: data, ora di partenza e di arrivo, coordinate di partenza e di arrivo, chilometri percorsi, tempo impegato ed i POI visitati del percorso effettuato;
-\item \textbf{Pre-condizione:} il sistema ha selezionato un percorso dalla lista;
-\item \textbf{Post-condizione:} il sistema ha mostrato il percorso selezionato e i suoi dettagli.
+\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza tutti i percorsi effettuati dell'escursione selezionata. In particolare, viene mostrata la mappa della località dell'escursione con i vari percorsi praticati e per ciascuno di essi vengono mostrati: data, ora di partenza e di arrivo, coordinate di partenza e di arrivo, chilometri percorsi, tempo impegato ed i POI visitati;
+\item \textbf{Pre-condizione:} il sistema ha selezionato un'escursione dalla lista;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza l'escursione desiderata e i suoi dettagli [UCC4.3];
+\item \textbf{Post-condizione:} il sistema ha mostrato l'escursione selezionata e i relativi dettagli.
 \end{itemize}
 
 \subsection{Caso d'uso UCC4.4: Condivisione del percorso}
@@ -504,9 +546,10 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \begin{itemize}
 \item \textbf{Attori principali:} Utente autenticato;
 \item \textbf{Attori secondari:} Facebook$_{G}$;
-\item \textbf{Scopo e descrizione:} l'utente può condividere il percorso effettuato sul social network Facebook$_{G}$;
-\item \textbf{Pre-condizione:} il sistema mostra il percorso selezionato;
-\item \textbf{Post-condizione:} il sistema ha condiviso il percorso selezionato su Facebook$_{G}$. 
+\item \textbf{Scopo e descrizione:} l'utente può condividere l'escursione selezionata sul social network Facebook$_{G}$;
+\item \textbf{Pre-condizione:} il sistema mostra l'escursione selezionata;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato condivide su Facebook$_{G}$ l'escursione  desiderata [UCC4.4];
+\item \textbf{Post-condizione:} il sistema ha condiviso l'escursione selezionata su Facebook$_{G}$. 
 \end{itemize}
 
 \subsection{Caso d'uso UCC5: Cambio password}
@@ -539,39 +582,43 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Post-condizione:} il sistema ha cambiato la password.
 \end{itemize}
 
-\subsection{Caso d'suo UCC5.1: Inserimento vecchia password}
+\subsection{Caso d'uso UCC5.1: Inserimento vecchia password}
 
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato inserisce la password che vuole cambiare;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato inserisce la sua password di autenticazione [UCC5.1];
 \item \textbf{Post-condizione:} la password è stata inserita.
 \end{itemize}
 
-\subsection{Caso d'suo UCC5.2: Inserimento nuova password}
+\subsection{Caso d'uso UCC5.2: Inserimento nuova password}
 
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato inserisce la nuova password;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato inserisce una nuova password con cui intende autenticarsi successivamente [UCC5.2];
 \item \textbf{Post-condizione:} la nuova password è stata inserita.
 \end{itemize}
 
-\subsection{Caso d'suo UCC5.3: Secondo inserimento nuova password}
+\subsection{Caso d'uso UCC5.3: Secondo inserimento nuova password}
 
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato inserisce la nuova password per la seconda volta;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato inserisce una seconda volta la nuova password con cui intende autenticarsi successivamente [UCC5.3];
 \item \textbf{Post-condizione:} la conferma nuova password è stata inserita.
 \end{itemize}
 
-\subsection{Caso d'suo UCC5.4: Conferma dati inseriti}
+\subsection{Caso d'uso UCC5.4: Conferma dati inseriti}
 
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato conferma i dati che ha inserito;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato conferma i dati per poter effettuare il cambio password [UCC5.4];
 \item \textbf{Post-condizione:} il sistema ha ricevuto i dati per effettuare il cambio password.
 \end{itemize}
 
@@ -581,6 +628,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato visualizza il messaggio di errore in caso di vecchia password e nuove password non valide;
 \item \textbf{Pre-condizione:} il sistema ha ricevuto dei dati errati per il cambio password;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza un messaggio d'errore a causa del fallimento dell'operazione di cambio password [UCC5.5];
 \item \textbf{Post-condizione:} il sistema ha mostrato il messaggio d'errore all'utente autenticato.
 \end{itemize}
 
@@ -615,6 +663,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato inserisce il seriale dello smartwatch per associarlo con il suo account;
 \item \textbf{Pre-condizione:} il sistema non ha registrato alcun seriale associato a tale account;
+\item \textbf{Flusso principale degli eventi:} l'utete autenticato inserisce il seriale del proprio smartwatch [UCC6.1];
 \item \textbf{Post-condizione:} il seriale dello smartwarch è stato inserito.
 \end{itemize}
 
@@ -624,6 +673,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato conferma il seriale inserito;
 \item \textbf{Pre-condizione:} il sistema non ha registrato alcun seriale associato a tale account;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato conferma il seriale inserito per poterlo associare al proprio account [UCC6.2];
 \item \textbf{Scenario alternativo:} l'utente autenticato non ha inserito alcun seriale o ne ha inserito uno errato e viene avvisato con un messaggio di errore;
 \item \textbf{Post-condizione:} il sistema ha associato il seriale all'account dell'utente autenticato.
 \end{itemize}
@@ -634,6 +684,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato può rimuovere il seriale dello smartwatch associato con il suo account;
 \item \textbf{Pre-condizione:} il sistema ha già associato un seriale all'account dell'utente autenticato;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato rimuove il seriale dello smartwatch dal proprio account [UCC6.3];
 \item \textbf{Post-condizione:} il sistema ha rimosso il seriale dello smartwatch.
 \end{itemize}
 
@@ -643,6 +694,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato visualizza il messaggio di errore in caso di una conferma di un seriale errato;
 \item \textbf{Pre-condizione:} è stato confermato un seriale non valido;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza un messaggio d'errore a causa del fallimento dell'operazione di registrazione del seriale dello smartwatch [UCC6.4];
 \item \textbf{Post-condizione:} il sistema ha mostrato il messaggio d'errore relativo alla registrazione del seriale.
 \end{itemize}
 
@@ -675,6 +727,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente inserisce l'email con la quale si è registrato nel sistema;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente inserisce l'email di registrazione alla propria area riservata [UCC7.1];
 \item \textbf{Post-condizione:} l'email è stata inserita.
 \end{itemize}
 
@@ -684,6 +737,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente invia la richiesta di recupero password confermando la propria email;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente conferma l'email per poter recuperare la password della propria area riservata [UCC7.2];
 \item \textbf{Post-condizione:} il sistema ha ricevuto i dati per il recupero della password.
 \end{itemize}
 
@@ -693,6 +747,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e descrizione:} l'utente visualizza il messaggio di errore in caso di una email non valida;
 \item \textbf{Pre-condizione:} il sistema ha ricevuto dei dati non validi per effettuare il recupero passwrod;
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza un messaggio d'errore a causa del fallimento dell'operazione per poter recuperare la propria password [UCC7.3];
 \item \textbf{Post-condizione:} il sistema ha mostrato il messaggio d'errore all'utente.
 \end{itemize}
 
@@ -702,6 +757,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente autenticato;
 \item \textbf{Scopo e descrizione:} l'utente autenticato termina la sua sessione, uscendo dalla sua area riservata;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato esce dalla sua area riservata [UCC8];
 \item \textbf{Post-condizione:} il sistema ha terminato la sessione dell'utente autenticato.
 \end{itemize}
 
@@ -717,10 +773,10 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \begin{itemize}
 \item \textbf{Attori principali:} Utente, Utente in viaggio;
 \item \textbf{Attori secondari:} Cloud;
-\item \textbf{Scopo e Descrizione:} In questo scenario ci sono due attori principali: l'utente e l'utente in viaggio. Per utente si intende la persona che non ha ancora avviato la navigazione, esso può effettuare diverse operazioni: sincronizzare i dati con l'attore cloud, selezionare il punto d'interesse che desidera raggiungere, visualizzare le informazioni meteorologiche, visualizzare le informazioni di soccorso e il battito cardiaco per monitorare la sua condizione fisica. L'utente in viaggio, oltre alle operazioni descritte per l'utente, può: visualizzare la navigazione e le informazioni ad essa relative. Esso può scegliere un punto d'interesse anche durante la navigazione, in quanto potrebbe decidere di cambiare la destinazione della sua escursione. L'attore secondario Cloud rappresenta il sistema cloud con cui lo smartwatch si interfaccia nei momenti di pre-esperinza$_{G}$ e di post-esperienza$_{G}$;
+\item \textbf{Scopo e Descrizione:} l'utente può effettuare diverse operazioni: sincronizzare i dati con l'attore cloud, selezionare il punto d'interesse che desidera raggiungere, visualizzare le informazioni meteorologiche, visualizzare le informazioni di soccorso e il battito cardiaco per monitorare la sua condizione fisica. L'utente in viaggio, oltre alle operazioni descritte per l'utente, può: visualizzare la navigazione e le informazioni ad essa relative. Esso può scegliere un punto d'interesse anche durante la navigazione, in quanto potrebbe decidere di cambiare la destinazione del suo percorso. 
 \item \textbf{Generalizzazione tra attori}: l'utente in viaggio può compiere, oltre alle sue, tutte le operazione dell'attore Utente;
 \item \textbf{Pre-condizione:} lo smartwatch è acceso e l'applicazione è avviata e pronta all'uso;
-\item \textbf{Flusso Principale:}
+\item \textbf{Flusso principale degli eventi:}
 \begin{enumerate}
 \item L'utente può aggiornare i dati dal cloud [UCS6];
 \item L'utente può scegliere il punto d'interesse [UCS1];
@@ -742,10 +798,10 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \end{figure}
 
 \begin{itemize}
-\item \textbf{Attori primari:} Utente;
-\item \textbf{Scopo e Descrizione:} l'utente può selezionare dall'elenco di POI quello che vuole raggiungere. L'unico elenco disponibile all'utente è quello relativo alla mappa della posizione GPS in cui si trova; 
+\item \textbf{Attori:} Utente;
+\item \textbf{Scopo e Descrizione:} l'utente può selezionare dall'elenco di POI quello che vuole raggiungere tra: rifugi, ristori, luoghi di interesse naturalistico (punti panoramici, cascate, ecc.) L'unico elenco disponibile all'utente è quello relativo alla mappa della posizione GPS in cui si trova; 
 \item \textbf{Pre-condizione:} nel sistema è stata caricata almeno una mappa ed è presente quella che delimita l'area in cui si trova l'utente.
-\item \textbf{Flusso Principale:}
+\item \textbf{Flusso principale degli eventi:}
 \begin{enumerate}
 \item L'utente può visualizzare l'elenco dei POI [UCS1.1];
 \item L'utente può selezionare un POI dall'elenco [UCS1.2].
@@ -759,6 +815,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e Descrizione:} l’utente visualizza l’elenco dei POI tra cui potrà scegliere relativo alla mappa della posizione GPS in cui si trova;
 \item \textbf{Pre-condizione:} nel sistema è stata caricata almeno una mappa ed è presente quella che delimita l'area in cui si trova l'utente;
+\item \textbf{Flusso principale degli eventi:} l'utene visualizza l'elenco dei POI tra cui potrà scegliere [UCS1.1];
 \item \textbf{Post-condizione:} il sistema mostra tutti i POI disponibili di quella mappa. 
 \end{itemize}
 
@@ -767,6 +824,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e Descrizione:} l'utente seleziona uno tra i POI disponibili;
 \item \textbf{Pre-condizione:} il sistema ha mostrato tutti i POI disponibili della mappa in cui si trova con la posizione GPS;
+\item \textbf{Flusso principale degli eventi:} l'utente seleziona il POI che desidera tra quelli possibili [UCS1.2]; 
 \item \textbf{Post-condizione:} il sistema ha selezionato il POI desiderato dall'utente.
 \end{itemize}
 
@@ -775,6 +833,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e Descrizione:} l'utente può visualizzare le informazioni meteo riguardanti la mappa che il sistema ha individuato tramite la posizione GPS. Le informazioni meteo riguardano: la condizione meteorologica, la temperatura massima e minima, l'intensità e direzione del vento, la probabilità di precipitazioni, la visibilità e l'orario del tramonto del sole;
 \item \textbf{Pre-condizione:} il sistema ha selezionato la mappa in base alla posizione GPS;
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza le informazioni meteo della mappa individuata tramite la posizione GPS dello smartwatch [UCS2];
 \item \textbf{Scenario alternativo:} il meteo della mappa non è aggiornato, quindi il sistema segnala all'utente un avviso di mancato aggiornamento;
 \item \textbf{Estensione:} l'utente visualizza un avviso di mancato aggiornamento del meteo [UCS2.1];
 \item \textbf{Post-condizione:} il sistema mostra le informazioni meteo relative alla mappa in base alla posizione GPS dell'utente.
@@ -785,6 +844,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e Descrizione:} l'utente visualizza un avviso in quanto il meteo risulta non aggiornato;
 \item \textbf{Pre-condizione:} la mappa selezionata dal sistema non presenta il meteo aggiornato; 
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza un messaggio che avvisa che il meteo non è aggiornato [UCS2.1];
 \item \textbf{Post-condizione:} il sistema mostra all'utente un avviso di meteo non aggiornato.
 \end{itemize}
 
@@ -793,6 +853,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e Descrizione:} l'utente può visualizzare le informazioni utili per chiamare i soccorsi in caso di necessità. Esse riguardano: il numero del soccorso alpino, la posizione geografica in cui si trova l'utente, le indicazioni per chiedere soccorso nel caso non si disponga della rete telefonica (segnali acustici e luminosi);
 \item \textbf{Pre-condizione:} il sistema è acceso e l'applicazione è avviata e pronta all'uso;
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza informazioni utili per il soccorso [UCS3];
 \item \textbf{Post-condizione:} il sistema mostra le informazioni utili in caso di emergenza.
 \end{itemize}
 
@@ -823,6 +884,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente in viaggio;
 \item \textbf{Scopo e Descrizione:} l'utente in viaggio avvia la navigazione;
 \item \textbf{Pre-condizione:} il sistema ha un punto di interesse impostato;
+\item \textbf{Flusso principale degli eventi:} l'utente in viaggio avvia la navigazione per poter raggiungere il POI impostato [UCS4.1];
 \item \textbf{Post-condizione:} il sistema ha avviato la navigazione verso il punto di interesse impostato.
 \end{itemize}
 
@@ -831,6 +893,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente in viaggio;
 \item \textbf{Scopo e Descrizione:} l'utente in viaggio può sospendere la navigazione;
 \item \textbf{Pre-condizione:} il sistema mostra una navigazione già avviata;
+\item \textbf{Flusso principale degli eventi:} l'utente in viaggio mette in pausa la navigazione avviata [UCS4.2];
 \item \textbf{Post-condizione:} il sistema ha sospeso la navigazione.
 \end{itemize}
 
@@ -839,6 +902,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente in viaggio;
 \item \textbf{Scopo e Descrizione:} l'utente in viaggio può riprendere la navigazione che è stata precedentemente sospesa;
 \item \textbf{Pre-condizione:} il sistema ha già sospeso la navigazione;
+\item \textbf{Flusso principale degli eventi:} l'utente in viaggio riprende la navigazione sospesa [UCS4.3];
 \item \textbf{Post-condizione:} il sistema ha ripreso la navigazione.
 \end{itemize}
 
@@ -848,6 +912,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente in viaggio;
 \item \textbf{Scopo e Descrizione:} l'utente in viaggio può terminare la navigazione;
 \item \textbf{Pre-condizione:} il sistema ha già avviato la navigazione;
+\item \textbf{Flusso principale degli eventi:} l'utente in viaggio termina la navigazione avviata [UCS4.4];
 \item \textbf{Post-condizione:} il sistema ha terminato la navigazione.
 \end{itemize}
 
@@ -874,32 +939,36 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \subsection{Caso d'uso UCS5.1: Visualizzazione delle coordinate geografiche}
 \begin{itemize}
 \item \textbf{Attori:} Utente in viaggio;
-\item \textbf{Scopo e Descrizione:} l'utente visualizza le coordinate geografiche della posizione in cui si trova;
+\item \textbf{Scopo e Descrizione:} l'utente in viaggio visualizza le coordinate geografiche della posizione in cui si trova;
 \item \textbf{Pre-condizione:} il sistema ha già avviato la navigazione;
+\item \textbf{Flusso principale degli eventi:} l'utente in viaggio visualizza le proprie coordinate geografiche [UCS5.1];
 \item \textbf{Post-condizione:} il sistema ha mostrato all'utente in viaggio le sue coordinate geografiche.
 \end{itemize}
 
 \subsection{Caso d'uso UCS5.2: Visualizzazione dell'altitudine}
 \begin{itemize}
 \item \textbf{Attori:} Utente in viaggio;
-\item \textbf{Scopo e Descrizione:} l'utente visualizza a che altitudine si trova durante l'escursione;
+\item \textbf{Scopo e Descrizione:} l'utente in viaggio visualizza a che altitudine si trova durante l'escursione;
 \item \textbf{Pre-condizione:} il sistema ha già avviato la navigazione;
+\item \textbf{Flusso principale degli eventi:} l'utente in viaggio visualizza l'altitudine a cui si trova in quel momento [UCS5.2];
 \item \textbf{Post-condizione:} il sistema ha mostrato all'utente in viaggio l'altitudine della sua posizione.
 \end{itemize}
 
 \subsection{Caso d'uso UCS5.3: Visualizzazione dei chilometri effettuati}
 \begin{itemize}
 \item \textbf{Attori:} Utente in viaggio;
-\item \textbf{Scopo e Descrizione:} l'utente visualizza la distanza percorsa dal momento in cui è partito;
+\item \textbf{Scopo e Descrizione:} l'utente in viaggio visualizza la distanza percorsa dal momento in cui è partito;
 \item \textbf{Pre-condizione:} il sistema ha già avviato la navigazione;
+\item \textbf{Flusso principale degli eventi:} l'utente in viaggio visualizza i chilometri effettuati fino a quel momento del percorso che sta effettuando [UCS5.3];
 \item \textbf{Post-condizione:} il sistema ha mostrato all'utente in viaggio i chilometri effettuati fino a quel momento.
 \end{itemize}
 
 \subsection{Caso d'uso UCS5.4: Visualizzazione del tempo rimanente all'arrivo}
 \begin{itemize}
 \item \textbf{Attori:} Utente in viaggio;
-\item \textbf{Scopo e Descrizione:} l'utente visualizza il tempo rimanente all'arrivo del punto di interesse;
+\item \textbf{Scopo e Descrizione:} l'utente in viaggio visualizza il tempo rimanente all'arrivo del punto di interesse;
 \item \textbf{Pre-condizione:} il sistema ha già avviato la navigazione;
+\item \textbf{Flusso principale degli eventi:} l'utente in viaggio visualizza il tempo rimante all'arrivo del POI impostato per il percorso che sta effettuando [UCS5.4];
 \item \textbf{Post-condizione:} il sistema ha mostrato il tempo rimanente all'arrivo del punto di interesse.
 \end{itemize}
 
@@ -907,9 +976,10 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \begin{itemize}
 \item \textbf{Attori principali:} Utente;
 \item \textbf{Attori secondari:} Cloud;
-\item \textbf{Scopo e Descrizione:} l'utente sincronizza i dati con il cloud: in download aggiorna mappe e meteo se necessario e in upload invia al cloud i percorsi effettuati;
+\item \textbf{Scopo e Descrizione:} l'utente sincronizza i dati con il cloud: in download aggiorna mappe e meteo se necessario e in upload invia al cloud i percorsi effettuati e lo stato di occupazione della memoria;
 \item \textbf{Pre-condizione:} è disponibile una connessione dati ed il seriale dello smartwatch è già stato associato all'account dell'utente;
-\item \textbf{Post-condizione:} il sistema ha aggiornato mappe e meteo ed ha inviato al cloud i percorsi eventualmente effettuati.
+\item \textbf{Flusso principale degli eventi:} l'utente sincronizza i vari dati con il cloud [UCS6];
+\item \textbf{Post-condizione:} il sistema ha aggiornato mappe e meteo ed ha inviato al cloud i percorsi eventualmente effettuati e lo stato della memoria.
 \end{itemize}
 
 \subsection{Caso d'uso UCS7: Visualizzazione del battito cardiaco}
@@ -917,6 +987,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e Descrizione:} l'utente può visualizzare il proprio battito cardiaco;
 \item \textbf{Pre-condizione:} la fascia cardiaca per il rilevamento dei battiti è collegata allo smartwatch;
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza il suo battito cardiaco in quel momento [UCS7];
 \item \textbf{Post-condizione:} il sistema mostra il battito cardiaco dell'utente.
 \end{itemize}
 
@@ -986,9 +1057,9 @@ RC0F7 		& Deve essere presente un elenco dei percorsi già effettuati & Interno 
 RC0F7.1		& L'utente deve poter visualizzare l'elenco dei percorsi già effettuati & Interno UCC4.1 \\\hline
 RC0F7.2		& L'utente deve poter selezionare un percorso già effettuato & Interno UCC4.2 \\\hline
 RC0F7.3		& L'utente deve poter visualizzare i dettagli sul percorso già effettuato e precedentemente selezionato & Interno UCC4.3 \\\hline
-RC0F7.3.1	& Le informazioni riguardanti un percorso effettuato sono: data dell'esperienza, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato e POI visitati durante l'esperienza & Interno UCC4.3 \\\hline
+RC0F7.3.1	& Le informazioni riguardanti un percorso effettuato sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato e POI visitati durante l'esperienza$_{G}$ & Interno UCC4.3 \\\hline
 RC2F8		& L'utente deve poter condividere i dettagli del percorso già effettuato e precedentemente selezionato su Facebook$_{G}$ & Interno UCC4.4 \\\hline
-RC2F8.1		& Le informazioni che possono essere condivise nel social network sono: data dell'esperienza, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato, POI visitati durante l'esperienza e mappa del percorso effettuato & Interno UCC4.4 \\\hline
+RC2F8.1		& Le informazioni che possono essere condivise nel social network sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato, POI visitati durante l'esperienza$_{G}$ e mappa del percorso effettuato & Interno UCC4.4 \\\hline
 RC0F9		& L'applicazione cloud deve offrire la possibilità agli utenti di cambiare la propria password & Interno UCC5 \\\hline
 RC0F9.1		& Nella procedura di cambio password l'utente deve inserire la vecchia password & Interno UCC5.1 \\\hline
 RC0F9.2		& Nella procedura di cambio password l'utente deve inserire la nuova password & Interno UCC5.2 \\\hline
@@ -1012,7 +1083,7 @@ RS2F14.1	& L'utente deve poter visualizzare un avviso che il meteo risulta non a
 RS2F14.2	& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni, la visibilità e l'orario del tramonto del sole & Interno UCS2 \\\hline
 RS0F15		& L'utente deve poter visualizzare le informazioni di soccorso & Capitolato UCS3 \\\hline
 RS0F15.1	& Le informazioni di soccorso comprendono il numero del soccorso alpino, la posizione geografica in cui si trova l'utente e le indicazioni per chiedere soccorso nel caso non si disponga della rete telefonica (segnali acustici e luminosi) & Interno UCS3 \\\hline
-RS0F16		& L'applicazione smartwatch fornisce un sistema di navigazione & Capitolato UCS4 \\\hline
+RS0F16		& L'applicazione smartwatch fornisce un sistema di navigazione, fornendo indicazioni sulla posizione dell’utente, km percorsi e distanza rimanente & Capitolato UCS4 \\\hline
 RS0F17		& L'utente deve poter operare col sistema di navigazione solo dopo aver selezionato un POI & Interno UCS4 \\\hline
 RS0F18		& L'utente deve poter avviare la navigazione & Interno UCS4.1 \\\hline
 RS0F18.1	& L'utente deve poter sospendere la navigazione già avviata & Interno UCS4.2 \\\hline
@@ -1029,7 +1100,7 @@ RS2F20.2	& L'applicazione smartwatch deve poter scaricare dal cloud le informazi
 RS0F20.3	& L'applicazione smartwatch deve poter caricare sul cloud le informazioni sui percorsi effettuati & Interno UCS6 \\\hline
 RS2F21		& L'utente deve poter visualizzare il proprio battito cardiaco & Capitolato UCS7 \\\hline
 RS2F22		& L'applicazione smartwatch deve poter comunicare con il dispositivo per il rilevamento dei battiti cardiaci & Interno UCS7 \\\hline
-RS0F23		& Il sistema registra in background il percorso effettuato & Interno \\\hline
+RS0F23		& Il sistema registra in background il percorso eeffettuato, tracciando il segnale gps, il tempo trascorso e i battiti cardiaci se è presente la fascia cardiaca & Interno \\\hline
 RC0F27		& Il sistema garantisce la persistenza della scelta effettuata dall'utente riguardo le mappe preferite & Interno \\\hline
 RC0F28		& Il sistema è in grado di gestire gli errori riguardanti l'inserimento dei dati da parte dell'utente riportando il sistema ad uno stato consistente & Interno \\\hline
 RC0F29		& Il sistema garantisce la persistenza delle informazioni registrate dallo smartwatch & Interno \\\hline
@@ -1046,7 +1117,7 @@ RC0F30		& Il sistema garantisce che un seriale possa essere univocamente associa
 \begin{longtable}{|l|p{7cm}|p{1.7cm}|} \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonti} \\\hline
 R0Q24		& Devono essere prodotti e rilasciati manuali d’uso ed ogni altra documentazione tecnica necessaria per l’utilizzo del prodotto & Capitolato \\\hline
-R0Q25		& Il progetto verrà sviluppato seguendo le Norme di Progetto & Interno \\\hline
+R0Q25		& Il progetto verrà sviluppato seguendo il documento \textit{NormeDiProgetto\_v1.0.0} & Interno \\\hline
 \caption{Requisiti di qualità}
 \end{longtable}
 \egroup
@@ -1063,7 +1134,7 @@ RS0V32		& L'applicazione per smartwatch deve essere sviluppata per Android 4.4.2
 RS0V33		& L'applicazione per smartwatch è sviluppata specificamente per WearIT & Capitolato \\\hline
 R0V34		& La comunicazione fra smartwatch e cloud deve avvenire nel formato JSON & Capitolato \\\hline
 RC1V36		& L'applicazione cloud deve essere sviluppata usando HTML5$_{G}$ e CSS3$_{G}$ & Interno \\\hline
-RS1V37		& L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di ``esperienza" & Verbale\_3 \\\hline
+RS1V37		& L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di esperienza$_{G}$ & Verbale\_3 \\\hline
 RC0V38		& L'applicazione colud deve disporre di un'interfaccia in lingua italiana & Interno \\\hline
 RS0V39		& L'applicazione per smartwatch deve disporre di un'interfaccia in lingua italiana & Interno \\\hline
 \caption{Requisiti di vincolo}
