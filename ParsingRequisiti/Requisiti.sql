@@ -76,6 +76,6 @@ INSERT INTO Requisiti(NomeReq, CodiceReq, Sistema, Importanza, Tipo, Descrizione
 ("R0V34", "34", "", "0", "V", "La comunicazione fra smartwatch e cloud deve avvenire nel formato JSON"),
 ("R0V35", "35", "", "0", "V", "L'architettura software deve permettere, in futuro, l'aggiunta di funzionalità al sistema"),
 ("RC1V36", "36", "C", "1", "V", "L'applicazione cloud deve essere sviluppata usando HTML5$_{G}$ e CSS3$_{G}$"),
-("RS1V37", "37", "S", "1", "V", "L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di ``esperienza""),
+("RS1V37", "37", "S", "1", "V", "L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di esperienza"),
 ("RC0V38", "38", "C", "0", "V", "L'applicazione colud deve disporre di un'interfaccia in lingua italiana"),
 ("RS0V39", "39", "S", "0", "V", "L'applicazione per smartwatch deve disporre di un'interfaccia in lingua italiana");

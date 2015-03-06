@@ -11,8 +11,9 @@
     		printf("Connect failed: %s\n", mysqli_connect_error());
     		exit();
 		}
-		$result = mysqli_query($link,$query);
-		return $result;
+		return $link;
+		//$result = mysqli_query($link,$query);
+		//return $result;
 		//$result andrebbe mysqli_free_result($result);
 		//mysqli_close($link);
 		//mysqli_fetch_row($result);
