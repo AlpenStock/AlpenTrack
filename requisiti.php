@@ -46,6 +46,8 @@
 				echo "<p>La ricerca non ha trovato requisiti</p>";
 			else
 				printTable($con, $results);
+
+			mysqli_close($con);
 		?>
 
 	</div>
