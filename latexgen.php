@@ -68,7 +68,7 @@ $tabella3.="\\\\\\hline
 \\egroup";
 
 //Tracciamento requisito-fonti
-$qry="SELECT r.NomeReq, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='V';";
+$qry="SELECT r.NomeReq, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f;";
 $trf=dbconnect($qry);
 $tabella4="\bgroup
 \def\arraystretch{1.8}
@@ -91,7 +91,7 @@ $tabella4.="\\\\\\hline
 
 
 //Tracciamento fonti-requisiti
-$qry="SELECT r.NomeReq, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='V';";
+$qry="SELECT f.NomeFonte, r.NomeReq FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f;";
 $tfr=dbconnect($qry);
 $tabella5="\bgroup
 \def\arraystretch{1.8}
