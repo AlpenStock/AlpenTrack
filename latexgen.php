@@ -1,8 +1,9 @@
 <?php
 require ("php/dbconn.php");
+$conn=dbconnect($qry);
 //tabella Requisiti Funzionali (codice, descrizione, fonti)
 $qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='F';";
-$trf=dbconnect($qry);
+$trf = mysqli_query($conn,$qry);
 $tabella1="\bgroup
 \def\arraystretch{1.8}
 \begin{longtable}{|l|p{7cm}|p{1.7cm}|} \hline
@@ -21,10 +22,11 @@ $tabella1.="\\\\\\hline
 \caption{Requisiti funzionali}
 \\end{longtable}
 \\egroup";
+mysqli_free_result($trf);
 
 //tabella Requisiti Qualità (codice, descrizione, fonti)
 $qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='Q';";
-$trq=dbconnect($qry);
+$trq=mysqli_query($conn,$qry);
 $tabella2="\bgroup
 \def\arraystretch{1.8}
 \begin{longtable}{|l|p{7cm}|p{1.7cm}|} \hline
@@ -43,11 +45,11 @@ $tabella2.="\\\\\\hline
 \caption{Requisiti di qualità}
 \\end{longtable}
 \\egroup";
-
+mysqli_free_result($trq);
 
 //tabella Requisiti Vincolo (codice, descrizione, fonti)
 $qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='V';";
-$trv=dbconnect($qry);
+$trv=mysqli_query($conn,$qry);
 $tabella3="\bgroup
 \def\arraystretch{1.8}
 \begin{longtable}{|l|p{7cm}|p{1.7cm}|} \hline
@@ -66,10 +68,11 @@ $tabella3.="\\\\\\hline
 \caption{Requisiti di vincolo}
 \\end{longtable}
 \\egroup";
+mysqli_free_result($trv);
 
 //Tracciamento requisito-fonti
 $qry="SELECT r.NomeReq, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f;";
-$trf=dbconnect($qry);
+$trf=mysqli_query($conn,$qry);
 $tabella4="\bgroup
 \def\arraystretch{1.8}
 \begin{longtable}{|p{5cm}|p{5cm}|} \hline
@@ -88,11 +91,11 @@ $tabella4.="\\\\\\hline
 \caption{Tracciamento requisiti-fonti}
 \\end{longtable}
 \\egroup";
-
+mysqli_free_result($trf);
 
 //Tracciamento fonti-requisiti
 $qry="SELECT f.NomeFonte, r.NomeReq FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f;";
-$tfr=dbconnect($qry);
+$tfr=mysqli_query($conn,$qry);
 $tabella5="\bgroup
 \def\arraystretch{1.8}
 \begin{longtable}{|p{5cm}|p{5cm}|} \hline
@@ -111,9 +114,12 @@ $tabella5.="\\\\\\hline
 \caption{Tracciamento requisiti-fonti}
 \\end{longtable}
 \\egroup";
+mysqli_free_result($tfr);
+mysqli_close($conn);
 
 
 header('Content-Type: application/x-tex');
+header('Content-Disposition: attachment; filename="tables.tex"');
 print <<<EOF
 \documentclass[12pt, a4paper]{article}
 \usepackage{longtable}
