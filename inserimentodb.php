@@ -25,6 +25,9 @@
 		<?php
 
 			$fonti= $_POST['Fonti']; 
+
+			if ($_POST['Sistema'] == "N")
+				$_POST['Sistema'] = "";
 			
 			unset($_POST['Fonti']); unset($_POST['NomeFonte']); unset($_POST['DescrizioneFonte']); 
 

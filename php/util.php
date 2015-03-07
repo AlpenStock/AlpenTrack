@@ -92,7 +92,7 @@
 			}
 			echo "</td>";
 			echo "<td>";
-			echo "<a href='modificaRequisito.html' class='glyphicon glyphicon-wrench' aria-hidden='true'>";
+			echo "<a href='modificaRequisito.php?NomeReq=" . $row['NomeReq'] . "' class='glyphicon glyphicon-wrench' aria-hidden='true'>";
 			echo "</td>";
 			echo "</tr>";
 		}
@@ -109,6 +109,227 @@
 		mysqli_rollback($con);
 		mysqli_close($con);
 		echo "<p>" . $error . "</p>";
+	}
+
+	function printForm($con, $req) {
+		echo '<form role="form" class="form-horizontal">';
+		printFields($con, $req);
+		printButtons();
+		echo '</form>';
+	}
+
+	function printFields($con, $req) {
+		$query = 'SELECT * FROM Requisiti WHERE NomeReq = "' . $req . '";';
+		$result = mysqli_query($con, $query);
+		if ($result == false) {
+			echo "<p>Si è verificato un errore nel recupero del reqisito</p>";
+			exit;
+		}
+
+		$row = mysqli_fetch_array($result);
+
+		echo '<div class="form-group" id="divCodice">
+				<label for="CodiceReq" class="control-label">
+					Codice univoco:
+				</label>
+				<div>
+					<input type="text" class="form-control" name="CodiceReq" id="CodiceReq" placeholder="esempio: 1.1.1" 
+					onchange="removeError(\'divCodice\')" value="' . $row["CodiceReq"] . '" autofocus required />
+				</div>
+			  </div>';
+		echo '<div class="form-group" id="divSistema">
+				<label for="Sistema" class="control-label">
+					Sistema:
+				</label>';
+		printCheckSistema($row['Sistema']);
+		echo '</div>';
+		printSelectImportanza($row['Importanza']);
+		printSelectTipo($row['Tipo']);
+		echo '<div class="form-group" id="divDesc">
+				<label for="Descrizione" class="control-label">
+					Descrizione:
+				</label>
+				<input type="text" name="Descrizione" id="Descrizione" class="form-control" placeholder="Inserire una breve descrizione del 
+				requisito (massimo 200 caratteri)" maxlength="200" onchange="removeError(\'divDesc\')" required  
+				value="' . $row["Descrizione"] . '" />
+ 			</div>';
+
+ 		printCheckSoddisfatto($row['Soddisfatto']);
+	}
+
+	function printCheckSistema($sistema) {
+		if ($sistema == "S") {
+			echo '<label class="radio-inline">
+     				<input type="radio" name="Sistema" id="SistemaS" value="S" onchange="removeError(\'divSistema\')" checked/>Smartwatch
+    			</label>
+    			<label class="radio-inline">
+      				<input type="radio" name="Sistema" id="SistemaC" value="C" onchange="removeError(\'divSistema\')" />Cloud
+    			</label>
+    			<label class="radio-inline">
+    				<input type="radio" name="Sistema" id="SistemaN" value="N" onchange="removeError(\'divSistema\')" />Nessun sistema
+     			</label>';
+		}
+		if ($sistema == "C") {
+			echo '<label class="radio-inline">
+     				<input type="radio" name="Sistema" id="SistemaS" value="S" onchange="removeError(\'divSistema\')" />Smartwatch
+    			</label>
+    			<label class="radio-inline">
+      				<input type="radio" name="Sistema" id="SistemaC" value="C" onchange="removeError(\'divSistema\')" checked/>Cloud
+    			</label>
+    			<label class="radio-inline">
+    				<input type="radio" name="Sistema" id="SistemaN" value="N" onchange="removeError(\'divSistema\')" />Nessun sistema
+     			</label>';
+		}
+		if ($sistema == "") {
+			echo '<label class="radio-inline">
+     				<input type="radio" name="Sistema" id="SistemaS" value="S" onchange="removeError(\'divSistema\')" />Smartwatch
+    			</label>
+    			<label class="radio-inline">
+      				<input type="radio" name="Sistema" id="SistemaC" value="C" onchange="removeError(\'divSistema\')" />Cloud
+    			</label>
+    			<label class="radio-inline">
+    				<input type="radio" name="Sistema" id="SistemaN" value="N" onchange="removeError(\'divSistema\')" checked/>Nessun sistema
+     			</label>';
+		}
+
+	}
+
+	function printSelectImportanza($impo) {
+		if ($impo == 0) {
+			echo '<div class="form-group">
+				<label for="Importanza" class="control-label">
+					Importanza:
+				</label>
+				<select class="form-control" name="Importanza" required>
+        			<option value="0" selected>Obbligatorio</option>
+        			<option value="1">Desiderabile</option>
+        			<option value="2">Opzionale</option>
+      			</select>
+			</div>';
+		}
+		if ($impo == 1) {
+			echo '<div class="form-group">
+				<label for="Importanza" class="control-label">
+					Importanza:
+				</label>
+				<select class="form-control" name="Importanza" required>
+        			<option value="0">Obbligatorio</option>
+        			<option value="1" selected>Desiderabile</option>
+        			<option value="2">Opzionale</option>
+      			</select>
+			</div>';
+		}
+		if ($impo == 2) {
+			echo '<div class="form-group">
+				<label for="Importanza" class="control-label">
+					Importanza:
+				</label>
+				<select class="form-control" name="Importanza" required>
+        			<option value="0">Obbligatorio</option>
+        			<option value="1">Desiderabile</option>
+        			<option value="2" selected>Opzionale</option>
+      			</select>
+			</div>';
+		}
+	}
+
+	function printSelectTipo($tipo) {
+		if ($tipo == "F") {
+			echo '<div class="form-group">
+				<label for="Tipo" class="control-label">
+					Tipo:
+				</label>
+				<select class="form-control" name="Tipo" required>
+        			<option value="F" selected>Funzionale</option>
+        			<option value="Q">Qualità</option>
+        			<option value="P">Prestazionale</option>
+        			<option value="V">Vincolo</option>
+      			</select>
+			</div>';
+		}
+		if ($tipo == "Q") {
+			echo '<div class="form-group">
+				<label for="Tipo" class="control-label">
+					Tipo:
+				</label>
+				<select class="form-control" name="Tipo" required>
+        			<option value="F">Funzionale</option>
+        			<option value="Q" selected>Qualità</option>
+        			<option value="P">Prestazionale</option>
+        			<option value="V">Vincolo</option>
+      			</select>
+			</div>';
+		}
+		if ($tipo == "P") {
+			echo '<div class="form-group">
+				<label for="Tipo" class="control-label">
+					Tipo:
+				</label>
+				<select class="form-control" name="Tipo" required>
+        			<option value="F">Funzionale</option>
+        			<option value="Q">Qualità</option>
+        			<option value="P"selected>Prestazionale</option>
+        			<option value="V">Vincolo</option>
+      			</select>
+			</div>';
+		}
+		if ($tipo == "V") {
+			echo '<div class="form-group">
+				<label for="Tipo" class="control-label">
+					Tipo:
+				</label>
+				<select class="form-control" name="Tipo" required>
+        			<option value="F">Funzionale</option>
+        			<option value="Q">Qualità</option>
+        			<option value="P">Prestazionale</option>
+        			<option value="V" selected>Vincolo</option>
+      			</select>
+			</div>';
+		}
+	}
+
+	function printCheckSoddisfatto($sodd) {
+		if ($sodd == 1) {
+			echo '<div class="form-group">
+ 				<label for="Soddisfatto" class="control-label">
+					Soddisfatto:
+				</label>
+				<label class="radio-inline">
+     				<input type="radio" name="Soddisfatto" value="TRUE" checked />Sì
+    			</label>
+    			<label class="radio-inline">
+      				<input type="radio" name="Soddisfatto" value="FALSE" />No
+    			</label>
+ 			</div>';
+		}
+		else {
+			echo '<div class="form-group">
+ 				<label for="Soddisfatto" class="control-label">
+					Soddisfatto:
+				</label>
+				<label class="radio-inline">
+     				<input type="radio" name="Soddisfatto" value="TRUE" />Sì
+    			</label>
+    			<label class="radio-inline">
+      				<input type="radio" name="Soddisfatto" value="FALSE" checked />No
+    			</label>
+ 			</div>';
+		}
+	}
+
+	function printButtons() {
+		echo '<div class="form-group">
+ 				<div class="col-md-6">
+      				<button type="submit" class="btn btn-success btn-block btn-lg" onclick="return validate();" formmethod="post" formaction="aggiungiFonte.html">
+ 			        	<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Modifica
+					</button>
+				</div>
+				<div class="col-md-6">
+      				<button type="submit" class="btn btn-danger btn-block btn-lg" onclick="return validate();" formmethod="post" formaction="aggiungiFonte.html">
+ 			        	<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Elimina
+					</button>
+				</div>
+  			</div>';
 	}
 
 ?>
