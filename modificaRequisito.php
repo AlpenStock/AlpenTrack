@@ -51,5 +51,9 @@
 		<p>Dal form seguente è possibile modificare il requisito.</p> 
 		<?php printForm($con, $req); ?>
 	</div>
+
+	<?php
+		mysqli_close($con);
+	?>
 </body>
 </html>
