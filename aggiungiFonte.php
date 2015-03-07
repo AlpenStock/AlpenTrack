@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Aggiungi - AlpenStock </title>
+		<title>Fonti - Aggiungi - AlpenStock </title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 		<meta charset="utf-8" />	
@@ -47,6 +47,7 @@
       				<ul class="nav navbar-nav navbar-right">
         				<li><a href="requisiti.php">Elenco Requisiti</a></li>
         				<li class="active"><a>Aggiungi Requisito</a></li>
+        				<li><a href="latex.html">Latex</a></li>
       				</ul>
     			</div>
   			</div>

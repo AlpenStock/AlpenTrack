@@ -16,42 +16,30 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<?php @require("php/util.php");
-	   @require("php/dbconn.php");
-	?> 
 	<nav class="navbar navbar-inverse">
   		<div class="container-fluid">
     		<div class="navbar-header">
-      			<a class="navbar-brand">AlpenTrack</a>
+      			<a class="navbar-brand" href="requisiti.php">AlpenTrack</a>
     		</div>
     		<div>
       			<ul class="nav navbar-nav navbar-right">
-        			<li class="active"><a>Elenco Requisiti</a></li>
+        			<li><a href="requisiti.php">Elenco Requisiti</a></li>
         			<li><a href="aggiungiRequisito.html">Aggiungi Requisito</a></li>
-        			<li><a href="latex.html">Latex</a></li>
+        			<li class="active"><a>Latex</a></li>
       			</ul>
     		</div>
   		</div>
 	</nav>
 
-	<div class="container-fluid">  
-		<h1>I requisiti</h1>
-		<p>Segue l'elenco dei requisiti presenti nel database. Per modificarne o eliminarne uno, cliccare sul relativo simbolo della chiave inglese.</p>
-		<?php
-			$con = dbconnect();
-			$query = "SELECT NomeReq, CodiceReq, Sistema, Importanza, Tipo, Descrizione, Soddisfatto
-					  FROM Requisiti";
-			$results = mysqli_query($con, $query);
-
-			if (empty($results))
-				echo "<p>La ricerca non ha trovato requisiti</p>";
-			else
-				printTable($con, $results);
-
-			mysqli_close($con);
-		?>
-
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Generazione delle tabelle in Latex</h1>
+			<p>Da questa pagina è possibile scaricare le tabelle in Latex prodotte dal database. Per avviare il download, cliccare sul pulsante verde.</p>
+			<a href="latexgen.php"><button type="submit" class="btn btn-success btn-lg">
+	        	<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Genera e scarica le tabelle Latex
+			</button></a>
+		</div>
 	</div>
 
-	</body>
+</body>
 </html>

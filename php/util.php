@@ -7,7 +7,7 @@
 
 	function printTopTable() {
 		echo "
-				<div class='table-responsive'>
+				<div class='table'>
 					<table class='table table-striped table-bordered table-condensed'>
 						<thead>
 							<tr>
