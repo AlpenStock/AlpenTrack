@@ -15,6 +15,10 @@ function addOption() {
 	select.options[select.options.length] = new Option(optionText, name);
 	document.getElementById("NomeFonte").value = null;
 	document.getElementById("DescrizioneFonte").value = null;
+
+	//Aggiungo input hidden per le fonti
+	var form = document.getElementById("formFonti");
+	var element = document.createElement("<input type='hidden' name='" + name +"' value='" + desc + "' />");
 }
 
 function validateFonti() {

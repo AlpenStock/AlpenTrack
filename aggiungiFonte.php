@@ -29,19 +29,23 @@
 			require "php/printFonti.php";
 			require "php/dbconn.php";
 
+
 			if ($_POST['Sistema'] == "N")
 				$NomeReq = "R" . $_POST['Importanza'] . $_POST['Tipo'] . $_POST['CodiceReq'];
 			else
 				$NomeReq = "R" . $_POST['Sistema'] . $_POST['Importanza'] . $_POST['Tipo'] . $_POST['CodiceReq'];
+
+			if (empty($_POST['Soddisfatto']))
+				$_POST['Soddisfatto'] = FALSE;
 		?>
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
-      				<a class="navbar-brand" href="requisiti.html">AlpenTrack</a>
+      				<a class="navbar-brand" href="requisiti.php">AlpenTrack</a>
     			</div>
     			<div>
       				<ul class="nav navbar-nav navbar-right">
-        				<li><a href="requisiti.html">Elenco Requisiti</a></li>
+        				<li><a href="requisiti.php">Elenco Requisiti</a></li>
         				<li class="active"><a>Aggiungi Requisito</a></li>
       				</ul>
     			</div>
@@ -54,12 +58,12 @@
 				echo '<p>Specifica le fonti del requisito "' . $NomeReq . '". Un requisito deve avere almeno una fonte.</p>';
 				$con = dbconnect();
 			?>
-			<form role="form" class="form-horizontal">
-				<div class="form-group">
+			<form role="form" class="form-horizontal" id="formFonti">
+				<div class="form-group" id="divFonti">
 					<label for="Fonti" class="control-label">
 	  					Fonti:
 	  				</label>
-	  				<select class="form-control" name="Fonti" id="Fonti" size="5" required multiple>
+	  				<select class="form-control" name="Fonti" id="Fonti" size="5" onchange="removeError('divFonti');" required multiple>
 	  					<?php printFonti($con); ?>
 	 				</select>
 				</div>
@@ -98,11 +102,10 @@
   							<input type="hidden" name="Descrizione" value="' . $_POST["Descrizione"] . '">
   							<input type="hidden" name="Importanza" value="' . $_POST["Importanza"] . '">
   							<input type="hidden" name="Soddisfatto" value="' . $_POST["Soddisfatto"] . '">
-  							<input type="hidden" name="Importanza" value="' . $_POST["Importanza"] . '">
 	  						';
 	  			?>
 	  			<div class="form-group">
-  					<button type="button" class="btn btn-success btn-block btn-lg" onclick="return validate_append();">
+  					<button type="button" class="btn btn-success btn-block btn-lg" onclick="return validateFormFonti();">
   						Inserisci il requisito nel database
   					</button>
   				</div>

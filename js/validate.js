@@ -42,3 +42,11 @@ function setError(id) {
 function removeError(id) {
 	document.getElementById(id).className = "form-group";
 }
+
+function validateFormFonti() {
+	if (document.getElementById("Fonti").selectedIndex == -1) {
+		setError("divFonti");
+		return false;
+	}
+	return true;
+}
