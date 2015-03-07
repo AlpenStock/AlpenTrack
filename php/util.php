@@ -105,4 +105,10 @@
 				</div>";
 	}
 
+	function insertError($con, $error) {
+		mysqli_rollback($con);
+		mysqli_close($con);
+		echo "<p>" . $error . "</p>";
+	}
+
 ?>

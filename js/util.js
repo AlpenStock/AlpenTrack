@@ -17,9 +17,16 @@ function addOption() {
 	document.getElementById("DescrizioneFonte").value = null;
 
 	//Aggiungo input hidden per le fonti
+
 	var form = document.getElementById("formFonti");
-	var element = document.createElement("<input type='hidden' name='" + name +"' value='" + desc + "' />");
+	var field = document.createElement("input");
+	field.setAttribute('type', 'hidden');
+	field.setAttribute('name', name);
+	field.setAttribute('value', desc);
+	form.appendChild(field);
 }
+
+//"<input type='hidden' name='" + name +"' value='" + desc + "' />"
 
 function validateFonti() {
 	var name = document.getElementById("NomeFonte").value;

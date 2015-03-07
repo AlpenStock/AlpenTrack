@@ -36,7 +36,7 @@
 				$NomeReq = "R" . $_POST['Sistema'] . $_POST['Importanza'] . $_POST['Tipo'] . $_POST['CodiceReq'];
 
 			if (empty($_POST['Soddisfatto']))
-				$_POST['Soddisfatto'] = FALSE;
+				$_POST['Soddisfatto'] = "FALSE";
 		?>
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
@@ -63,7 +63,7 @@
 					<label for="Fonti" class="control-label">
 	  					Fonti:
 	  				</label>
-	  				<select class="form-control" name="Fonti" id="Fonti" size="5" onchange="removeError('divFonti');" required multiple>
+	  				<select class="form-control" name="Fonti[]" id="Fonti" size="5" onchange="removeError('divFonti');" required multiple>
 	  					<?php printFonti($con); ?>
 	 				</select>
 				</div>
@@ -77,7 +77,7 @@
   						<label for="NomeFonte" class="control-label">
   							Nome della fonte:
   						</label>
-  						<input type="text" class="form-control" name="NomeFonte" id="NomeFonte" placeholder="es. UC1.2" required onchange="removeError('divNomeFonte')" />
+  						<input type="text" class="form-control" name="NomeFonte" id="NomeFonte" placeholder="es. UC1.2" onchange="removeError('divNomeFonte')" />
   					</div>
   					<div class="form-group">
 	  					<label for="DescrizioneFonte" class="control-label">
@@ -103,9 +103,12 @@
   							<input type="hidden" name="Importanza" value="' . $_POST["Importanza"] . '">
   							<input type="hidden" name="Soddisfatto" value="' . $_POST["Soddisfatto"] . '">
 	  						';
+
+	  				mysqli_close($con);
 	  			?>
 	  			<div class="form-group">
-  					<button type="button" class="btn btn-success btn-block btn-lg" onclick="return validateFormFonti();">
+  					<button type="submit" class="btn btn-success btn-block btn-lg" onclick="return validateFormFonti();" formmethod="post"
+  							formaction="inserimentodb.php">
   						Inserisci il requisito nel database
   					</button>
   				</div>
