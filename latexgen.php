@@ -1,6 +1,6 @@
 <?php
 require ("php/dbconn.php");
-$conn=dbconnect($qry);
+$conn=dbconnect();
 //tabella Requisiti Funzionali (codice, descrizione, fonti)
 $qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='F';";
 $trf = mysqli_query($conn,$qry);
