@@ -118,12 +118,12 @@ mysqli_free_result($tfr);
 mysqli_close($conn);
 
 
-header('Content-Type: application/x-tex');
+header('Content-Type: application/x-tex; charset=utf-8');
 header('Content-Disposition: attachment; filename="tables.tex"');
 print <<<EOF
 \documentclass[12pt, a4paper]{article}
 \usepackage{longtable}
-\\title{Risolutore di puzzle – Parte 1}
+\\title{Tabelle requisiti}
 \author{AlpenTrack generator}
 \begin{document}
 \maketitle
