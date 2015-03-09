@@ -114,7 +114,7 @@
 	function printForm($con, $req) {
 		echo '<form role="form" class="form-horizontal">';
 		printFields($con, $req);
-		printButtons();
+		printButtons($req);
 		echo '</form>';
 	}
 
@@ -317,15 +317,15 @@
 		}
 	}
 
-	function printButtons() {
+	function printButtons($req) {
 		echo '<div class="form-group">
  				<div class="col-md-6">
-      				<button type="submit" class="btn btn-success btn-block btn-lg" onclick="return validate();" formmethod="post" formaction="aggiungiFonte.html">
+      				<button type="submit" class="btn btn-success btn-block btn-lg" onclick="return validate();" formmethod="post" formaction="opCompletata.php?NomeReq=' . $req . '&Op=mod" />
  			        	<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Modifica
 					</button>
 				</div>
 				<div class="col-md-6">
-      				<button type="submit" class="btn btn-danger btn-block btn-lg" onclick="return validate();" formmethod="post" formaction="aggiungiFonte.html">
+      				<button type="submit" class="btn btn-danger btn-block btn-lg" onclick="return validate();" formmethod="post" formaction="opCompletata.php?NomeReq=' . $req . '&Op=delete" />
  			        	<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Elimina
 					</button>
 				</div>
