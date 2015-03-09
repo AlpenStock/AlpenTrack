@@ -9,7 +9,7 @@ CREATE TABLE Requisiti
 	Sistema VARCHAR(1) NOT NULL, /*C S oppure ""*/
 	Importanza VARCHAR(1) NOT NULL, /* 0, 1 o 2 */
 	Tipo VARCHAR(1) NOT NULL, /* F, V, Q o P*/
-	Descrizione VARCHAR(200) NOT NULL,
+	Descrizione VARCHAR(500) NOT NULL,
 	Soddisfatto BOOLEAN DEFAULT FALSE, 
 	PRIMARY KEY (NomeReq)
 ) ENGINE = InnoDB;
@@ -17,7 +17,7 @@ CREATE TABLE Requisiti
 CREATE TABLE Fonti
 (
 	NomeFonte VARCHAR(30) NOT NULL,
-	DescrizioneFonte VARCHAR(100),
+	DescrizioneFonte VARCHAR(500),
 	PRIMARY KEY (NomeFonte)
 ) ENGINE = InnoDB;
 
