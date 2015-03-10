@@ -1,6 +1,6 @@
 <?php
 
-	function dbconnect($query=''){
+	function dbconnect(){
 		$host="localhost";
 		$usr="alpenstock";
 		$pwd="alpenstock";
