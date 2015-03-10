@@ -12,11 +12,19 @@
 		<?php
 			session_unset();
 			
-			if (isset($_POST["psw"]))
-				if ($_POST["psw"] == "alpenstockadmin") {
+			if (isset($_POST["psw"])) {
+				require "php/dbconn.php";
+				$con = dbconnect();
+				$query = "SELECT Password FROM Credenziali WHERE Utente = 'Admin';";
+				$result = mysqli_query($con, $query);
+				$ps = mysqli_fetch_object($result);
+				if ($_POST["psw"] == $ps->Password) {
 					$_SESSION['authenticate'] = TRUE;
+					mysqli_close($con);
 					header("location:index.php");
 				}
+				mysqli_close($con);
+			}
 			//La Password o non è settata o non è corretta
 		?>
 		<section class="center">
