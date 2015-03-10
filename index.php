@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +20,11 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<?php @require("php/util.php");
+	<?php 
+		if (isset($_SESSION['authenticate']) == false)
+			header('location:login.php');
+
+	   @require("php/util.php");
 	   @require("php/dbconn.php");
 	?> 
 	<nav class="navbar navbar-inverse">
@@ -27,8 +35,8 @@
     		<div>
       			<ul class="nav navbar-nav navbar-right">
         			<li class="active"><a>Elenco Requisiti</a></li>
-        			<li><a href="aggiungiRequisito.html">Aggiungi Requisito</a></li>
-        			<li><a href="latex.html">Latex</a></li>
+        			<li><a href="aggiungiRequisito.php">Aggiungi Requisito</a></li>
+        			<li><a href="latex.php">Latex</a></li>
       			</ul>
     		</div>
   		</div>

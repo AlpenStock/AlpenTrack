@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,9 +10,13 @@
 	</head>
 	<body>
 		<?php
+			session_unset();
+			
 			if (isset($_POST["psw"]))
-				if ($_POST["psw"] == "alpenstockadmin")
-					header("location:requisiti.html");
+				if ($_POST["psw"] == "alpenstockadmin") {
+					$_SESSION['authenticate'] = TRUE;
+					header("location:index.php");
+				}
 			//La Password o non è settata o non è corretta
 		?>
 		<section class="center">

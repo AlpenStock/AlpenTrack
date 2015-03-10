@@ -1,4 +1,10 @@
 <?php
+	session_start();
+	if (isset($_SESSION['authenticate']) == false)
+			header('location:login.php');
+?>
+
+<?php
 require ("php/dbconn.php");
 $conn=dbconnect();
 //tabella Requisiti Funzionali (codice, descrizione, fonti)

@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,6 +25,9 @@
 <body>
 	
 	<?php
+		if (isset($_SESSION['authenticate']) == false)
+			header('location:login.php');
+
 		require "php/dbconn.php";
 		require "php/util.php";
 		if (isset($_GET['NomeReq'])) {
@@ -34,13 +41,13 @@
 	<nav class="navbar navbar-inverse">
   		<div class="container-fluid">
     		<div class="navbar-header">
-      			<a class="navbar-brand" href="requisiti.php">AlpenTrack</a>
+      			<a class="navbar-brand" href="index.php">AlpenTrack</a>
     		</div>
     		<div>
       			<ul class="nav navbar-nav navbar-right">
-        			<li class="active"><a href="requisiti.php">Elenco Requisiti</a></li>
-        			<li><a href="aggiungiRequisito.html">Aggiungi Requisito</a></li>
-        			<li><a href="latex.html">Latex</a></li>
+        			<li class="active"><a href="index.php">Elenco Requisiti</a></li>
+        			<li><a href="aggiungiRequisito.php">Aggiungi Requisito</a></li>
+        			<li><a href="latex.php">Latex</a></li>
       			</ul>
     		</div>
   		</div>
