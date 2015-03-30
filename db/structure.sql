@@ -1,15 +1,20 @@
+DROP TABLE IF EXISTS Credenziali;
 DROP TABLE IF EXISTS ReqFonti;
+DROP TABLE IF EXISTS ReqComp;
+DROP TABLE IF EXISTS TestMod;
+DROP TABLE IF EXISTS Moduli;
+DROP TABLE IF EXISTS Componenti;
+DROP TABLE IF EXISTS Tests;
 DROP TABLE IF EXISTS Requisiti;
 DROP TABLE IF EXISTS Fonti;
-DROP TABLE IF EXISTS Credenziali;
 
 CREATE TABLE Requisiti
 (
-	NomeReq VARCHAR(10),/*chiave troppo corta*/
-	CodiceReq VARCHAR(10) NOT NULL, /*Si tratta del codice univoco, es. 1.1, non del nome completo (es. RC0F1.1) che verrà invece creato di volta in volta basandosi sui dati presenti nella tabella */
-	Sistema VARCHAR(1) NOT NULL, /*C S oppure ""*/
-	Importanza VARCHAR(1) NOT NULL, /* 0, 1 o 2 */
-	Tipo VARCHAR(1) NOT NULL, /* F, V, Q o P*/
+	NomeReq VARCHAR(10),
+	CodiceReq VARCHAR(10) NOT NULL, 
+	Sistema VARCHAR(1) NOT NULL, 
+	Importanza VARCHAR(1) NOT NULL, 
+	Tipo VARCHAR(1) NOT NULL, 
 	Descrizione VARCHAR(500) NOT NULL,
 	Soddisfatto BOOLEAN DEFAULT FALSE, 
 	PRIMARY KEY (NomeReq)
@@ -43,6 +48,56 @@ CREATE TABLE Credenziali
 	Utente VARCHAR(20) NOT NULL,
 	Password VARCHAR(30) NOT NULL,
 	PRIMARY KEY (Utente)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE Componenti
+(
+	NomeComp	VARCHAR(42),
+	PRIMARY KEY (NomeComp)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE ReqComp
+(
+	NomeReq VARCHAR(10),
+	NomeComp VARCHAR(42),
+	PRIMARY KEY(NomeReq,NomeComp),
+	FOREIGN KEY (NomeReq) REFERENCES Requisiti(NomeReq) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (NomeComp) REFERENCES Componenti(NomeComp) ON DELETE CASCADE ON UPDATE CASCADE
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE Tests
+(
+	CodTest VARCHAR(10),
+	Descrizione TEXT,
+	Pass BOOLEAN DEFAULT FALSE,
+	PRIMARY KEY(CodTest)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE Moduli
+(
+	NomeMod VARCHAR(42),
+	NomeComp VARCHAR(42),
+	PRIMARY KEY (NomeMod),
+	FOREIGN KEY (NomeComp) REFERENCES Componenti(NomeComp) ON DELETE CASCADE ON UPDATE CASCADE
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE TestMod
+(
+	CodTest VARCHAR(10),
+	NomeMod VARCHAR(42),
+	PRIMARY KEY(CodTest,NomeMod),
+	FOREIGN KEY (CodTest) REFERENCES Tests(CodTest) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (NomeMod) REFERENCES Moduli(NomeMod) ON DELETE CASCADE ON UPDATE CASCADE
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
