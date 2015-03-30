@@ -55,6 +55,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE Componenti
 (
 	NomeComp	VARCHAR(42),
+	DescrizioneComp VARCHAR(500),
 	PRIMARY KEY (NomeComp)
 )
 ENGINE = InnoDB
@@ -74,7 +75,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE Tests
 (
 	CodTest VARCHAR(10),
-	Descrizione TEXT,
+	DescrizioneTest TEXT,
 	Pass BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(CodTest)
 )
