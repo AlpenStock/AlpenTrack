@@ -15,7 +15,7 @@ CREATE TABLE Requisiti
 	Sistema VARCHAR(1) NOT NULL, 
 	Importanza VARCHAR(1) NOT NULL, 
 	Tipo VARCHAR(1) NOT NULL, 
-	Descrizione VARCHAR(500) NOT NULL,
+	Descrizione TEXT NOT NULL,
 	Soddisfatto BOOLEAN DEFAULT FALSE, 
 	PRIMARY KEY (NomeReq)
 )
@@ -25,7 +25,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE Fonti
 (
 	NomeFonte VARCHAR(30) NOT NULL,
-	DescrizioneFonte VARCHAR(500),
+	DescrizioneFonte TEXT,
 	PRIMARY KEY (NomeFonte)
 )
 ENGINE = InnoDB
@@ -55,7 +55,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE Componenti
 (
 	NomeComp	VARCHAR(42),
-	DescrizioneComp VARCHAR(500),
+	DescrizioneComp TEXT,
 	PRIMARY KEY (NomeComp)
 )
 ENGINE = InnoDB
