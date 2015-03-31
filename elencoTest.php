@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Componenti - AlpenStock </title>
+		<title>Test - AlpenStock </title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 		<meta charset="utf-8" />	
@@ -24,7 +24,7 @@
 		if (isset($_SESSION['authenticate']) == false)
 			header('location:login.php');
 
-	   @require("php/util.php");
+	   @require("php/utilTest.php");
 	   @require("php/dbconn.php");
 	?> 
 	<nav class="navbar navbar-inverse">
@@ -43,19 +43,19 @@
 	</nav>
 
 	<div class="container-fluid">  
-		<h1>I componenti</h1>
-		<p>Segue l'elenco dei componenti presenti nel database. Per modificarne o eliminarne uno, cliccare sul relativo simbolo della chiave inglese.</p>
+		<h1>I test</h1>
+		<p>Segue l'elenco dei test presenti nel database. Per modificarne o eliminarne uno, cliccare sul relativo simbolo della chiave inglese.</p>
 		<?php
 			$con = dbconnect();
-			$query = "SELECT NomeComp, DescrizioneComp 
-					  FROM Componenti
-					  ORDER BY NomeComp";
+			$query = "SELECT CodTest, DescrizioneTest, Pass 
+					  FROM Test
+					  ORDER BY CodTest";
 			$results = mysqli_query($con, $query);
 
 			if (empty($results))
-				echo "<p>La ricerca non ha trovato componenti</p>";
+				echo "<p>La ricerca non ha trovato test</p>";
 			else
-				printTableComp($con, $results);
+				printTableTest($con, $results);
 
 			mysqli_close($con);
 		?>
