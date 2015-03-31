@@ -60,21 +60,19 @@
 					<label for="Requisiti" class="control-label">
 	  					Requisiti:
 	  				</label>
-	  				<label class="checkbox-inline">
-     			    	<input type="checkbox" value="" />Option 1
-    				</label>
-    				<label class="checkbox-inline">
-      					<input type="checkbox" value="" />Option 2
-    				</label>
-    				<label class="checkbox-inline">
-      					<input type="checkbox" value="" />Option 3
-    				</label>
+    				<?php printReq($con); ?>
     			</div>
+    			<hr />
+  				<?php
+  					echo '  <input type="hidden" name="NomeComp" value="' . $_POST["NomeComp"] .'">
+  							<input type="hidden" name="DescrizioneComp" value="' . $_POST["DescrizioneComp"] . '">
+	  						';
 
-	  				
+	  				mysqli_close($con);
+	  			?>	
 	  			<div class="form-group">
   					<button type="submit" class="btn btn-success btn-block btn-lg" onclick="return validateFormFonti();" formmethod="post"
-  							formaction="inserimentodb.php">
+  							formaction="inserimentodbComp.php">
   						Inserisci il componente nel database
   					</button>
   				</div>
