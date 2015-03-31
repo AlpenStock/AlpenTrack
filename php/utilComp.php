@@ -56,5 +56,18 @@
 			echo "</tr>";
 		}
 	}
-
+	
+	function printCheckboxComp($res) {
+		$con = dbconnect();
+		$query = "SELECT NomeComp FROM Componenti ORDER BY NomeComp";
+		$results = mysqli_query($con, $query);
+		if (empty($results))
+			echo "<p>Non è stato ancora caricato alcun componente</p>";
+		else {
+			while ($checkComp = mysqli_fetch_array($results)) {
+				echo "<label class=\"checkbox-inline\"><input type=\"checkbox\" value=\"" . $checkComp["NomeComp"] . ""\"/>" . $checkComp["NomeComp"] . "</label>";
+			}
+		}
+		mysqli_close($con);
+	}
 ?>

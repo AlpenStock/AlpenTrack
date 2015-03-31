@@ -31,7 +31,7 @@
 				header('location:login.php');
 
 			
-			require "php/util.php";
+			require "php/utilComp.php";
 			require "php/dbconn.php";
 
 		?>
@@ -58,36 +58,17 @@
 					<label for="Moduli" class="control-label">
 	  					Moduli:
 	  				</label>
-					<?php
-						$con = dbconnect();
-						$query = "SELECT NomeComp
-								  FROM Componenti
-								  ORDER BY NomeComp";
-						$results = mysqli_query($con, $query);
-
-						if (empty($results))
-							echo "<p>Non è stato ancora caricato alcun componente</p>";
-						else
-							printCheckboxComp($results);
-
-						mysqli_close($con);
-					?>
-	  				<label class="checkbox-inline">
-     			    	<input type="checkbox" value="" />Option 1
-    				</label>
-    				<label class="checkbox-inline">
-      					<input type="checkbox" value="" />Option 2
-    				</label>
-    				<label class="checkbox-inline">
-      					<input type="checkbox" value="" />Option 3
-    				</label>
+					<?php printCheckboxComp($results); ?>
     				<!--FARE UNA CHECK PER SELEZIONARE TUTTE LE CLASSI (UTILE PER I TEST DI SISTEMA) -->
     			</div>
-
-	  				
+				<?php
+					echo "<input type=\"hidden\" name=\"CodTest\" value=\"" . $_POST["CodTest"] . "\"/>";
+					echo "<input type=\"hidden\" name=\"DescrizioneTest\" value=\"" . $_POST["DescrizioneTest"] . "\"/>";
+					echo "<input type=\"hidden\" name=\"Pass\" value=\"" . $_POST["Pass"] . "\"/>";
+				?>	  				
 	  			<div class="form-group">
   					<button type="submit" class="btn btn-success btn-block btn-lg" onclick="return validateFormFonti();" formmethod="post"
-  							formaction="">
+  							formaction="inserimentodbTest.php">
   						Inserisci il test nel database
   					</button>
   				</div>
