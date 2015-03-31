@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class DescFonti{
 	public static void main(String[] args){
-		String[] input = Filerw.readContent("AnalisiDeiRequisiti_v1.0.0.tex");
+		String[] input = Filerw.readContent("AnalisiDeiRequisiti_v1.2.0.tex");
 		ArrayList<String> fonti = new ArrayList<String>();
 		for (int i = 0; i<input.length; i++) {
 			if(input[i].length() > 25 && input[i].substring(0,25).equals("\\subsection{Caso d'uso UC")){

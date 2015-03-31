@@ -1,6 +1,6 @@
 %***VARIABILI PROGETTO DA MODIFICARE***
 \def\DOCUMENTO			{Analisi dei requisiti} %Nome del documento, ad esempio: Piano di Progetto
-\def\VERSIONE			{1.0.0} %versione attuale (di base 0.0.1)
+\def\VERSIONE			{1.1.1} %versione attuale (di base 0.0.1)
 \def\NOMEFILE				{AnalisiDeiRequisiti\_v\VERSIONE.pdf} %adesempio:pianoDiProgetto\_v\VERSIONE.pdf (gli _ devono avere l'escape)
 \def\CREAZIONE			{2014-12-12} %data di creazione AAAA-MM-GG
 \def\ULTIMA_MOD			{2015-01-12} %data di ultima modifica AAAA-MM-GG
@@ -34,8 +34,11 @@
 %Esempio:
 % 0.0.2 & Modificato qualcosa & \multicell{Nome Cognome \\ Ruolo} & 2014-12-04 \\\midrule
 % 0.0.1 & Pubblicazione prima bozza & \multicell{Nome Cognome \\ Ruolo} & 2014-12-03 \\
-1.0.2 & Correzioni a seguito della Revisione dei Requisiti & \multicell{Capovilla Nicola \\ Analista} & 2015-03-02  \\\midrule
-1.0.1 & Aggiunti e migliorati casi d'uso & \multicell{Andeliero Alberto \\ Analista} & dataAI \\\midrule
+1.2.0 & Verifica del documento & \multicell{Zilio Matteo \\ Verificatore} & 2015-03-31 \\\midrule
+1.1.1 & Correzione a UCC0, UCC3, UCC3.9, UCC3.10, UCS0, UCS2, UCS8, UCS6 & \multicell{Capovilla Nicola \\ Analista} & 2015-03-03 \\\midrule
+1.1.0 & Verifica del documento & \multicell{Zilio Matteo \\ Verificatore} & 2015-03-03 \\\midrule
+1.0.2 & Correzioni a seguito della Revisione dei Requisiti & \multicell{Andeliero Alberto \\ Analista} & 2015-03-02  \\\midrule
+1.0.1 & Aggiunti e migliorati casi d'uso & \multicell{Andeliero Alberto \\ Analista} &  2015-02-27 \\\midrule
 1.0.0 & Approvazione documento & \multicell{Andeliero Alberto \\ Verificatore} & 2015-01-12  \\\midrule
 0.2.0 & Verifica correzioni & \multicell{Cavallin Alex \\ Verificatore} & 2015-01-09\\\midrule
 0.1.1 & Correzioni in seguito a verifica & \multicell{Bennardo Silvia \\ Analista} & 2015-01-08 \\\midrule
@@ -150,14 +153,14 @@ dove sistema può assumere i seguenti valori:
 e codice rappresenta il codice univoco di ogni caso d'uso, il quale va indicato in forma gerarchica.
 
 \subsection{Attori individuati}
-In questa sezione vengono descritti tutti gli attori individuati suddivisi tra sistema Cloud e sistema Smartwatch per darne una visione generale più chiara e precisa.
+In questa sezione vengono descritti tutti gli attori individuati suddivisi tra sistema Cloud e sistema smartwatch per darne una visione generale più chiara e precisa.
 
 \begin{itemize}
 \item \textbf{Applicazione cloud:}
 \begin{itemize}
 \item \textbf{Utente:} è colui che non ha ancora acceduto all'interno della propria area riservata del sistema;
 \item \textbf{Utente autenticato:} è colui che ha effettuato con successo l'autenticazione alla propria area riservata del sistema;
-\item \textbf{Agenzia meteo:} agenzia che offre un servizio di informazione sulle previsioni meterologiche delle varie località ricercate. Essa, inoltre, fornisce: la temperatura massima e minima, l'intensità e direzione del vento, la probabilità di precipitazioni, la visibilità e l'ora di tramonto del sole;
+\item \textbf{Agenzia meteo:} agenzia che offre un servizio di informazione sulle previsioni meteorologiche delle varie località ricercate. Essa, inoltre, fornisce: la temperatura massima e minima, l'intensità e direzione del vento, la probabilità di precipitazioni, la visibilità e l'ora di tramonto del sole;
 \item \textbf{Facebook$_{G}$:} social network atto a far comunicare persone e condividere contenuti tra loro da qualsiasi luogo del mondo.
 \end{itemize}
 \item \textbf{Applicazione smartwatch:}
@@ -188,7 +191,7 @@ L’utente autenticato può operare all’interno della propria area riservata e
 \item L’utente può autenticarsi presso l’applicazione cloud [UCC2];
 \item L'utente può richiedere il recupero della password [UCC7];
 \item L’utente autenticato può aggiungere o rimuovere uno smartwatch associato al suo account tramite il seriale [UCC6];
-\item L’utente autenticato può decidere come gestire le mappe: può vedere l'elenco completo, ricercare una mappa, selezionare, visualizzare, aggiungere e/o rimuovere mappe dalla lista dei preferiti, avere informazioni riguardo il meteo e la memoria presente all'interno dello smartwatch [UCC3];
+\item L’utente autenticato può decidere come gestire le mappe: può vedere l'elenco completo, ricercare una mappa, chiudere la ricerca, selezionare, visualizzare, aggiungere e/o rimuovere mappe dalla lista dei preferiti, avere informazioni riguardo il meteo e la memoria disponibile all'interno dello smartwatch [UCC3];
 \item L’utente autenticato può gestire le escursioni già effettuate [UCC4];
 \item L'utente autenticato può cambiare la sua password attuale [UCC5];
 \item L'utente autenticato può uscire dalla sua area riservata tramite il logout [UCC8].
@@ -352,7 +355,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \begin{itemize}
 \item \textbf{Attori principali:} Utente autenticato;
 \item \textbf{Attori secondari:} Agenzia meteo;
-\item \textbf{Scopo e descrizione:} l'utente autenticato può visualizzare l'elenco completo delle mappe, avviare la ricerca di una mappa, selezionarne una e visualizzarla, aggiungere o rimuovere una mappa dalla lista di quelle preferite. Inoltre è possibile la visualizzazione delle informazioni meteo relative a una mappa;
+\item \textbf{Scopo e descrizione:} l'utente autenticato può visualizzare l'elenco completo delle mappe, avviare la ricerca di una mappa, selezionarne una e visualizzarla, aggiungere o rimuovere una mappa dalla lista di quelle preferite. Inoltre è possibile la visualizzazione delle informazioni meteo relative a una mappa e lo stato della memoria disponibile dello smartwatch;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a queste operazioni;
 \item \textbf{Flusso principale degli eventi:}
 \begin{enumerate}
@@ -363,8 +366,9 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \item L'utente autenticato può aggiungere una mappa alla lista di quelle preferite [UCC3.5];
 \item L'utente autenticato può eliminare una mappa dalla lista di quelle preferite [UCC3.7];
 \item L'utente autenticato può visualizzare l'elenco delle mappe preferite [UCC3.6];
-\item L'utente autenticato può visualizzare le informazioni meteo relative a una mappa [UCC3.8].
-\item L'utente autenticato può visualizzare la memoria occupata e quella disponibile dello smartwatch [UCC3.9].
+\item L'utente autenticato può visualizzare le informazioni meteo relative a una mappa [UCC3.8];
+\item L'utente autenticato può visualizzare la memoria disponibile dello smartwatch [UCC3.9];
+\item L'utente autenticato può chiudere la ricerca e tornare all'elenco completo delle mappe [UCC3.10].
 \end{enumerate}
 \item \textbf{Post-condizione:} il sistema ha gestito le mappe secondo le preferenze dell'utente autenticato.
 \end{itemize}
@@ -473,33 +477,42 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 \begin{itemize}
 \item \textbf{Attori principali:} Utente autenticato;
 \item \textbf{Attori secondari:} Agenzia meteo;
-\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza il meteo tramite le informazioni fornite dall'agenzia meteo in riferimento alla località della mappa desiderata. Le informazioni meteo riguardano: la condizione meteorologica, la temperatura massima e minima, l'intensità e direzione del vento, la probabilità di precipitazioni, la visibilità e l'ora di tramonto del sole;
+\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza il meteo tramite le informazioni fornite dall'agenzia meteo in riferimento alla località della mappa desiderata. Le informazioni meteo riguardano: la condizione meteorologica, la temperatura massima e minima, l'intensità e direzione del vento, la probabilità di precipitazioni e l'ora di tramonto del sole;
 \item \textbf{Pre-condizione:} il sistema ha selezionato una mappa;
 \item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza il meteo relativo alla località della mappa desiderata [UCC3.8];
 \item \textbf{Post-condizione:} il sistema ha mostrato il meteo relativo alla mappa selezionata. 
 \end{itemize}
 
-\subsection{Caso d'uso UCC3.9: Visualizzazione della memoria disponibile ed occupata dello smartwatch}
+\subsection{Caso d'uso UCC3.9: Visualizzazione della memoria disponibile dello smartwatch}
 \begin{itemize}
 \item \textbf{Attori principali:} Utente autenticato;
-\item \textbf{Scopo e descrizione:} l'utente autenticato può visualizzare la memoria disponibile e quella occupata dello smartwatch per verificare la quantità di dati presenti e lo spazio fruibile per la memorizzazione degli stessi;
-\item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
-\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza lo stato di occupazione della memoria dello smartwatch [UCC3.9];
-\item \textbf{Post-condizione:} il sistema ha mostrato la memoria disponibile e quella occupata all'interno dello smartwatch. 
+\item \textbf{Scopo e descrizione:} l'utente autenticato può visualizzare la memoria disponibile dello smartwatch per verificare la quantità di spazio fruibile per la memorizzazione di dati;
+\item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato l'area destinata a questa operazione. Il dispositivo smartwatch è in carica e connesso ad una rete WiFi ed è avvenuto l'aggiornamento dei dati tra smartwatch e cloud;
+\item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza lo stato di memoria disponibile dello smartwatch [UCC3.9];
+\item \textbf{Post-condizione:} il sistema ha mostrato la memoria disponibile all'interno dello smartwatch. 
 \end{itemize}
 
-\subsection{Caso d'uso UCC4: Gestione dei percorsi effettuati}
+\subsection{Caso d'uso UCC3.10: Chiusura ricerca mappa}
+\begin{itemize}
+\item \textbf{Attori principali:} Utente autenticato;
+\item \textbf{Scopo e descrizione:} l'utente autenticato può chiudere la ricerca e tornare alla lista completa delle mappe;
+\item \textbf{Pre-condizione:} l'utente ha avviato una ricerca e ha visualizzato il risultato di tale ricerca. Il sistema presenta all'utente lo spazio per poter chiudere la ricerca e tornare alla lista completa delle mappe;
+\item \textbf{Flusso principale degli eventi:} l'utente chiude la ricerca [UCC3.10];
+\item \textbf{Post-condizione:} il sistema visualizza l'elenco completo delle mappe [UCC3.1]. 
+\end{itemize}
+
+\subsection{Caso d'uso UCC4: Gestione delle escursioni effettuate}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.50]{UseCase/Cloud/UCC4}
-\caption{UCC4: Gestione dei percorsi effettuati}
+\caption{UCC4: Gestione delle escursioni effettuate}
 \end{figure}
 
 \begin{itemize}
 \item \textbf{Attori principali:} Utente autenticato;
 \item \textbf{Attori secondari:} Facebook$_{G}$;
-\item \textbf{Scopo e descrizione:} l'utente autenticato può visualizzare la lista di tutte le escursion effettuate identificate dalla data e dalla località in cui si è svolta, selezionarne una, visualizzare tutti i percors dell'escursione selezionata e condividerla su Facebook$_{G}$;
+\item \textbf{Scopo e descrizione:} l'utente autenticato può visualizzare la lista di tutte le escursioni effettuate identificate dalla data e dalla località in cui si è svolta, selezionarne una, visualizzare tutti i percorsi dell'escursione selezionata e condividerla su Facebook$_{G}$;
 \item \textbf{Pre-condizione:} il sistema presenta all'utente autenticato lo spazio destinato a questa operazione;
 \item \textbf{Flusso principale degli eventi:}
 \begin{enumerate}
@@ -535,7 +548,7 @@ In tal caso il sistema ritorna allo stato precedente l'inserimento dei dati e vi
 
 \begin{itemize}
 \item \textbf{Attori:} Utente autenticato;
-\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza tutti i percorsi effettuati dell'escursione selezionata. In particolare, viene mostrata la mappa della località dell'escursione con i vari percorsi praticati e per ciascuno di essi vengono mostrati: data, ora di partenza e di arrivo, coordinate di partenza e di arrivo, chilometri percorsi, tempo impegato ed i POI visitati;
+\item \textbf{Scopo e descrizione:} l'utente autenticato visualizza tutti i percorsi effettuati dell'escursione selezionata. In particolare, viene mostrata la mappa della località dell'escursione con i vari percorsi praticati e per ciascuno di essi vengono mostrati: data, ora di partenza e di arrivo, coordinate di partenza e di arrivo, chilometri percorsi, tempo impiegato e tutti i POI attraversati lungo il tragitto;
 \item \textbf{Pre-condizione:} il sistema ha selezionato un'escursione dalla lista;
 \item \textbf{Flusso principale degli eventi:} l'utente autenticato visualizza l'escursione desiderata e i suoi dettagli [UCC4.3];
 \item \textbf{Post-condizione:} il sistema ha mostrato l'escursione selezionata e i relativi dettagli.
@@ -786,6 +799,19 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item L'utente in viaggio può visualizzare la navigazione [UCS4];
 \item L'utente in viaggio può visualizzare le informazioni di viaggio [UCS5];
 \end{enumerate}
+\item \textbf{Scenario alternativo:} possono verificarsi uno o più di questi scenari:
+\begin{itemize}
+\item Nessun POI disponibile;
+\item Il meteo non è stato aggiornato;
+\item La memoria non è sufficiente per completare la sincronizzazione.
+\end{itemize}
+In tal caso il sistema mostra un messaggio d'errore;
+\item \textbf{Estensione:} 
+\begin{itemize} 
+\item l'utente visualizza un messaggio che indica la mancanza di POI disponibili [UCS10];
+\item l'utente visualizza un avviso di mancato aggiornamento del meteo [UCS8];
+\item l'utente visualizza un avviso di memoria disponibile insufficiente [UCS9];
+\end{itemize}
 \item \textbf{Post-condizione:} il sistema ha recuperato le informazioni per effettuare le operazioni desiderate dall'utente.
 \end{itemize}
 
@@ -799,14 +825,16 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 
 \begin{itemize}
 \item \textbf{Attori:} Utente;
-\item \textbf{Scopo e Descrizione:} l'utente può selezionare dall'elenco di POI quello che vuole raggiungere tra: rifugi, ristori, luoghi di interesse naturalistico (punti panoramici, cascate, ecc.) L'unico elenco disponibile all'utente è quello relativo alla mappa della posizione GPS in cui si trova; 
-\item \textbf{Pre-condizione:} nel sistema è stata caricata almeno una mappa ed è presente quella che delimita l'area in cui si trova l'utente.
+\item \textbf{Scopo e Descrizione:} l'utente può selezionare dall'elenco di POI quello che vuole raggiungere tra: rifugi, ristori, luoghi di interesse naturalistico (punti panoramici, cascate, ecc.) L'unico elenco disponibile all'utente è quello relativo al percorso della mappa della posizione GPS in cui si trova; 
+\item \textbf{Pre-condizione:} nel sistema è stata caricata almeno una mappa, è presente quella che delimita l'area in cui si trova l'utente e l'utente si trova in uno dei percorsi di tale mappa.
 \item \textbf{Flusso principale degli eventi:}
 \begin{enumerate}
 \item L'utente può visualizzare l'elenco dei POI [UCS1.1];
 \item L'utente può selezionare un POI dall'elenco [UCS1.2].
 \end{enumerate}
-\item \textbf{Post-condizione:} il sistema ha un POI di destinazione impostato.
+\item \textbf{Scenario alternativo:} il dispositivo non riesce a rilevare la mappa a causa della mancanza di segnale GPS o l'utente non è all'interno di un percorso di tale mappa;
+\item \textbf{Estensione:} l'utente visualizza un messaggio che indica la mancanza di POI disponibili [UCS10];
+\item \textbf{Post-condizione:} il sistema ha un POI di destinazione impostato e viene avviata la navigazione.
 \end{itemize}
 
 
@@ -814,18 +842,18 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \begin{itemize}
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e Descrizione:} l’utente visualizza l’elenco dei POI tra cui potrà scegliere relativo alla mappa della posizione GPS in cui si trova;
-\item \textbf{Pre-condizione:} nel sistema è stata caricata almeno una mappa ed è presente quella che delimita l'area in cui si trova l'utente;
-\item \textbf{Flusso principale degli eventi:} l'utene visualizza l'elenco dei POI tra cui potrà scegliere [UCS1.1];
-\item \textbf{Post-condizione:} il sistema mostra tutti i POI disponibili di quella mappa. 
+\item \textbf{Pre-condizione:} nel sistema è stata caricata almeno una mappa, è presente quella che delimita l'area in cui si trova l'utente e lo stesso si trova su uno dei percorsi di tale mappa;
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza l'elenco dei POI tra cui potrà scegliere [UCS1.1];
+\item \textbf{Post-condizione:} il sistema mostra tutti i POI disponibili di quel percorso della mappa. 
 \end{itemize}
 
 \subsection{Caso d'uso UCS1.2: Selezione del POI}
 \begin{itemize}
 \item \textbf{Attori:} Utente;
 \item \textbf{Scopo e Descrizione:} l'utente seleziona uno tra i POI disponibili;
-\item \textbf{Pre-condizione:} il sistema ha mostrato tutti i POI disponibili della mappa in cui si trova con la posizione GPS;
+\item \textbf{Pre-condizione:} il sistema ha mostrato tutti i POI disponibili del percorso della mappa in cui si trova con la posizione GPS;
 \item \textbf{Flusso principale degli eventi:} l'utente seleziona il POI che desidera tra quelli possibili [UCS1.2]; 
-\item \textbf{Post-condizione:} il sistema ha selezionato il POI desiderato dall'utente.
+\item \textbf{Post-condizione:} il sistema ha selezionato il POI desiderato dall'utente e viene avviata la navigazione.
 \end{itemize}
 
 \subsection{Caso d'uso UCS2: Visualizzazione delle informazioni meteo}
@@ -835,17 +863,8 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Pre-condizione:} il sistema ha selezionato la mappa in base alla posizione GPS;
 \item \textbf{Flusso principale degli eventi:} l'utente visualizza le informazioni meteo della mappa individuata tramite la posizione GPS dello smartwatch [UCS2];
 \item \textbf{Scenario alternativo:} il meteo della mappa non è aggiornato, quindi il sistema segnala all'utente un avviso di mancato aggiornamento;
-\item \textbf{Estensione:} l'utente visualizza un avviso di mancato aggiornamento del meteo [UCS2.1];
+\item \textbf{Estensione:} l'utente visualizza un avviso di mancato aggiornamento del meteo [UCS8];
 \item \textbf{Post-condizione:} il sistema mostra le informazioni meteo relative alla mappa in base alla posizione GPS dell'utente.
-\end{itemize}
-
-\subsection{Caso d'uso UCS2.1: Visualizzazione avviso meteo non aggiornato}
-\begin{itemize}
-\item \textbf{Attori:} Utente;
-\item \textbf{Scopo e Descrizione:} l'utente visualizza un avviso in quanto il meteo risulta non aggiornato;
-\item \textbf{Pre-condizione:} la mappa selezionata dal sistema non presenta il meteo aggiornato; 
-\item \textbf{Flusso principale degli eventi:} l'utente visualizza un messaggio che avvisa che il meteo non è aggiornato [UCS2.1];
-\item \textbf{Post-condizione:} il sistema mostra all'utente un avviso di meteo non aggiornato.
 \end{itemize}
 
 \subsection{Caso d'uso UCS3: Visualizzazione delle informazioni di soccorso}
@@ -911,7 +930,7 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \begin{itemize}
 \item \textbf{Attori:} Utente in viaggio;
 \item \textbf{Scopo e Descrizione:} l'utente in viaggio può terminare la navigazione;
-\item \textbf{Pre-condizione:} il sistema ha già avviato la navigazione;
+\item \textbf{Pre-condizione:} il sistema ha già avviato oppure sospeso la navigazione;
 \item \textbf{Flusso principale degli eventi:} l'utente in viaggio termina la navigazione avviata [UCS4.4];
 \item \textbf{Post-condizione:} il sistema ha terminato la navigazione.
 \end{itemize}
@@ -977,8 +996,10 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Attori principali:} Utente;
 \item \textbf{Attori secondari:} Cloud;
 \item \textbf{Scopo e Descrizione:} l'utente sincronizza i dati con il cloud: in download aggiorna mappe e meteo se necessario e in upload invia al cloud i percorsi effettuati e lo stato di occupazione della memoria;
-\item \textbf{Pre-condizione:} è disponibile una connessione dati ed il seriale dello smartwatch è già stato associato all'account dell'utente;
+\item \textbf{Pre-condizione:} è disponibile una connessione dati WiFi, lo smartwatch è collegato al caricatore e il seriale dello smartwatch è già stato associato all'account dell'utente;
 \item \textbf{Flusso principale degli eventi:} l'utente sincronizza i vari dati con il cloud [UCS6];
+\item \textbf{Scenario alternativo:} la memoria disponibile del dispositivo non è sufficiente per poter memorizzare tutti i dati ricevuti dal cloud;
+\item \textbf{Estensione:} l'utente visualizza un avviso di memoria disponibile insufficiente [UCS9];
 \item \textbf{Post-condizione:} il sistema ha aggiornato mappe e meteo ed ha inviato al cloud i percorsi eventualmente effettuati e lo stato della memoria.
 \end{itemize}
 
@@ -990,6 +1011,34 @@ In tutti i casi il sistema ritorna allo stato precendente l'inserimento dei dati
 \item \textbf{Flusso principale degli eventi:} l'utente visualizza il suo battito cardiaco in quel momento [UCS7];
 \item \textbf{Post-condizione:} il sistema mostra il battito cardiaco dell'utente.
 \end{itemize}
+
+\subsection{Caso d'uso UCS8: Visualizzazione avviso meteo non aggiornato}
+\begin{itemize}
+\item \textbf{Attori:} Utente;
+\item \textbf{Scopo e Descrizione:} l'utente visualizza un avviso in quanto il meteo risulta non aggiornato;
+\item \textbf{Pre-condizione:} la mappa selezionata dal sistema non presenta il meteo aggiornato; 
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza un messaggio che avvisa che il meteo non è aggiornato [UCS8];
+\item \textbf{Post-condizione:} il sistema mostra all'utente un avviso di meteo non aggiornato.
+\end{itemize}
+
+\subsection{Caso d'uso UCS9: Visualizzazione messaggio d'errore}
+\begin{itemize}
+\item \textbf{Attori:} Utente;
+\item \textbf{Scopo e Descrizione:} l'utente visualizza un avviso in quanto la memoria disponibile non è sufficiente per memorizzare tutti i dati ricevuti dal cloud;
+\item \textbf{Pre-condizione:} il dispositivo è in fase di sincronizzazione e la memoria disponibile non è sufficiente per ospitare tutti i file che sta sincronizzando; 
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza un messaggio d'errore che lo avverte che la memoria è insufficiente [UCS9];
+\item \textbf{Post-condizione:} il sistema mostra all'utente un messaggio d'errore di memoria insufficiente.
+\end{itemize}
+
+\subsection{Caso d'uso UCS10: Visualizzazione avviso nessun POI}
+\begin{itemize}
+\item \textbf{Attori:} Utente;
+\item \textbf{Scopo e Descrizione:} l'utente visualizza un messaggio di errore. Tale messaggio può essere derivato dalla mancata connessione GPS oppure l'utente non si trova in alcun percorso di hiking, di conseguenza non ha alcun POI disponibile;
+\item \textbf{Pre-condizione:} l'utente si trovi all'infuori di un percorso di hiking oppure manca il segnale GPS e il sistema non riesce a rilevare alcuna mappa; 
+\item \textbf{Flusso principale degli eventi:} l'utente visualizza un messaggio d'errore che lo avverte che non è disponibile alcun POI [UCS10];
+\item \textbf{Post-condizione:} il sistema mostra all'utente un avviso che nessun POI è disponibile.
+\end{itemize}
+
 
 \clearpage
 \section{Requisiti}
@@ -1047,19 +1096,19 @@ RC0F4.1		& Per la ricerca di una mappa l'utente deve poter inserire una chiave d
 RC0F4.1.1	& Le mappe possono essere ricercate utilizzando il nome della mappa & Interno UCC3.2.1 \\\hline
 RC0F4.2		& L'utente deve poter avviare una ricerca dopo aver inserito una chiave di ricerca & Interno UCC3.2.2 \\\hline
 RC0F5 		& Deve essere presente un elenco delle mappe preferite & Interno UCC3 \\\hline
-RC0F5.1 	& L'utente deve poter visualizzare le mappe preferite & Interno UCC3.4 \\\hline
+RC0F5.1 	& L'utente deve poter visualizzare le mappe preferite & Interno UCC3.6 \\\hline
 RC0F5.1.1	& Ogni mappa preferita ha come nome il nome della località principale contenuta & Interno UCC3.6 \\\hline
-RC0F5.2 	& L'utente deve poter aggiungere una o più mappe alle mappe preferite & Interno UCC3.3 \\\hline
-RC0F5.3		& L'utente deve poter rimuovere una o più mappe dalle mappe preferite & Interno UCC3.5 \\\hline
-RC2F6 		& L'utente deve poter visualizzare le informazioni meteo in riferimento alla mappa desiderata & Interno UCC3.6 \\\hline
-RC2F6.1		& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni, la visibilità e l'orario di tramonto del sole & Interno UCC3.8 \\\hline
-RC0F7 		& Deve essere presente un elenco dei percorsi già effettuati & Interno UCC4 \\\hline
-RC0F7.1		& L'utente deve poter visualizzare l'elenco dei percorsi già effettuati & Interno UCC4.1 \\\hline
-RC0F7.2		& L'utente deve poter selezionare un percorso già effettuato & Interno UCC4.2 \\\hline
-RC0F7.3		& L'utente deve poter visualizzare i dettagli sul percorso già effettuato e precedentemente selezionato & Interno UCC4.3 \\\hline
+RC0F5.2 	& L'utente deve poter aggiungere una o più mappe alle mappe preferite & Interno UCC3.5 \\\hline
+RC0F5.3		& L'utente deve poter rimuovere una o più mappe dalle mappe preferite & Interno UCC3.7 \\\hline
+RC2F6 		& L'utente deve poter visualizzare le informazioni meteo in riferimento alla mappa desiderata & Interno UCC3.8 \\\hline
+RC2F6.1		& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario di tramonto del sole & Interno UCC3.8 \\\hline
+RC0F7 		& Deve essere presente un elenco delle escursioni già effettuate & Interno UCC4 \\\hline
+RC0F7.1		& L'utente deve poter visualizzare l'elenco delle escursioni già effettuate & Interno UCC4.1 \\\hline
+RC0F7.2		& L'utente deve poter selezionare un'escursione già effettuata & Interno UCC4.2 \\\hline
+RC0F7.3		& L'utente deve poter visualizzare tutti i percorsi dell'escursione precedentemente selezionata & Interno UCC4.3 \\\hline
 RC0F7.3.1	& Le informazioni riguardanti un percorso effettuato sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato e POI visitati durante l'esperienza$_{G}$ & Interno UCC4.3 \\\hline
-RC2F8		& L'utente deve poter condividere i dettagli del percorso già effettuato e precedentemente selezionato su Facebook$_{G}$ & Interno UCC4.4 \\\hline
-RC2F8.1		& Le informazioni che possono essere condivise nel social network sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato, POI visitati durante l'esperienza$_{G}$ e mappa del percorso effettuato & Interno UCC4.4 \\\hline
+RC2F8		& L'utente deve poter condividere l'escursione precedentemente selezionata su Facebook$_{G}$ & Interno UCC4.4 \\\hline
+RC2F8.1		& Le informazioni che possono essere condivise nel social network sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato, POI visitati durante l'esperienza$_{G}$ e mappa del escursione effettuato & Interno UCC4.4 \\\hline
 RC0F9		& L'applicazione cloud deve offrire la possibilità agli utenti di cambiare la propria password & Interno UCC5 \\\hline
 RC0F9.1		& Nella procedura di cambio password l'utente deve inserire la vecchia password & Interno UCC5.1 \\\hline
 RC0F9.2		& Nella procedura di cambio password l'utente deve inserire la nuova password & Interno UCC5.2 \\\hline
@@ -1074,13 +1123,13 @@ RC0F11.1	& Il recupero password deve avvenire tramite l'inserimento di una email
 RC0F11.1.1	& L'utente deve poter confermare i dati inseriti durante la procedura di recupero password & Interno UCC7.2 \\\hline
 RC0F11.2	& L'applicazione cloud deve inviare una email contenente la nuova password & Interno UCC7 \\\hline
 RC0F12		& L'utente deve poter uscire dall'applicativo cloud & Interno UCC8 \\\hline
-RS0F13		& L'utente deve poter scegliere un POI fra quelli della mappa sulla quale si trova & Capitolato UCS1\\\hline
-RS0F13.1	& L'utente deve poter visualizzare l'elenco dei POI & Interno UCS1.1 \\\hline
+RS0F13		& L'utente deve poter scegliere un POI fra quelli del percorso in cui si trova & Capitolato UCS1\\\hline
+RS0F13.1	& L'utente deve poter visualizzare l'elenco dei POI del percorso in cui si trova & Interno UCS1.1 \\\hline
 RS0F13.1.1	& L'elenco dei POI sarà costituito da: rifugi, ristori, luoghi di interesse naturalistico (punti panoramici, cascate, ecc.) & Interno UCS1 \\\hline
-RS0F13.2	& L'utente deve poter selezionare un POI dall'elenco & Interno UCS1.2 \\\hline
+RS0F13.2	& L'utente deve poter selezionare un POI dall'elenco visualizzato & Interno UCS1.2 \\\hline
 RS2F14		& L'utente deve poter visualizzare le informazioni meteo della mappa in uso & Capitolato UCS2 \\\hline
-RS2F14.1	& L'utente deve poter visualizzare un avviso che il meteo risulta non aggiornato & Interno UCS2.1 \\\hline
-RS2F14.2	& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni, la visibilità e l'orario del tramonto del sole & Interno UCS2 \\\hline
+RS2F14.1	& L'utente deve poter visualizzare un avviso che il meteo risulta non aggiornato & Interno UCS8 \\\hline
+RS2F14.2	& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario del tramonto del sole & Interno UCS2 \\\hline
 RS0F15		& L'utente deve poter visualizzare le informazioni di soccorso & Capitolato UCS3 \\\hline
 RS0F15.1	& Le informazioni di soccorso comprendono il numero del soccorso alpino, la posizione geografica in cui si trova l'utente e le indicazioni per chiedere soccorso nel caso non si disponga della rete telefonica (segnali acustici e luminosi) & Interno UCS3 \\\hline
 RS0F16		& L'applicazione smartwatch fornisce un sistema di navigazione, fornendo indicazioni sulla posizione dell’utente, km percorsi e distanza rimanente & Capitolato UCS4 \\\hline
@@ -1088,7 +1137,7 @@ RS0F17		& L'utente deve poter operare col sistema di navigazione solo dopo aver 
 RS0F18		& L'utente deve poter avviare la navigazione & Interno UCS4.1 \\\hline
 RS0F18.1	& L'utente deve poter sospendere la navigazione già avviata & Interno UCS4.2 \\\hline
 RS0F18.2	& L'utente deve poter riprendere la navigazione precedentemente sospesa & Interno UCS4.3 \\\hline
-RS0F18.3	& L'utente deve poter terminare la navigazione precedentemente avviata & Interno UCS4.4 \\\hline
+RS0F18.3	& L'utente deve poter terminare la navigazione precedentemente avviata o sospesa & Interno UCS4.4 \\\hline
 RS0F19		& L'utente deve poter visualizzare le informazioni di viaggio & Capitolato UCS5 \\\hline
 RS0F19.1	& L'utente deve poter visualizzare le coordinate geografiche della posizione in cui si trova & Interno UCS5.1 \\\hline
 RS0F19.2	& L'utente deve poter visualizzare l'altitudine a cui si trova & Interno UCS5.2 \\\hline
@@ -1098,13 +1147,21 @@ RS0F20		& L'utente deve poter avviare la sincronizzazione tra smartwatch e cloud
 RS0F20.1	& L'applicazione smartwatch deve poter scaricare dal cloud le mappe preferite & Interno UCS6 \\\hline
 RS2F20.2	& L'applicazione smartwatch deve poter scaricare dal cloud le informazioni meteo riguardanti le mappe preferite & Interno UCS6 \\\hline
 RS0F20.3	& L'applicazione smartwatch deve poter caricare sul cloud le informazioni sui percorsi effettuati & Interno UCS6 \\\hline
+RS0F20.4		& L'applicazione smartwatch deve poter inviare lo stato di occupazione della sua memoria al cloud & Interno UCS6 \\\hline
 RS2F21		& L'utente deve poter visualizzare il proprio battito cardiaco & Capitolato UCS7 \\\hline
 RS2F22		& L'applicazione smartwatch deve poter comunicare con il dispositivo per il rilevamento dei battiti cardiaci & Interno UCS7 \\\hline
-RS0F23		& Il sistema registra in background il percorso eeffettuato, tracciando il segnale gps, il tempo trascorso e i battiti cardiaci se è presente la fascia cardiaca & Interno \\\hline
+RS0F23		& Il sistema registra in background il percorso effettuato, tracciando il segnale gps, il tempo trascorso e i battiti cardiaci se è presente la fascia cardiaca & Interno \\\hline
+RC0F24		& L'utente deve poter chiudere la ricerca e tornare alla lista completa delle mappe & Interno UCC3.10 \\\hline
+RS2F25	& L'utente deve poter visualizzare un messaggio che indichi che il meteo non è aggiornato & Interno UCS8 \\\hline
+RS2F26	& L'utente deve poter visualizzare un avviso che lo avverta che non è disponibile alcun POI per mancanza di connessione GPS o perchè non si trova in un percorso di hiking della mappa selezionata  & Interno UCS10 \\\hline
 RC0F27		& Il sistema garantisce la persistenza della scelta effettuata dall'utente riguardo le mappe preferite & Interno \\\hline
 RC0F28		& Il sistema è in grado di gestire gli errori riguardanti l'inserimento dei dati da parte dell'utente riportando il sistema ad uno stato consistente & Interno \\\hline
 RC0F29		& Il sistema garantisce la persistenza delle informazioni registrate dallo smartwatch & Interno \\\hline
 RC0F30		& Il sistema garantisce che un seriale possa essere univocamente associato ad una sola utenza & Interno \\\hline
+RC0F31		& L'utente deve poter selezionare una mappa dall'elenco completo delle mappe o dal risultato di ricerca di una mappa & Interno UCC3.3 \\\hline
+RC0F32		& L'utente deve poter visualizzare la mappa precedentemente selezionata & Interno UCC3.4 \\\hline
+RC0F33		& L'utente deve poter visualizzare la memoria disponibile del dispositivo smartwatch & Interno UCC3.9 \\\hline
+RC0F46		& L'utente deve poter visualizzare un messaggio che indichi che la memoria è insufficiente per scaricare tutti i dati da sincronizzare & Interno UCS9 \\\hline
 \caption{Requisiti funzionali}
 \end{longtable}
 \egroup
@@ -1116,8 +1173,8 @@ RC0F30		& Il sistema garantisce che un seriale possa essere univocamente associa
 \def\arraystretch{1.8}
 \begin{longtable}{|l|p{7cm}|p{1.7cm}|} \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonti} \\\hline
-R0Q24		& Devono essere prodotti e rilasciati manuali d’uso ed ogni altra documentazione tecnica necessaria per l’utilizzo del prodotto & Capitolato \\\hline
-R0Q25		& Il progetto verrà sviluppato seguendo il documento \textit{NormeDiProgetto\_v1.0.0} & Interno \\\hline
+R0Q34		& Devono essere prodotti e rilasciati manuali d’uso ed ogni altra documentazione tecnica necessaria per l’utilizzo del prodotto & Capitolato \\\hline
+R0Q35		& Il progetto verrà sviluppato seguendo il documento \textit{NormeDiProgetto\_v2.0.0} & Interno \\\hline
 \caption{Requisiti di qualità}
 \end{longtable}
 \egroup
@@ -1129,14 +1186,16 @@ R0Q25		& Il progetto verrà sviluppato seguendo il documento \textit{NormeDiProg
 \def\arraystretch{1.8}
 \begin{longtable}{|l|p{7cm}|p{1.7cm}|} \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonti} \\\hline
-RC0V31		& L'applicazione cloud deve essere sviluppata usando il framework Spring & Capitolato \\\hline
-RS0V32		& L'applicazione per smartwatch deve essere sviluppata per Android 4.4.2 & Capitolato \\\hline
-RS0V33		& L'applicazione per smartwatch è sviluppata specificamente per WearIT & Capitolato \\\hline
-R0V34		& La comunicazione fra smartwatch e cloud deve avvenire nel formato JSON & Capitolato \\\hline
-RC1V36		& L'applicazione cloud deve essere sviluppata usando HTML5$_{G}$ e CSS3$_{G}$ & Interno \\\hline
-RS1V37		& L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di esperienza$_{G}$ & Verbale\_3 \\\hline
-RC0V38		& L'applicazione colud deve disporre di un'interfaccia in lingua italiana & Interno \\\hline
-RS0V39		& L'applicazione per smartwatch deve disporre di un'interfaccia in lingua italiana & Interno \\\hline
+RC0V36		& L'applicazione cloud deve essere sviluppata usando il framework Spring versione 4.1.5 & Capitolato \\\hline
+RS0V37		& L'applicazione per smartwatch deve essere sviluppata per Android 4.4.2 & Capitolato \\\hline
+RS0V38		& L'applicazione per smartwatch è sviluppata specificamente per WearIT & Capitolato \\\hline
+R0V39		& La comunicazione fra smartwatch e cloud deve avvenire nel formato JSON & Capitolato \\\hline
+RC1V40		& L'applicazione cloud deve essere sviluppata usando HTML5$_{G}$ e CSS3$_{G}$ & Interno \\\hline
+RS1V41		& L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di esperienza$_{G}$ & Verbale\_3 \\\hline
+RC0V42		& L'applicazione cloud deve disporre di un'interfaccia in lingua italiana & Interno \\\hline
+RS0V43		& L'applicazione per smartwatch deve disporre di un'interfaccia in lingua italiana & Interno \\\hline
+RC0V44		& L'applicazione cloud deve funzionare con versioni 41.x o superiori di Chrome & Interno \\\hline
+RC0V45		& L'applicazione cloud deve funzionare con versioni 36.x o superiori di Firefox & Interno \\\hline
 \caption{Requisiti di vincolo}
 \end{longtable}
 \egroup
@@ -1162,39 +1221,48 @@ RC0F2.2		& Interno \newline UCC2.2 \\\hline
 RC0F2.3		& Interno \newline UCC2.3 \\\hline
 RC0F3		& Interno \newline UCC3 \\\hline
 RC0F3.1		& Interno \newline UCC3.1 \\\hline
+RC0F3.1.1	& Interno \newline UCC3.1 \\\hline
 RC0F4		& Interno \newline UCC3.2 \\\hline
 RC0F4.1		& Interno \newline UCC3.2.1 \\\hline
+RC0F4.1.1	& Interno \newline UCC3.2.1 \\\hline
 RC0F4.2		& Interno \newline UCC3.2.2 \\\hline
 RC0F5		& Interno \newline UCC3 \\\hline
-RC0F5.1		& Interno \newline UCC3.4 \\\hline
-RC0F5.2		& Interno \newline UCC3.3 \\\hline
-RC0F5.3		& Interno \newline UCC3.5 \\\hline
-RC2F6		& Interno \newline UCC3.6 \\\hline
+RC0F5.1		& Interno \newline UCC3.6 \\\hline
+RC0F5.1.1	& Interno \newline UCC3.6 \\\hline
+RC0F5.2		& Interno \newline UCC3.5 \\\hline
+RC0F5.3		& Interno \newline UCC3.7 \\\hline
+RC2F6		& Interno \newline UCC3.8 \\\hline
+RC2F6.1		& Interno \newline UCC3.8 \\\hline
 RC0F7		& Interno \newline UCC4 \\\hline
 RC0F7.1		& Interno \newline UCC4.1 \\\hline
 RC0F7.2		& Interno \newline UCC4.2 \\\hline
 RC0F7.3		& Interno \newline UCC4.3 \\\hline
+RC2F7.3.1	& Interno \newline UCC4.3 \\\hline
 RC2F8		& Interno \newline UCC4.4 \\\hline
+RC2F8.1		& Interno \newline UCC4.4 \\\hline
 RC0F9		& Interno \newline UCC5 \\\hline
 RC0F9.1		& Interno \newline UCC5.1 \\\hline
 RC0F9.2		& Interno \newline UCC5.2 \\\hline
 RC0F9.2.1	& Interno \newline UCC5.3 \\\hline
 RC0F9.3		& Interno \newline UCC5.4 \\\hline
 RC0F10		& Interno \newline UCC6 \\\hline
-RC0F10.1	& Interno \newline UCC6.1 \\\hline
+RC0F10.1		& Interno \newline UCC6.1 \\\hline
 RC0F10.1.1	& Interno \newline UCC6.2 \\\hline
-RC0F10.2	& Interno \newline UCC6.3 \\\hline
+RC0F10.2		& Interno \newline UCC6.3 \\\hline
 RC0F11		& Interno \newline UCC7 \\\hline
-RC0F11.1	& Interno \newline UCC7.1 \\\hline
+RC0F11.1		& Interno \newline UCC7.1 \\\hline
 RC0F11.1.1	& Interno \newline UCC7.2 \\\hline
-RC0F11.2	& Interno \newline UCC7 \\\hline
+RC0F11.2		& Interno \newline UCC7 \\\hline
 RC0F12		& Interno \newline UCC8 \\\hline
 RS0F13		& Capitolato \newline UCS1 \\\hline
-RS0F13.1	& Interno \newline UCS1.1 \\\hline
-RS0F13.2	& Interno \newline UCS1.2 \\\hline
+RS0F13.1		& Interno \newline UCS1.1 \\\hline
+RS0F13.1.1	& Interno \newline UCS1 \\\hline
+RS0F13.2		& Interno \newline UCS1.2 \\\hline
 RS2F14		& Capitolato \newline UCS2 \\\hline
-RS2F14.1	& Interno \newline UCS2.1 \\\hline
+RS2F14.1		& Interno \newline UCS8 \\\hline
+RS2F14.2		& Interno \newline UCS2 \\\hline
 RS0F15		& Capitolato \newline UCS3 \\\hline
+RS0F15.1		& Capitolato \newline UCS3 \\\hline
 RS0F16		& Capitolato \newline UCS4 \\\hline
 RS0F17		& Interno \newline UCS4 \\\hline
 RS0F18		& Interno \newline UCS4.1 \\\hline
@@ -1207,9 +1275,10 @@ RS0F19.2	& Interno \newline UCS5.2 \\\hline
 RS0F19.3	& Interno \newline UCS5.3 \\\hline
 RS0F19.4	& Interno \newline UCS5.4 \\\hline
 RS0F20		& Interno \newline UCS6 \\\hline
-RS0F20.1	& Interno \newline UCS6 \\\hline
-RS2F20.2	& Interno \newline UCS6 \\\hline
-RS0F20.3	& Interno \newline UCS6 \\\hline
+RS0F20.1		& Interno \newline UCS6 \\\hline
+RS2F20.2		& Interno \newline UCS6 \\\hline
+RS0F20.3		& Interno \newline UCS6 \\\hline
+RS0F20.4		& Interno \newline UCS6 \\\hline
 RS2F21		& Capitolato \newline UCS7 \\\hline
 RS2F22		& Interno \newline UCS7 \\\hline
 RS0F23		& Interno \\\hline
@@ -1219,6 +1288,10 @@ RC0F27		& Interno \\\hline
 RC0F28		& Interno \\\hline
 RC0F29		& Interno \\\hline
 RC0F30		& Interno \\\hline
+RC0F31		& Interno \newline UCC3.3 \\\hline
+RC0F32		& Interno \newline UCC3.4 \\\hline
+RC0F33		& Interno \newline UCC3.9 \\\hline
+RC0F34		& Interno \newline UCC3.10 \\\hline
 RC0V31		& Capitolato \\\hline
 RS0V32		& Capitolato \\\hline
 RS0V33		& Capitolato \\\hline
@@ -1227,6 +1300,8 @@ RC1V36		& Interno \\\hline
 RS1V37		& Verbale\_3 \\\hline
 RC0V38		& Interno \\\hline
 RS0V39		& Interno \\\hline
+RC0V40		& Interno \\\hline
+RC0V41		& Interno \\\hline
 \caption{Tracciamento requisiti-fonti}
 \end{longtable}
 \egroup
@@ -1239,7 +1314,7 @@ RS0V39		& Interno \\\hline
 \begin{longtable}{|p{5cm}|p{5cm}|} \hline
 \textbf{Fonti} & \textbf{Requisiti} \\\hline
 Capitolato & RS0F13 \newline RS2F14 \newline RS0F15 \newline RS0F16 \newline RS0F19 \newline RS0F21 \newline R0Q24 \newline RC0V31 \newline RS0V32 \newline RS0V33 \newline R0V34 \\\hline
-Interno & RC0F1 \newline RC0F1.1 \newline RC0F1.1.1 \newline RC0F1.2 \newline RC0F1.2.1 \newline RC0F1.2.2 \newline RC0F1.3 \newline RC0F1.4 \newline RC0F2 \newline RC0F2.1 \newline RC0F2.2 \newline RC0F2.3 \newline RC0F3 \newline RC0F3.1 \newline RC0F4 \newline RC0F4.1 \newline RC0F4.2 \newline RC0F5 \newline RC0F5.1 \newline RC0F5.2 \newline RC0F5.3 \newline RC2F6 \newline RC0F7 \newline RC0F7.1 \newline RC0F7.2 \newline RC0F7.3 \newline RC2F8 \newline RC0F9 \newline RC0F9.1 \newline RC0F9.2 \newline RC0F9.2.1 \newline RC0F9.3 \newline RC0F10 \newline RC0F10.1 \newline RC0F10.1.1 \newline RC0F10.2 \newline RC0F11 \newline RC0F11.1 \newline RC0F11.1.1 \newline RC0F11.2 \newline RC0F12 \newline RS0F13.1 \newline RS0F13.2 \newline RS2F14.1 \newline RS0F17 \newline RS0F18 \newline RS0F18.1 \newline RS0F18.2 \newline RS0F18.3 \\ & RS0F19.1 \newline RS0F19.2 \newline RS0F19.3 \newline RS0F19.4 \newline RS0F20 \newline RS0F20.1 \newline RS2F20.2 \newline RS0F20.3 \newline RS2F22 \newline RS0F23 \newline R0Q25 \newline RC0F27 \newline RC0F28 \newline RC0F29 \newline RC0F30 \newline RC1V36 \newline RC0V38 \newline RS0V39 \\\hline
+Interno & RC0F1 \newline RC0F1.1 \newline RC0F1.1.1 \newline RC0F1.2 \newline RC0F1.2.1 \newline RC0F1.2.2 \newline RC0F1.3 \newline RC0F1.4 \newline RC0F2 \newline RC0F2.1 \newline RC0F2.2 \newline RC0F2.3 \newline RC0F3 \newline RC0F3.1 \newline RC0F4 \newline RC0F4.1 \newline RC0F4.2 \newline RC0F5 \newline RC0F5.1 \newline RC0F5.2 \newline RC0F5.3 \newline RC2F6 \newline RC0F7 \newline RC0F7.1 \newline RC0F7.2 \newline RC0F7.3 \newline RC2F8 \newline RC0F9 \newline RC0F9.1 \newline RC0F9.2 \newline RC0F9.2.1 \newline RC0F9.3 \newline RC0F10 \newline RC0F10.1 \newline RC0F10.1.1 \newline RC0F10.2 \newline RC0F11 \newline RC0F11.1 \newline RC0F11.1.1 \newline RC0F11.2 \newline RC0F12 \newline RS0F13.1 \newline RS0F13.2 \newline RS2F14.1 \newline RS0F17 \newline RS0F18 \newline RS0F18.1 \newline RS0F18.2 \newline RS0F18.3 \\ & RS0F19.1 \newline RS0F19.2 \newline RS0F19.3 \newline RS0F19.4 \newline RS0F20 \newline RS0F20.1 \newline RS2F20.2 \newline RS0F20.3 \newline RS2F22 \newline RS0F23 \newline R0Q25 \newline RC0F27 \newline RC0F28 \newline RC0F29 \newline RC0F30 \newline RC1V36 \newline RC0V38 \newline RS0V39 \newline RC0V40 \newline RC0V41 \\\hline
 UCC1 		& RC0F1 \\\hline
 UCC1.1		& RC0F1.1 \newline RC0F1.1.1 \\\hline
 UCC1.2		& RC0F1.2 \newline RC0F1.2.2 \\\hline
@@ -1285,7 +1360,7 @@ UCS1		& RS0F13 \\\hline
 UCS1.1		& RS0F13.1 \\\hline
 UCS1.2		& RS0F13.2 \\\hline
 UCS2		& RS2F14 \\\hline
-UCS2.1		& RS2F14.1 \\\hline
+UCS8		& RS2F14.1 \\\hline
 UCS3		& RS0F15 \\\hline
 UCS4		& RS0F16 \newline RS0F17 \\\hline
 UCS4.1		& RS0F18 \\\hline
@@ -1312,13 +1387,13 @@ Verbale\_3	& RS1V37 \\\hline
 \hline
 \textbf{Categoria} & \textbf{Obbligatorio} & \textbf{Desiderabile} & \textbf{Opzionale} \\
 \hline
-Funzionale		&	58	&	0	&	7	\\
+Funzionale		&	67	&	0	&	10	\\
 \hline
-Di qualità		&	7	&	0	&	0	\\
+Di qualità		&	2	&	0	&	0	\\
 \hline
 Prestazionale	&	0	&	0	&	0	\\
 \hline
-Di vincolo		&	5	&	2	&	0	\\
+Di vincolo		&	8	&	2	&	0	\\
 \hline
 \textbf{Totale} & \textbf{70} & \textbf{2} & \textbf{7} \\
 \hline
