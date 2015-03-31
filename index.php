@@ -77,7 +77,7 @@
   					</select>	
     			</div>
     			<div class="form-group">
-    				<button type="submit" class="btn btn-success" formmethod="post" formaction=<?php echo "'".$_SERVER['PHP_SELF']."'";?>>OK</button>
+    				<button type="submit" class="btn btn-success" formmethod="get" formaction="index.php">OK</button>
     			</div>
   			</form>
   		</div>
