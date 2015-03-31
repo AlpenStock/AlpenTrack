@@ -76,7 +76,9 @@
        	 				<option value="'V'">Vincolo</option>
   					</select>	
     			</div>
-    			<button type="submit" class="btn btn-success" formmethod="post" formaction="index.php">OK</button>
+    			<div class="form-group">
+    				<button type="submit" class="btn btn-success" formmethod="post" formaction=<?php echo "'".$_SERVER['PHP_SELF']."'";?>>OK</button>
+    			</div>
   			</form>
   		</div>
 

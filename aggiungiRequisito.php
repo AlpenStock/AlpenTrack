@@ -56,13 +56,18 @@
 				</div>
 			</div>
 			<div class="form-group" id="divSistema">
-				<label for="sel1">Select list (select one):</label>
-      			<select class="form-control" id="sel1">
-        			<option>1</option>
-        			<option>2</option>
-       				<option>3</option>
-       				<option>4</option>
-  				</select>	
+				<label for="Sistema" class="control-label">
+					Sistema:
+				</label>
+				<label class="radio-inline">
+     				<input type="radio" name="Sistema" id="SistemaS" value="S" onchange="removeError('divSistema')"/>Smartwatch
+    			</label>
+    			<label class="radio-inline">
+      				<input type="radio" name="Sistema" id="SistemaC" value="C" onchange="removeError('divSistema')" />Cloud
+    			</label>
+    			<label class="radio-inline">
+    				<input type="radio" name="Sistema" id="SistemaN" value="N" onchange="removeError('divSistema')" />Nessun sistema
+     			</label>
 			</div>
 			<div class="form-group">
 				<label for="Importanza" class="control-label">
