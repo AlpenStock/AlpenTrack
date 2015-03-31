@@ -65,7 +65,7 @@
 			</div>
 			
  			<div class="form-group">
-      			<button type="submit" class="btn btn-success btn-block btn-lg" onclick="return validate();" formmethod="post" formaction="aggiungiComponente.php">
+      			<button type="submit" class="btn btn-success btn-block btn-lg" onclick="return validate();" formmethod="post" formaction="collegaCompReq.php">
  			         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crea
 				</button>
   			</div>

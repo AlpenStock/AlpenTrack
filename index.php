@@ -45,6 +45,43 @@
 	<div class="container-fluid">  
 		<h1>I requisiti</h1>
 		<p>Segue l'elenco dei requisiti presenti nel database. Per modificarne o eliminarne uno, cliccare sul relativo simbolo della chiave inglese.</p>
+		<hr />
+		<div id="search">
+			<form class="form-inline" role="form">
+    			
+    			<div class="form-group">
+      				<label for="Sistema">Sistema:</label>
+      				<select class="form-control" id="Sistema">
+      					<option value="*">Tutti</option>
+        				<option value="S">Smartwatch</option>
+       	 				<option value="C">Cloud</option>
+  					</select>	
+    			</div>
+    			<div class="form-group">
+      				<label for="Importanza">Importanza:</label>
+      				<select class="form-control" id="Importanza">
+      					<option value="*">Tutti</option>
+        				<option value="0">Obbligatori</option>
+       	 				<option value="1">Desiderabili</option>
+       	 				<option value="2">Opzionali</option>
+  					</select>	
+    			</div>
+    			<div class="form-group">
+      				<label for="Tipo">Tipo:</label>
+      				<select class="form-control" id="Tipo">
+      					<option value="*">Tutti</option>
+      					<option value="Q">Funzionali</option>
+        				<option value="Q">Qualità</option>
+       	 				<option value="P">Prestazionali</option>
+       	 				<option value="V">Vincolo</option>
+  					</select>	
+    			</div>
+    			<button type="submit" class="btn btn-default">Submit</button>
+  			</form>
+  		</div>
+
+  		<hr />
+
 		<?php
 			$con = dbconnect();
 			$query = "SELECT NomeReq, CodiceReq, Sistema, Importanza, Tipo, Descrizione, Soddisfatto
