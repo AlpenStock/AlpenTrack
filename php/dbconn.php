@@ -1,10 +1,10 @@
 <?php
 
 	function dbconnect(){
-		$host="localhost";
-		$usr="alpenstock";
-		$pwd="alpenstock";
-		$db="alpentrack";
+		$host="eu-cdbr-west-01.cleardb.com";
+		$usr="b7e5116895234e";
+		$pwd="834065b2";
+		$db="heroku_8abffb77c8b9d93";
 		$link = mysqli_connect($host, $usr, $pwd, $db);
 		/* check connection */
 		if (mysqli_connect_errno()) {
