@@ -331,5 +331,10 @@
 				</div>
   			</div>';
 	}
-
+	
+	function printCheckboxComp($res) {
+		while ($rowComp = mysqli_fetch_array($res)) {
+			echo "<label class=\"checkbox-inline\"><input type=\"checkbox\" value=\"" . $rowComp["NomeComp"] . ""\"/>" . $rowComp["NomeComp"] . "</label>";
+		}
+	}
 ?>

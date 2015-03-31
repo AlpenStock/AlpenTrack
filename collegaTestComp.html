@@ -31,7 +31,7 @@
 				header('location:login.php');
 
 			
-			require "php/printFonti.php";
+			require "php/util.php";
 			require "php/dbconn.php";
 
 		?>
@@ -58,6 +58,20 @@
 					<label for="Moduli" class="control-label">
 	  					Moduli:
 	  				</label>
+					<?php
+						$con = dbconnect();
+						$query = "SELECT NomeComp
+								  FROM Componenti
+								  ORDER BY NomeComp";
+						$results = mysqli_query($con, $query);
+
+						if (empty($results))
+							echo "<p>Non è stato ancora caricato alcun componente</p>";
+						else
+							printCheckboxComp($results);
+
+						mysqli_close($con);
+					?>
 	  				<label class="checkbox-inline">
      			    	<input type="checkbox" value="" />Option 1
     				</label>
