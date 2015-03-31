@@ -47,36 +47,36 @@
 		<p>Segue l'elenco dei requisiti presenti nel database. Per modificarne o eliminarne uno, cliccare sul relativo simbolo della chiave inglese.</p>
 		<hr />
 		<div id="search">
-			<form class="form-inline" role="form">
+			<form class="form-inline" role="form" >
     			
     			<div class="form-group">
       				<label for="Sistema">Sistema:</label>
-      				<select class="form-control" id="Sistema">
-      					<option value="*">Tutti</option>
-        				<option value="S">Smartwatch</option>
-       	 				<option value="C">Cloud</option>
+      				<select class="form-control" id="Sistema" name="Sistema">
+      					<option value="Sistema">Tutti</option>
+        				<option value="'S'">Smartwatch</option>
+       	 				<option value="'C'">Cloud</option>
   					</select>	
     			</div>
     			<div class="form-group">
       				<label for="Importanza">Importanza:</label>
-      				<select class="form-control" id="Importanza">
-      					<option value="*">Tutti</option>
-        				<option value="0">Obbligatori</option>
-       	 				<option value="1">Desiderabili</option>
-       	 				<option value="2">Opzionali</option>
+      				<select class="form-control" id="Importanza" name="Importanza">
+      					<option value="Importanza">Tutti</option>
+        				<option value="'0'">Obbligatori</option>
+       	 				<option value="'1'">Desiderabili</option>
+       	 				<option value="'2'">Opzionali</option>
   					</select>	
     			</div>
     			<div class="form-group">
       				<label for="Tipo">Tipo:</label>
-      				<select class="form-control" id="Tipo">
-      					<option value="*">Tutti</option>
-      					<option value="Q">Funzionali</option>
-        				<option value="Q">Qualità</option>
-       	 				<option value="P">Prestazionali</option>
-       	 				<option value="V">Vincolo</option>
+      				<select class="form-control" id="Tipo" name="Tipo">
+      					<option value="Tipo">Tutti</option>
+      					<option value="'F'">Funzionali</option>
+        				<option value="'Q'">Qualità</option>
+       	 				<option value="'P'">Prestazionali</option>
+       	 				<option value="'V'">Vincolo</option>
   					</select>	
     			</div>
-    			<button type="submit" class="btn btn-default">Submit</button>
+    			<button type="submit" class="btn btn-success" formmethod="post" formaction="index.php">OK</button>
   			</form>
   		</div>
 
@@ -84,8 +84,18 @@
 
 		<?php
 			$con = dbconnect();
+
+			echo $_GET['Sistema'];
+
+			$sistema = isset($_GET['Sistema'])? $_GET['Sistema']:'Sistema';
+			$importanza = isset($_GET['Importanza'])? $_GET['Importanza']:'Importanza';
+			$tipo = isset($_GET['Tipo'])? $_GET['Tipo']:'Tipo';
 			$query = "SELECT NomeReq, CodiceReq, Sistema, Importanza, Tipo, Descrizione, Soddisfatto
-					  FROM Requisiti";
+					  FROM Requisiti
+					  WHERE Sistema = " . $sistema . " AND
+					  		Importanza = " . $importanza . " AND
+					  		Tipo = " . $tipo . ";";
+			echo $query;
 			$results = mysqli_query($con, $query);
 
 			if (empty($results))
