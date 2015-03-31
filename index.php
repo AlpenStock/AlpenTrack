@@ -48,6 +48,15 @@
 		<hr />
 		<div id="search">
 			<form class="form-inline" role="form" >
+
+				<div class="form-group">
+					<label for="Soddisfatto">Soddisfatto</label>
+					<select class="form-control" id="Soddisfatto" name="Soddisfatto">
+						<option value="Soddisfatto">Tutti</option>
+						<option value="TRUE">Sì</option>
+						<option value="FALSE">No</option>
+					</select>
+				</div>
     			
     			<div class="form-group">
       				<label for="Sistema">Sistema:</label>
@@ -55,6 +64,7 @@
       					<option value="Sistema">Tutti</option>
         				<option value="'S'">Smartwatch</option>
        	 				<option value="'C'">Cloud</option>
+       	 				<option value="'N'">Nessun sistema</option>
   					</select>	
     			</div>
     			<div class="form-group">
@@ -87,17 +97,18 @@
 		<?php
 			$con = dbconnect();
 
-			echo $_GET['Sistema'];
-
 			$sistema = isset($_GET['Sistema'])? $_GET['Sistema']:'Sistema';
 			$importanza = isset($_GET['Importanza'])? $_GET['Importanza']:'Importanza';
 			$tipo = isset($_GET['Tipo'])? $_GET['Tipo']:'Tipo';
+			$soddisfatto = isset($_GET['Soddisfatto'])? $_GET['Soddisfatto']:'Soddisfatto';
+
 			$query = "SELECT NomeReq, CodiceReq, Sistema, Importanza, Tipo, Descrizione, Soddisfatto
 					  FROM Requisiti
 					  WHERE Sistema = " . $sistema . " AND
 					  		Importanza = " . $importanza . " AND
-					  		Tipo = " . $tipo . ";";
-			echo $query;
+					  		Tipo = " . $tipo . " AND
+					  		Soddisfatto = " . $soddisfatto . ";";
+			
 			$results = mysqli_query($con, $query);
 
 			if (empty($results))
