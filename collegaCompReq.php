@@ -30,9 +30,6 @@
 			if (isset($_SESSION['authenticate']) == false)
 				header('location:login.php');
 
-			if (count($_POST) < 5) 
-				header("location:aggiungiRequisito.php");
-
 			require "php/printFonti.php";
 			require "php/dbconn.php";
 
