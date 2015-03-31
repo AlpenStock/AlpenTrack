@@ -17,6 +17,6 @@
 			return;
 
 		while ($row = mysqli_fetch_array($results)) 
-			echo '<label class="checkbox-inline"><input type="checkbox" name='Requisiti[]' value="' . $row["NomeReq"] . '" />' . $row["NomeReq"] . ' - ' . $row["Descrizione"] . '</label>';
+			echo '<label class="checkbox-inline"><input type="checkbox" name="Requisiti[]" value="' . $row["NomeReq"] . '" />' . $row["NomeReq"] . ' - ' . $row["Descrizione"] . '</label>';
 	}
 ?>

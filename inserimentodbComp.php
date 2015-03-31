@@ -30,9 +30,6 @@
 			if (isset($_SESSION['authenticate']) == false)
 				header('location:login.php');
 
-			if (count($_POST) < 7) 
-				header("location:aggiungiRequisito.php");
-
 			require "php/dbconn.php";
 			require "php/util.php";
 		?>
@@ -53,7 +50,7 @@
 		</nav>
 
 		<div class="container">
-			<h1>Aggiungi requisito <small>Crea il requisito &gt; Collega le fonti &gt; Inserimento nel database</small></h1> 
+			<h1>Aggiungi requisito <small>Crea il Componente &gt; Collega i requisiti &gt; Inserimento nel database</small></h1> 
 			<?php
 				$con = dbconnect();
 
@@ -76,12 +73,9 @@
 					exit;
 				}					
 
-				unset($_POST['NomeComp']);
-				unset($_POST['DescrizioneComp']); 
-
 				//Collegamento Componenti-Requisiti
 				$queryF = "";
-				$query = 'INSERT INTO ReqComp VALUES ';
+				$query = 'INSERT INTO ReqComp(NomeComp, NomeReq) VALUES ';
 				$element = '("' . $_POST["NomeComp"] . '", ';
 				$c = 1;
 				foreach ($_POST["Requisiti"] as $value) {
@@ -91,7 +85,7 @@
 						$query = $query . $element . '"' . $value . '"),';
 					$c++;
 				}
-
+				
 				$esito = mysqli_query($con, $query); 
 				if ($esito == false) {
 					insertError($con, "Errore nel collegamento componente-requisiti");
@@ -101,6 +95,9 @@
 				//Se sono qui è andato tutto bene
 				mysqli_commit($con);
 				mysqli_close($con);
+
+				unset($_POST['NomeComp']);
+				unset($_POST['DescrizioneComp']); 
 			?>
 			
 			<div class="alert alert-success">Il componente è stato inserito correttamente!</div>

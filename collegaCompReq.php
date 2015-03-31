@@ -57,7 +57,10 @@
 					<label for="Requisiti" class="control-label">
 	  					Requisiti:
 	  				</label>
-    				<?php printReq($con); ?>
+    				<?php 
+    				$con = dbconnect();
+    				printReq($con); 
+    				?>
     			</div>
     			<hr />
   				<?php
