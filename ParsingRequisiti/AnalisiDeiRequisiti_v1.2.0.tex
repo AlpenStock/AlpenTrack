@@ -1,14 +1,14 @@
 %***VARIABILI PROGETTO DA MODIFICARE***
 \def\DOCUMENTO			{Analisi dei requisiti} %Nome del documento, ad esempio: Piano di Progetto
-\def\VERSIONE			{1.1.1} %versione attuale (di base 0.0.1)
+\def\VERSIONE			{2.0.0} %versione attuale (di base 0.0.1)
 \def\NOMEFILE				{AnalisiDeiRequisiti\_v\VERSIONE.pdf} %adesempio:pianoDiProgetto\_v\VERSIONE.pdf (gli _ devono avere l'escape)
 \def\CREAZIONE			{2014-12-12} %data di creazione AAAA-MM-GG
-\def\ULTIMA_MOD			{2015-01-12} %data di ultima modifica AAAA-MM-GG
-\def\STATO_DOCUMENTO		{Approvato} %Bozza(fase di modifica), Proposto(fase di verifica), Formale(pronto per revisione)
+\def\ULTIMA_MOD			{2015-03-30} %data di ultima modifica AAAA-MM-GG
+\def\STATO_DOCUMENTO		{Proposto} %Bozza(fase di modifica), Proposto(fase di verifica), Formale(pronto per revisione)
 \def\USO_DOCUMENTO		{Esterno} %Interno, Esterno
-\def\REDATTORI			{Tezza Alessandro, \\&Bennardo Silvia, \\&Zilio Matteo, \\&Codogno Valentina, \\&Cavallin Alex} %{nome1, \\&nome2, \\&nome3 ecc..}
-\def\VERIFICATORI		{Capovilla Nicola, \\&Cavallin Alex} %{nome1, \\&nome2, \\&nome3 ecc..}
-\def\APPROVATORE			{Andeliero Alberto} %{nome1, \\&nome2, \\&nome3 ecc..}
+\def\REDATTORI			{Capovilla Nicola, \\&Andeliero Alberto} %{nome1, \\&nome2, \\&nome3 ecc..}
+\def\VERIFICATORI		{Zilio Matteo} %{nome1, \\&nome2, \\&nome3 ecc..}
+\def\APPROVATORE			{} %{nome1, \\&nome2, \\&nome3 ecc..}
 \def\COMMITTENTI			{Prof. Vardanega Tullio, \\&Prof. Cardin Riccardo, \\&\PROPONENTE} %Rimuovere \\&\PROPONENTE e aggiungere \\&\PP se si tratta di un documento interno
 \def\SOMMARIO			{Documento contenente l'analisi dei requisiti e i casi d'uso individuati per il progetto sHike} %succinta descrizione del contenuto del documento
 \def\TABELLE				{true} %abilita - disabilita l'indice delle tabelle
@@ -35,6 +35,8 @@
 % 0.0.2 & Modificato qualcosa & \multicell{Nome Cognome \\ Ruolo} & 2014-12-04 \\\midrule
 % 0.0.1 & Pubblicazione prima bozza & \multicell{Nome Cognome \\ Ruolo} & 2014-12-03 \\
 1.2.0 & Verifica del documento & \multicell{Zilio Matteo \\ Verificatore} & 2015-03-31 \\\midrule
+1.1.3 & Modificati i codici dei requisiti desiderabili ed opzionali a causa di errata comprensione dei termini & \multicell{Capovilla Nicola \\ Analista} & 2015-03-30 \\\midrule
+1.1.2 & Modificati casi d'uso UCS0, USC1, UCS1.1 UCS1.2, UCS4.4 ed aggiunti USC9, USC10, UCC3.10 & \multicell{Capovilla Nicola \\ Analista} & 2015-03-30 \\\midrule
 1.1.1 & Correzione a UCC0, UCC3, UCC3.9, UCC3.10, UCS0, UCS2, UCS8, UCS6 & \multicell{Capovilla Nicola \\ Analista} & 2015-03-03 \\\midrule
 1.1.0 & Verifica del documento & \multicell{Zilio Matteo \\ Verificatore} & 2015-03-03 \\\midrule
 1.0.2 & Correzioni a seguito della Revisione dei Requisiti & \multicell{Andeliero Alberto \\ Analista} & 2015-03-02  \\\midrule
@@ -1100,15 +1102,15 @@ RC0F5.1 	& L'utente deve poter visualizzare le mappe preferite & Interno UCC3.6 
 RC0F5.1.1	& Ogni mappa preferita ha come nome il nome della località principale contenuta & Interno UCC3.6 \\\hline
 RC0F5.2 	& L'utente deve poter aggiungere una o più mappe alle mappe preferite & Interno UCC3.5 \\\hline
 RC0F5.3		& L'utente deve poter rimuovere una o più mappe dalle mappe preferite & Interno UCC3.7 \\\hline
-RC2F6 		& L'utente deve poter visualizzare le informazioni meteo in riferimento alla mappa desiderata & Interno UCC3.8 \\\hline
-RC2F6.1		& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario di tramonto del sole & Interno UCC3.8 \\\hline
+RC1F6 		& L'utente deve poter visualizzare le informazioni meteo in riferimento alla mappa desiderata & Interno UCC3.8 \\\hline
+RC1F6.1		& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario di tramonto del sole & Interno UCC3.8 \\\hline
 RC0F7 		& Deve essere presente un elenco delle escursioni già effettuate & Interno UCC4 \\\hline
 RC0F7.1		& L'utente deve poter visualizzare l'elenco delle escursioni già effettuate & Interno UCC4.1 \\\hline
 RC0F7.2		& L'utente deve poter selezionare un'escursione già effettuata & Interno UCC4.2 \\\hline
 RC0F7.3		& L'utente deve poter visualizzare tutti i percorsi dell'escursione precedentemente selezionata & Interno UCC4.3 \\\hline
 RC0F7.3.1	& Le informazioni riguardanti un percorso effettuato sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato e POI visitati durante l'esperienza$_{G}$ & Interno UCC4.3 \\\hline
-RC2F8		& L'utente deve poter condividere l'escursione precedentemente selezionata su Facebook$_{G}$ & Interno UCC4.4 \\\hline
-RC2F8.1		& Le informazioni che possono essere condivise nel social network sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato, POI visitati durante l'esperienza$_{G}$ e mappa del escursione effettuato & Interno UCC4.4 \\\hline
+RC1F8		& L'utente deve poter condividere l'escursione precedentemente selezionata su Facebook$_{G}$ & Interno UCC4.4 \\\hline
+RC1F8.1		& Le informazioni che possono essere condivise nel social network sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato, POI visitati durante l'esperienza$_{G}$ e mappa del escursione effettuato & Interno UCC4.4 \\\hline
 RC0F9		& L'applicazione cloud deve offrire la possibilità agli utenti di cambiare la propria password & Interno UCC5 \\\hline
 RC0F9.1		& Nella procedura di cambio password l'utente deve inserire la vecchia password & Interno UCC5.1 \\\hline
 RC0F9.2		& Nella procedura di cambio password l'utente deve inserire la nuova password & Interno UCC5.2 \\\hline
@@ -1127,9 +1129,9 @@ RS0F13		& L'utente deve poter scegliere un POI fra quelli del percorso in cui si
 RS0F13.1	& L'utente deve poter visualizzare l'elenco dei POI del percorso in cui si trova & Interno UCS1.1 \\\hline
 RS0F13.1.1	& L'elenco dei POI sarà costituito da: rifugi, ristori, luoghi di interesse naturalistico (punti panoramici, cascate, ecc.) & Interno UCS1 \\\hline
 RS0F13.2	& L'utente deve poter selezionare un POI dall'elenco visualizzato & Interno UCS1.2 \\\hline
-RS2F14		& L'utente deve poter visualizzare le informazioni meteo della mappa in uso & Capitolato UCS2 \\\hline
-RS2F14.1	& L'utente deve poter visualizzare un avviso che il meteo risulta non aggiornato & Interno UCS8 \\\hline
-RS2F14.2	& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario del tramonto del sole & Interno UCS2 \\\hline
+RS1F14		& L'utente deve poter visualizzare le informazioni meteo della mappa in uso & Capitolato UCS2 \\\hline
+RS1F14.1	& L'utente deve poter visualizzare un avviso che il meteo risulta non aggiornato & Interno UCS8 \\\hline
+RS1F14.2	& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario del tramonto del sole & Interno UCS2 \\\hline
 RS0F15		& L'utente deve poter visualizzare le informazioni di soccorso & Capitolato UCS3 \\\hline
 RS0F15.1	& Le informazioni di soccorso comprendono il numero del soccorso alpino, la posizione geografica in cui si trova l'utente e le indicazioni per chiedere soccorso nel caso non si disponga della rete telefonica (segnali acustici e luminosi) & Interno UCS3 \\\hline
 RS0F16		& L'applicazione smartwatch fornisce un sistema di navigazione, fornendo indicazioni sulla posizione dell’utente, km percorsi e distanza rimanente & Capitolato UCS4 \\\hline
@@ -1145,15 +1147,15 @@ RS0F19.3	& L'utente deve poter visualizzare la distanza percorsa dal momento in 
 RS0F19.4	& L'utente deve poter visualizzare il tempo rimanente per raggiungere il POI selezionato & Interno UCS5.4 \\\hline
 RS0F20		& L'utente deve poter avviare la sincronizzazione tra smartwatch e cloud & Interno UCS6 \\\hline
 RS0F20.1	& L'applicazione smartwatch deve poter scaricare dal cloud le mappe preferite & Interno UCS6 \\\hline
-RS2F20.2	& L'applicazione smartwatch deve poter scaricare dal cloud le informazioni meteo riguardanti le mappe preferite & Interno UCS6 \\\hline
+RS1F20.2	& L'applicazione smartwatch deve poter scaricare dal cloud le informazioni meteo riguardanti le mappe preferite & Interno UCS6 \\\hline
 RS0F20.3	& L'applicazione smartwatch deve poter caricare sul cloud le informazioni sui percorsi effettuati & Interno UCS6 \\\hline
 RS0F20.4		& L'applicazione smartwatch deve poter inviare lo stato di occupazione della sua memoria al cloud & Interno UCS6 \\\hline
 RS2F21		& L'utente deve poter visualizzare il proprio battito cardiaco & Capitolato UCS7 \\\hline
 RS2F22		& L'applicazione smartwatch deve poter comunicare con il dispositivo per il rilevamento dei battiti cardiaci & Interno UCS7 \\\hline
 RS0F23		& Il sistema registra in background il percorso effettuato, tracciando il segnale gps, il tempo trascorso e i battiti cardiaci se è presente la fascia cardiaca & Interno \\\hline
 RC0F24		& L'utente deve poter chiudere la ricerca e tornare alla lista completa delle mappe & Interno UCC3.10 \\\hline
-RS2F25	& L'utente deve poter visualizzare un messaggio che indichi che il meteo non è aggiornato & Interno UCS8 \\\hline
-RS2F26	& L'utente deve poter visualizzare un avviso che lo avverta che non è disponibile alcun POI per mancanza di connessione GPS o perchè non si trova in un percorso di hiking della mappa selezionata  & Interno UCS10 \\\hline
+RS1F25	& L'utente deve poter visualizzare un messaggio che indichi che il meteo non è aggiornato & Interno UCS8 \\\hline
+RS0F26	& L'utente deve poter visualizzare un avviso che lo avverta che non è disponibile alcun POI per mancanza di connessione GPS o perchè non si trova in un percorso di hiking della mappa selezionata  & Interno UCS10 \\\hline
 RC0F27		& Il sistema garantisce la persistenza della scelta effettuata dall'utente riguardo le mappe preferite & Interno \\\hline
 RC0F28		& Il sistema è in grado di gestire gli errori riguardanti l'inserimento dei dati da parte dell'utente riportando il sistema ad uno stato consistente & Interno \\\hline
 RC0F29		& Il sistema garantisce la persistenza delle informazioni registrate dallo smartwatch & Interno \\\hline
@@ -1190,8 +1192,8 @@ RC0V36		& L'applicazione cloud deve essere sviluppata usando il framework Spring
 RS0V37		& L'applicazione per smartwatch deve essere sviluppata per Android 4.4.2 & Capitolato \\\hline
 RS0V38		& L'applicazione per smartwatch è sviluppata specificamente per WearIT & Capitolato \\\hline
 R0V39		& La comunicazione fra smartwatch e cloud deve avvenire nel formato JSON & Capitolato \\\hline
-RC1V40		& L'applicazione cloud deve essere sviluppata usando HTML5$_{G}$ e CSS3$_{G}$ & Interno \\\hline
-RS1V41		& L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di esperienza$_{G}$ & Verbale\_3 \\\hline
+RC2V40		& L'applicazione cloud deve essere sviluppata usando HTML5$_{G}$ e CSS3$_{G}$ & Interno \\\hline
+RS0V41		& L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di esperienza$_{G}$ & Verbale\_3 \\\hline
 RC0V42		& L'applicazione cloud deve disporre di un'interfaccia in lingua italiana & Interno \\\hline
 RS0V43		& L'applicazione per smartwatch deve disporre di un'interfaccia in lingua italiana & Interno \\\hline
 RC0V44		& L'applicazione cloud deve funzionare con versioni 41.x o superiori di Chrome & Interno \\\hline

@@ -22,15 +22,15 @@ RC0F5.1 	& L'utente deve poter visualizzare le mappe preferite & Interno UCC3.6
 RC0F5.1.1	& Ogni mappa preferita ha come nome il nome della località principale contenuta & Interno UCC3.6 
 RC0F5.2 	& L'utente deve poter aggiungere una o più mappe alle mappe preferite & Interno UCC3.5 
 RC0F5.3		& L'utente deve poter rimuovere una o più mappe dalle mappe preferite & Interno UCC3.7 
-RC2F6 		& L'utente deve poter visualizzare le informazioni meteo in riferimento alla mappa desiderata & Interno UCC3.8 
-RC2F6.1		& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario di tramonto del sole & Interno UCC3.8 
+RC1F6 		& L'utente deve poter visualizzare le informazioni meteo in riferimento alla mappa desiderata & Interno UCC3.8 
+RC1F6.1		& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario di tramonto del sole & Interno UCC3.8 
 RC0F7 		& Deve essere presente un elenco delle escursioni già effettuate & Interno UCC4 
 RC0F7.1		& L'utente deve poter visualizzare l'elenco delle escursioni già effettuate & Interno UCC4.1 
 RC0F7.2		& L'utente deve poter selezionare un'escursione già effettuata & Interno UCC4.2 
 RC0F7.3		& L'utente deve poter visualizzare tutti i percorsi dell'escursione precedentemente selezionata & Interno UCC4.3 
 RC0F7.3.1	& Le informazioni riguardanti un percorso effettuato sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato e POI visitati durante l'esperienza$_{G}$ & Interno UCC4.3 
-RC2F8		& L'utente deve poter condividere l'escursione precedentemente selezionata su Facebook$_{G}$ & Interno UCC4.4 
-RC2F8.1		& Le informazioni che possono essere condivise nel social network sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato, POI visitati durante l'esperienza$_{G}$ e mappa del escursione effettuato & Interno UCC4.4 
+RC1F8		& L'utente deve poter condividere l'escursione precedentemente selezionata su Facebook$_{G}$ & Interno UCC4.4 
+RC1F8.1		& Le informazioni che possono essere condivise nel social network sono: data dell'esperienza$_{G}$, ora di partenza ed arrivo, chilometri percorsi, tempo impiegato, POI visitati durante l'esperienza$_{G}$ e mappa del escursione effettuato & Interno UCC4.4 
 RC0F9		& L'applicazione cloud deve offrire la possibilità agli utenti di cambiare la propria password & Interno UCC5 
 RC0F9.1		& Nella procedura di cambio password l'utente deve inserire la vecchia password & Interno UCC5.1 
 RC0F9.2		& Nella procedura di cambio password l'utente deve inserire la nuova password & Interno UCC5.2 
@@ -49,9 +49,9 @@ RS0F13		& L'utente deve poter scegliere un POI fra quelli del percorso in cui si
 RS0F13.1	& L'utente deve poter visualizzare l'elenco dei POI del percorso in cui si trova & Interno UCS1.1 
 RS0F13.1.1	& L'elenco dei POI sarà costituito da: rifugi, ristori, luoghi di interesse naturalistico (punti panoramici, cascate, ecc.) & Interno UCS1 
 RS0F13.2	& L'utente deve poter selezionare un POI dall'elenco visualizzato & Interno UCS1.2 
-RS2F14		& L'utente deve poter visualizzare le informazioni meteo della mappa in uso & Capitolato UCS2 
-RS2F14.1	& L'utente deve poter visualizzare un avviso che il meteo risulta non aggiornato & Interno UCS8 
-RS2F14.2	& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario del tramonto del sole & Interno UCS2 
+RS1F14		& L'utente deve poter visualizzare le informazioni meteo della mappa in uso & Capitolato UCS2 
+RS1F14.1	& L'utente deve poter visualizzare un avviso che il meteo risulta non aggiornato & Interno UCS8 
+RS1F14.2	& Le informazioni meteo visualizzate riguardano la condizione meteorologica, la temperatura massima e minima, l'intensità e la direzione del vento, la probabilità di precipitazioni e l'orario del tramonto del sole & Interno UCS2 
 RS0F15		& L'utente deve poter visualizzare le informazioni di soccorso & Capitolato UCS3 
 RS0F15.1	& Le informazioni di soccorso comprendono il numero del soccorso alpino, la posizione geografica in cui si trova l'utente e le indicazioni per chiedere soccorso nel caso non si disponga della rete telefonica (segnali acustici e luminosi) & Interno UCS3 
 RS0F16		& L'applicazione smartwatch fornisce un sistema di navigazione, fornendo indicazioni sulla posizione dell’utente, km percorsi e distanza rimanente & Capitolato UCS4 
@@ -67,15 +67,15 @@ RS0F19.3	& L'utente deve poter visualizzare la distanza percorsa dal momento in 
 RS0F19.4	& L'utente deve poter visualizzare il tempo rimanente per raggiungere il POI selezionato & Interno UCS5.4 
 RS0F20		& L'utente deve poter avviare la sincronizzazione tra smartwatch e cloud & Interno UCS6 
 RS0F20.1	& L'applicazione smartwatch deve poter scaricare dal cloud le mappe preferite & Interno UCS6 
-RS2F20.2	& L'applicazione smartwatch deve poter scaricare dal cloud le informazioni meteo riguardanti le mappe preferite & Interno UCS6 
+RS1F20.2	& L'applicazione smartwatch deve poter scaricare dal cloud le informazioni meteo riguardanti le mappe preferite & Interno UCS6 
 RS0F20.3	& L'applicazione smartwatch deve poter caricare sul cloud le informazioni sui percorsi effettuati & Interno UCS6 
 RS0F20.4		& L'applicazione smartwatch deve poter inviare lo stato di occupazione della sua memoria al cloud & Interno UCS6 
 RS2F21		& L'utente deve poter visualizzare il proprio battito cardiaco & Capitolato UCS7 
 RS2F22		& L'applicazione smartwatch deve poter comunicare con il dispositivo per il rilevamento dei battiti cardiaci & Interno UCS7 
 RS0F23		& Il sistema registra in background il percorso effettuato, tracciando il segnale gps, il tempo trascorso e i battiti cardiaci se è presente la fascia cardiaca & Interno 
 RC0F24		& L'utente deve poter chiudere la ricerca e tornare alla lista completa delle mappe & Interno UCC3.10 
-RS2F25	& L'utente deve poter visualizzare un messaggio che indichi che il meteo non è aggiornato & Interno UCS8 
-RS2F26	& L'utente deve poter visualizzare un avviso che lo avverta che non è disponibile alcun POI per mancanza di connessione GPS o perchè non si trova in un percorso di hiking della mappa selezionata  & Interno UCS10 
+RS1F25	& L'utente deve poter visualizzare un messaggio che indichi che il meteo non è aggiornato & Interno UCS8 
+RS0F26	& L'utente deve poter visualizzare un avviso che lo avverta che non è disponibile alcun POI per mancanza di connessione GPS o perchè non si trova in un percorso di hiking della mappa selezionata  & Interno UCS10 
 RC0F27		& Il sistema garantisce la persistenza della scelta effettuata dall'utente riguardo le mappe preferite & Interno 
 RC0F28		& Il sistema è in grado di gestire gli errori riguardanti l'inserimento dei dati da parte dell'utente riportando il sistema ad uno stato consistente & Interno 
 RC0F29		& Il sistema garantisce la persistenza delle informazioni registrate dallo smartwatch & Interno 
@@ -84,12 +84,14 @@ RC0F31		& L'utente deve poter selezionare una mappa dall'elenco completo delle m
 RC0F32		& L'utente deve poter visualizzare la mappa precedentemente selezionata & Interno UCC3.4 
 RC0F33		& L'utente deve poter visualizzare la memoria disponibile del dispositivo smartwatch & Interno UCC3.9 
 RC0F46		& L'utente deve poter visualizzare un messaggio che indichi che la memoria è insufficiente per scaricare tutti i dati da sincronizzare & Interno UCS9 
+R0Q34		& Devono essere prodotti e rilasciati manuali d’uso ed ogni altra documentazione tecnica necessaria per l’utilizzo del prodotto & Capitolato 
+R0Q35		& Il progetto verrà sviluppato seguendo il documento \textit{NormeDiProgetto\_v2.0.0} & Interno 
 RC0V36		& L'applicazione cloud deve essere sviluppata usando il framework Spring versione 4.1.5 & Capitolato 
 RS0V37		& L'applicazione per smartwatch deve essere sviluppata per Android 4.4.2 & Capitolato 
 RS0V38		& L'applicazione per smartwatch è sviluppata specificamente per WearIT & Capitolato 
 R0V39		& La comunicazione fra smartwatch e cloud deve avvenire nel formato JSON & Capitolato 
-RC1V40		& L'applicazione cloud deve essere sviluppata usando HTML5$_{G}$ e CSS3$_{G}$ & Interno 
-RS1V41		& L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di esperienza$_{G}$ & Verbale\_3 
+RC2V40		& L'applicazione cloud deve essere sviluppata usando HTML5$_{G}$ e CSS3$_{G}$ & Interno 
+RS0V41		& L'applicazione per smartwatch deve essere utilizzabile totalmente off-line nella parte di esperienza$_{G}$ & Verbale\_3 
 RC0V42		& L'applicazione cloud deve disporre di un'interfaccia in lingua italiana & Interno 
 RS0V43		& L'applicazione per smartwatch deve disporre di un'interfaccia in lingua italiana & Interno 
 RC0V44		& L'applicazione cloud deve funzionare con versioni 41.x o superiori di Chrome & Interno 
