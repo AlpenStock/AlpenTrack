@@ -39,7 +39,7 @@
         			<li><a href="elencoTest.php">Elenco Test</a></li>
         			<li><a href="aggiungiRequisito.php">Aggiungi Requisito</a></li>
         			<li><a href="aggiungiComponente.php">Aggiungi Componente</a></li>
-        			<li><a href="aggiungiTest.php">Aggiungi Test</a></li>s
+        			<li><a href="aggiungiTest.php">Aggiungi Test</a></li>
         			<li><a href="latex.php">Latex</a></li>
       			</ul>
     		</div>
