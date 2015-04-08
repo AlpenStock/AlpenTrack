@@ -71,7 +71,7 @@ CREATE TABLE ReqComp
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE Tests
+CREATE TABLE Test
 (
 	CodTest VARCHAR(10),
 	DescrizioneTest TEXT,

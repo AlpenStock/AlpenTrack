@@ -30,17 +30,6 @@
 			if (isset($_SESSION['authenticate']) == false)
 				header('location:login.php');
 
-			$fonti= $_POST['Fonti']; 
-
-			if ($_POST['Sistema'] == "N")
-				$_POST['Sistema'] = "";
-			
-			unset($_POST['Fonti']); unset($_POST['NomeFonte']); unset($_POST['DescrizioneFonte']); 
-
-			
-			if (count($_POST) < 7) 
-				header("location:aggiungiRequisito.php");
-
 			require "php/dbconn.php";
 			require "php/util.php";
 		?>
@@ -73,53 +62,28 @@
 				//Inizia transazione
 				$esito = mysqli_begin_transaction($con);
 
-				//Creazione requisito
+				//Creazione test
 				
 				if ($esito == false) {
 					insertError($con, "Errore nell'avvio della transazione");
 					exit;
 				}
 
-				$query = 'INSERT INTO Requisiti(NomeReq, CodiceReq, Sistema, Importanza, Tipo, Descrizione, Soddisfatto) VALUES ("'.$_POST["NomeReq"].'", "'.$_POST["CodiceReq"].'", "'.$_POST["Sistema"].'", "'.$_POST["Importanza"].'", "'.$_POST["Tipo"].'" ,"'.$_POST["Descrizione"].'", '.$_POST["Soddisfatto"].');';
+				$query = 'INSERT INTO Test(CodTest, DescrizioneTest, Pass) VALUES ("'.$_POST["CodTest"].'", "'.$_POST["DescrizioneTest"].'", "'.$_POST["Pass"].');';
 				$esito = mysqli_query($con, $query);
 
 				if ($esito == false) {
 					insertError($con, "Errore nell'inserimento del requisito");
 					exit;
-				}					
+				}
 
-				unset($_POST['CodiceReq']); unset($_POST['Sistema']); unset($_POST['Importanza']); 
-				unset($_POST['Descrizione']); unset($_POST['Soddisfatto']); unset($_POST['Tipo']);
-
-				//Creazione fonti
-
-				if (count($_POST) > 1) {
-					$query = "INSERT INTO Fonti VALUES ";
-					$c = 0;
-					foreach ($_POST as $key=>$value) {
-						if ($key == "NomeReq")
-							continue;
-						if ($c == 0)
-							$query = $query . '("' . $key . '", "' . $value . '")';
-						else
-							$query = $query . ', ("' . $key . '", "' . $value . '")';
-						$c++;
-					}
-
-					$esito = mysqli_query($con, $query);
-					if ($esito == false) {
-						insertError($con, "Errore nell'inserimento delle fonti");
-						exit;
-					}		
-				}	
-
-				//Collegamento requisito-fonti
+				//Collegamento Test-Componenti
 				$queryF = "";
-				$query = 'INSERT INTO ReqFonti VALUES ';
-				$element = '("' . $_POST["NomeReq"] . '", ';
+				$query = 'INSERT INTO TestComp(CodTest, NomeComp) VALUES ';
+				$element = '("' . $_POST["CodTest"] . '", ';
 				$c = 1;
-				foreach ($fonti as $value) {
-					if ($c == count($fonti))
+				foreach ($_POST["NomeComp"] as $value) {
+					if ($c == count($_POST["NomeComp"]))
 						$query = $query . $element . '"' . $value . '");';
 					else
 						$query = $query . $element . '"' . $value . '"),';
@@ -128,7 +92,7 @@
 
 				$esito = mysqli_query($con, $query); 
 				if ($esito == false) {
-					insertError($con, "Errore nel collegamento requisito-fonti");
+					insertError($con, "Errore nel collegamento test-componenti");
 					exit;
 				}	
 
@@ -138,10 +102,6 @@
 			?>
 			
 			<div class="alert alert-success">Il test è stato inserito correttamente!</div>
-
 		</div>
-
-
-
 	</body>
 </html>
