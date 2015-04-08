@@ -129,6 +129,8 @@ header('Content-Disposition: attachment; filename="tables.tex"');
 print <<<EOF
 \documentclass[12pt, a4paper]{article}
 \usepackage{longtable}
+\usepackage[italin]{babel}
+\usepackage[utf8]{inputenc}
 \\title{Tabelle requisiti}
 \author{AlpenTrack generator}
 \begin{document}
