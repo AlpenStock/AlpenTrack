@@ -65,9 +65,16 @@
 			echo "<p>Non è stato ancora caricato alcun componente</p>";
 		else {
 			while ($checkComp = mysqli_fetch_array($results)) {
-				echo "<label class=\"checkbox-inline\"><input type=\"checkbox\" value=\"" . $checkComp["NomeComp"] . ""\"/>" . $checkComp["NomeComp"] . "</label>";
+				echo "<label class=\"checkbox-inline\"><input type=\"checkbox\" value=\"" . $checkComp["NomeComp"] . "\"/>" . $checkComp["NomeComp"] . "</label>";
 			}
 		}
 		mysqli_close($con);
+	}
+
+	function printBottomTableComp() {
+		echo "
+						</tbody>
+					</table>
+				</div>";
 	}
 ?>

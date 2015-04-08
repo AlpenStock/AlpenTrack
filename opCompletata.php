@@ -51,8 +51,12 @@
     			</div>
     			<div>
       				<ul class="nav navbar-nav navbar-right">
-        				<li class="active"><a href="index.php">Elenco Requisiti</a></li>
+        				<li><a href="index.php">Elenco Requisiti</a></li>
+        				<li><a href="elencoComponenti.php">Elenco Componenti</a></li>
+        				<li><a href="elencoTest.php">Elenco Test</a></li>
         				<li><a href="aggiungiRequisito.php">Aggiungi Requisito</a></li>
+        				<li><a href="aggiungiComponente.php">Aggiungi Componente</a></li>
+        				<li><a href="aggiungiTest.php">Aggiungi Test</a></li>s
         				<li><a href="latex.php">Latex</a></li>
       				</ul>
     			</div>

@@ -24,8 +24,8 @@
 		if (isset($_SESSION['authenticate']) == false)
 			header('location:login.php');
 
-	   @require("php/util.php");
-	   @require("php/dbconn.php");
+	    require("php/utilComp.php");
+	    require("php/dbconn.php");
 	?> 
 	<nav class="navbar navbar-inverse">
   		<div class="container-fluid">
@@ -34,8 +34,12 @@
     		</div>
     		<div>
       			<ul class="nav navbar-nav navbar-right">
-        			<li class="active"><a>Elenco Requisiti</a></li>
+        			<li><a href="index.php">Elenco Requisiti</a></li>
+        			<li class="active"><a href="elencoComponenti.php">Elenco Componenti</a></li>
+        			<li><a href="elencoTest.php">Elenco Test</a></li>
         			<li><a href="aggiungiRequisito.php">Aggiungi Requisito</a></li>
+        			<li><a href="aggiungiComponente.php">Aggiungi Componente</a></li>
+        			<li><a href="aggiungiTest.php">Aggiungi Test</a></li>s
         			<li><a href="latex.php">Latex</a></li>
       			</ul>
     		</div>
