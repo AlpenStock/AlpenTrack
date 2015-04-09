@@ -121,6 +121,57 @@ $tabella5.="\\\\\\hline
 \\end{longtable}
 \\egroup";
 mysqli_free_result($tfr);
+
+//tabella di riepilogo
+$tabella6="\bgroup
+\def\arraystretch{1.8}
+\begin{longtable}{|p{5cm}|p{5cm}|p{5cm}|p{5cm}|} \hline
+\\textbf{Categoria} & \\textbf{Obbligatorio} & \\textbf{Opzionale} & \\textbf{Desiderabile} \\\\\\hline\n";
+
+$qry="SELECT r.Importanza, count(*) FROM Requisiti r WHERE r.Tipo='F' GROUP BY r.Importanza";
+$rr=mysqli_query($conn,$qry);
+$obbligatorio="0"; $opzionale="0"; $desiderabile="0";
+while ($a = mysqli_fetch_row($rr)) {
+	if ($a[0]=="0") $obbligatorio=$a[1];
+	if ($a[0]=="1") $opzionale=$a[1];
+	if ($a[0]=="2") $desiderabile=$a[1];
+}
+$tabella6.="Funzionale & $obbligatorio & $opzionale & $desiderabile \\\\\\hline \n";
+
+$qry="SELECT r.Importanza, count(*) FROM Requisiti r WHERE r.Tipo='P' GROUP BY r.Importanza";
+$rr=mysqli_query($conn,$qry);
+$obbligatorio="0"; $opzionale="0"; $desiderabile="0";
+while ($a = mysqli_fetch_row($rr)) {
+	if ($a[0]=="0") $obbligatorio=$a[1];
+	if ($a[0]=="1") $opzionale=$a[1];
+	if ($a[0]=="2") $desiderabile=$a[1];
+}
+$tabella6.="Prestazionale & $obbligatorio & $opzionale & $desiderabile \\\\\\hline \n";
+
+$qry="SELECT r.Importanza, count(*) FROM Requisiti r WHERE r.Tipo='Q' GROUP BY r.Importanza";
+$rr=mysqli_query($conn,$qry);
+$obbligatorio="0"; $opzionale="0"; $desiderabile="0";
+while ($a = mysqli_fetch_row($rr)) {
+	if ($a[0]=="0") $obbligatorio=$a[1];
+	if ($a[0]=="1") $opzionale=$a[1];
+	if ($a[0]=="2") $desiderabile=$a[1];
+}
+$tabella6.="Qualitativo & $obbligatorio & $opzionale & $desiderabile \\\\\\hline \n";
+
+$qry="SELECT r.Importanza, count(*) FROM Requisiti r WHERE r.Tipo='V' GROUP BY r.Importanza";
+$rr=mysqli_query($conn,$qry);
+$obbligatorio="0"; $opzionale="0"; $desiderabile="0";
+while ($a = mysqli_fetch_row($rr)) {
+	if ($a[0]=="0") $obbligatorio=$a[1];
+	if ($a[0]=="1") $opzionale=$a[1];
+	if ($a[0]=="2") $desiderabile=$a[1];
+}
+$tabella6.="Vincolo & $obbligatorio & $opzionale & $desiderabile \\\\\\hline \n";
+
+$tabella6.="\caption{Riepilogo requisiti}
+\\end{longtable}
+\\egroup";
+mysqli_free_result($rr);
 mysqli_close($conn);
 
 
@@ -159,6 +210,11 @@ $tabella4
 \subsection{Tracciamento fonti-requisiti}
 \begin{center}
 $tabella5
+\\end{center}
+
+\subsection{Riepilogo}
+\begin{center}
+$tabella6
 \\end{center}
 
 \\end{document}
