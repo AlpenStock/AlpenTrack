@@ -1,10 +1,10 @@
 <?php
-
 	function dbconnect(){
-		$host="eu-cdbr-west-01.cleardb.com";
-		$usr="b7e5116895234e";
-		$pwd="834065b2";
-		$db="heroku_8abffb77c8b9d93";
+		$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
+		$host=$url["host"];
+		$usr=$url["user"];
+		$pwd=$url["pass"];
+		$db=substr($url["path"], 1);
 		$link = mysqli_connect($host, $usr, $pwd, $db);
 		/* check connection */
 		if (mysqli_connect_errno()) {
@@ -18,5 +18,4 @@
 		//mysqli_close($link);
 		//mysqli_fetch_row($result);
 	}
-
 ?>
