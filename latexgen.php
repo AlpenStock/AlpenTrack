@@ -125,7 +125,7 @@ mysqli_free_result($tfr);
 //tabella di riepilogo
 $tabella6="\bgroup
 \def\arraystretch{1.8}
-\begin{longtable}{|p{5cm}|p{5cm}|p{5cm}|p{5cm}|} \hline
+\begin{longtable}{|l|l|l|l|} \hline
 \\textbf{Categoria} & \\textbf{Obbligatorio} & \\textbf{Opzionale} & \\textbf{Desiderabile} \\\\\\hline\n";
 
 $qry="SELECT r.Importanza, count(*) FROM Requisiti r WHERE r.Tipo='F' GROUP BY r.Importanza";
@@ -180,7 +180,7 @@ header('Content-Disposition: attachment; filename="tables.tex"');
 print <<<EOF
 \documentclass[12pt, a4paper]{article}
 \usepackage{longtable}
-\usepackage[italin]{babel}
+\usepackage[italian]{babel}
 \usepackage[utf8]{inputenc}
 \\title{Tabelle requisiti}
 \author{AlpenTrack generator}
