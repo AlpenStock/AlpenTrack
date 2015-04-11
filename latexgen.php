@@ -113,7 +113,7 @@ while ($a = mysqli_fetch_row($tfr)) {
 		$tabella5.="$a[0] & $a[1] "; 
 		$v=$a[0];
 	}else{
-		$tabella5.=" ".$a[1];
+		$tabella5.=" \\newline ".$a[1];
 	}
 }
 $tabella5.="\\\\\\hline
