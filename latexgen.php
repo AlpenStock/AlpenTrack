@@ -31,7 +31,7 @@ $tabella1.="\\\\\\hline
 mysqli_free_result($trf);
 
 //tabella Requisiti Qualità (codice, descrizione, fonti)
-$qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='Q';";
+$qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='Q'  ORDER BY r.NomeReq;";
 $trq=mysqli_query($conn,$qry);
 $tabella2="\bgroup
 \def\arraystretch{1.8}
@@ -54,9 +54,9 @@ $tabella2.="\\\\\\hline
 mysqli_free_result($trq);
 
 //tabella Requisiti Vincolo (codice, descrizione, fonti)
-$qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='V';";
+$qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='V'  ORDER BY r.NomeReq;";
 $trv=mysqli_query($conn,$qry);
-$tabella3="\bgroup
+$tabella3="\bgroup 
 \def\arraystretch{1.8}
 \begin{longtable}{|l|p{7cm}|p{1.7cm}|} \hline
 \\textbf{Requisito} & \\textbf{Descrizione} & \\textbf{Fonti}";
@@ -77,7 +77,7 @@ $tabella3.="\\\\\\hline
 mysqli_free_result($trv);
 
 //Tracciamento requisito-fonti
-$qry="SELECT r.NomeReq, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f;";
+$qry="SELECT r.NomeReq, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f  ORDER BY r.NomeReq;";
 $trf=mysqli_query($conn,$qry);
 $tabella4="\bgroup
 \def\arraystretch{1.8}
@@ -100,7 +100,7 @@ $tabella4.="\\\\\\hline
 mysqli_free_result($trf);
 
 //Tracciamento fonti-requisiti
-$qry="SELECT f.NomeFonte, r.NomeReq FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f;";
+$qry="SELECT f.NomeFonte, r.NomeReq FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f  ORDER BY f.Nomefonte;";
 $tfr=mysqli_query($conn,$qry);
 $tabella5="\bgroup
 \def\arraystretch{1.8}
