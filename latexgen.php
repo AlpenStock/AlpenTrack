@@ -90,7 +90,7 @@ while ($a = mysqli_fetch_row($trf)) {
 		$tabella4.="$a[0] & $a[1] "; 
 		$v=$a[0];
 	}else{
-		$tabella4.=" ".$a[1];
+		$tabella4.=" \\newline ".$a[1];
 	}
 }
 $tabella4.="\\\\\\hline
