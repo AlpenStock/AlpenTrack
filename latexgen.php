@@ -8,7 +8,7 @@
 require ("php/dbconn.php");
 $conn=dbconnect();
 //tabella Requisiti Funzionali (codice, descrizione, fonti)
-$qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='F';";
+$qry="SELECT r.NomeReq, r.Descrizione, f.NomeFonte FROM Requisiti r NATURAL JOIN ReqFonti rf NATURAL JOIN Fonti f WHERE r.Tipo='F' ORDER BY r.NomeReq;";
 $trf = mysqli_query($conn,$qry);
 $tabella1="\bgroup
 \def\arraystretch{1.8}
