@@ -105,7 +105,7 @@ $tfr=mysqli_query($conn,$qry);
 $tabella5="\bgroup
 \def\arraystretch{1.8}
 \begin{longtable}{|p{5cm}|p{5cm}|} \hline
-\\textbf{Requisiti} & \\textbf{Fonti}";
+\\textbf{Fonti} & \\textbf{Requisiti}";
 $c="";
 while ($a = mysqli_fetch_row($tfr)) {
 	if($a[0]!=$v){
