@@ -23,7 +23,7 @@ while ($a = mysqli_fetch_row($trc)){
 		$v=$a[0];
 		$n = 0;
 	}else{
-		if($n == 45){
+		if($n == 35){
 			$tabella1.="\\\\\\hline \n";
 			$tabella1.="$v & $a[1]"; 
 			$n = 0;
@@ -44,7 +44,7 @@ $qry="SELECT c.NomeComp, r.NomeReq FROM Requisiti r NATURAL JOIN ReqComp rc NATU
 $tcr = mysqli_query($conn,$qry);
 $tabella2="\bgroup
 \def\arraystretch{1.8}
-\begin{longtable}{|l|p{5cm}|} \hline
+\begin{longtable}{|p{10cm}|p{2cm}|} \hline
 \\textbf{Classe} & \\textbf{Requisito}";
 $c="";
 $n = 0;
@@ -55,7 +55,7 @@ while ($a = mysqli_fetch_row($tcr)){
 		$v=$a[0];
 		$n = 0;
 	}else{
-		if($n == 45){
+		if($n == 35){
 			$tabella2.="\\\\\\hline \n";
 			$tabella2.="$v & $a[1]";
 			$n = 0;
@@ -102,7 +102,7 @@ header('Content-Disposition: attachment; filename="tables.tex"');
 print <<<EOF
 \documentclass[12pt, a4paper]{article}
 \usepackage{longtable}
-\usepackage[italin]{babel}
+\usepackage[italian]{babel}
 \usepackage[utf8]{inputenc}
 \\title{Tabelle requisiti}
 \author{AlpenTrack generator}
