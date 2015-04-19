@@ -12,7 +12,7 @@ $qry="SELECT r.NomeReq, c.NomeComp FROM Requisiti r NATURAL JOIN ReqComp rc NATU
 $trc = mysqli_query($conn,$qry);
 $tabella1="\bgroup
 \def\arraystretch{1.8}
-\begin{longtable}{|l|p{7cm}|} \hline
+\begin{longtable}{|l|p{10cm}|} \hline
 \\textbf{Requisito} & \\textbf{Classe}";
 $c="";
 while ($a = mysqli_fetch_row($trc)){
@@ -21,7 +21,7 @@ while ($a = mysqli_fetch_row($trc)){
 		$tabella1.="$a[0] & $a[1]"; 
 		$v=$a[0];
 	}else{
-		$tabella1.=" ".$a[1];
+		$tabella1.="  \\newline ".$a[1];
 	}
 }
 $tabella1.="\\\\\\hline
@@ -30,13 +30,13 @@ $tabella1.="\\\\\\hline
 \\egroup";
 mysqli_free_result($trc);
 
-//tabella tracciamento requisito - classi
-$qry="SELECT c.NomeComp, r.NomeReq FROM Requisiti r NATURAL JOIN ReqComp rc NATURAL JOIN Componenti c" ;
+//tabella tracciamento classi - requisiti
+$qry="SELECT c.NomeComp, r.NomeReq FROM Requisiti r NATURAL JOIN ReqComp rc NATURAL JOIN Componenti c ORDER BY c.NomeComp" ;
 $tcr = mysqli_query($conn,$qry);
 $tabella2="\bgroup
 \def\arraystretch{1.8}
-\begin{longtable}{|l|p{7cm}|} \hline
-\\textbf{Requisito} & \\textbf{Classe}";
+\begin{longtable}{|l|p{10cm}|} \hline
+\\textbf{Classe} & \\textbf{Requisito}";
 $c="";
 while ($a = mysqli_fetch_row($tcr)){
 	if($a[0]!=$v){
@@ -44,7 +44,7 @@ while ($a = mysqli_fetch_row($tcr)){
 		$tabella2.="$a[0] & $a[1]"; 
 		$v=$a[0];
 	}else{
-		$tabella2.=" ".$a[1];
+		$tabella2.=" \\newline ".$a[1];
 	}
 }
 $tabella2.="\\\\\\hline
