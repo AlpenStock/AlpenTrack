@@ -46,9 +46,16 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Generazione delle tabelle in Latex</h1>
+			<h1>Generazione delle tabelle in Latex (Requisiti e Tracciamento fonti)</h1>
 			<p>Da questa pagina è possibile scaricare le tabelle in Latex prodotte dal database. Per avviare il download, cliccare sul pulsante verde.</p>
 			<a href="latexgen.php"><button type="submit" class="btn btn-success btn-lg">
+	        	<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Genera e scarica le tabelle Latex
+			</button></a>
+		</div>
+		<div class="jumbotron">
+			<h1>Generazione delle tabelle in Latex (Componenti e tracciamento Requisiti)</h1>
+			<p>Da questa pagina è possibile scaricare le tabelle in Latex prodotte dal database. Per avviare il download, cliccare sul pulsante verde.</p>
+			<a href="latexgen2.php"><button type="submit" class="btn btn-success btn-lg">
 	        	<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Genera e scarica le tabelle Latex
 			</button></a>
 		</div>
