@@ -8,7 +8,7 @@
 require ("php/dbconn.php");
 $conn=dbconnect();
 //tabella tracciamento requisito - classi
-$qry="SELECT r.NomeReq, c.NomeComp FROM Requisiti r NATURAL JOIN ReqComp rc NATURAL JOIN Componenti c" ;
+$qry="SELECT r.NomeReq, c.NomeComp FROM Requisiti r NATURAL JOIN ReqComp rc NATURAL JOIN Componenti c ORDER BY r.NomeReq" ;
 $trc = mysqli_query($conn,$qry);
 $tabella1="\bgroup
 \def\arraystretch{1.8}
